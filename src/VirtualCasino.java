@@ -1,19 +1,15 @@
-import javax.swing.*; 
+import javax.swing.*;
 
 import java.awt.*; 
 
 import java.awt.event.*; 
 
-public class VirtualCasino extends JFrame {
-		VirtualCasino(String title) { 
-        this.setSize(500,500); 
-        setTitle(title); 
-    }
+public class VirtualCasino {
 
     public static void main(String[] args) {
-    	VirtualCasino window = new VirtualCasino("Hello World");
+    	MenuGUI window = new MenuGUI("Virtual Casino");
     	window.setVisible(true);
-    	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+    	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
 
