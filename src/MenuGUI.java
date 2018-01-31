@@ -1,8 +1,8 @@
 import javax.swing.*;
 
 public class MenuGUI extends JFrame {
-
-    public MenuGUI(String title){
+	
+	public MenuGUI(String title){
         setTitle(title);
         setSize(500, 500);
 
