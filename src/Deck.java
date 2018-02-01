@@ -46,4 +46,37 @@ public class Deck {
 
         Collections.shuffle(this.draw, new Random());
     }
+
+    public Card drawCard(){
+        Card removed = this.draw.remove(0);
+        discard.add(removed);
+        return removed;
+    }
+
+    public static void printHand(ArrayList<Card> hand){
+
+        for(int i = 0; i < hand.size(); i++){
+            System.out.println(hand.get(i).toString());
+        }
+    }
+
+    public static int totalValue(ArrayList<Card> hand){
+        int val = 0;
+        int numAces = 0;
+
+        for(int i = 0; i < hand.size(); i++){
+            val += hand.get(i).getValues()[0];
+            if(hand.get(i).getNumber() == 1){
+                numAces++;
+            }
+        }
+
+        for(int i = 0; i < numAces; i++){
+            if(21 - val >= 10){
+                val += 10;
+            }
+        }
+
+        return val;
+    }
 }

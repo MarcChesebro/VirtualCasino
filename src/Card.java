@@ -41,6 +41,28 @@ public class Card {
         this.number = number;
     }
 
+     public String toString() {
+        String str = "";
+        switch (this.number){
+            case 1:
+                str = "Ace";
+                break;
+            case 11:
+                str = "Jack";
+                break;
+            case 12:
+                str = "Queen";
+                break;
+            case 13:
+                str = "king";
+                break;
+            default:
+                str = "" + this.getNumber();
+        }
+        str = str + " of " + this.suit.toString();
+        return str;
+     }
+
     public enum Suit {
         heart,
         diamond,
