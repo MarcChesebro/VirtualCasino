@@ -1,33 +1,35 @@
-import javax.swing.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class MenuGUI extends JFrame {
-	
-	public MenuGUI(String title){
-        setTitle(title);
-        setSize(500, 500);
+import java.io.IOException;
 
-        // Create JPanel
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+import static javafx.application.Application.launch;
 
-        // Create Jlabels
-        JLabel header = new JLabel("Virtual Casino");
 
-        // Create Jbuttons
-        JButton slotButton = new JButton("Slots");
-        JButton jackButton = new JButton("Black Jack");
-        JButton roulButton = new JButton("Roulette");
+public class MenuGUI extends Application {
 
-        // Add buttons and labels to the panel
-        panel.add(header);
-        panel.add(slotButton);
-        panel.add(jackButton);
-        panel.add(roulButton);
+    @Override
+    public void start(Stage primaryStage) throws Exception{
 
-        // Add panel to frame
-        this.getContentPane().add(panel);
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
 
-        setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+            Scene scene = new Scene(root);
+
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Virtual Casino");
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args){
+        launch(args);
     }
 }
