@@ -12,18 +12,15 @@ public class Card {
 
         // Cards 2 through 10 have the same value as there number
         if(this.number > 1 && this.number < 11){
-            int[] values = {this.number};
-            return values;
+            return new int[]{this.number};
 
             // Face cards(over 10) have a value of 10
         }else if(this.number > 10){
-            int[] values = {10};
-            return values;
+            return new int[]{10};
 
             // Aces have the value of wither 1 or 11
         }else{
-            int[] values = {1, 11};
-            return values;
+            return new int[]{1, 11};
         }
     }
 
