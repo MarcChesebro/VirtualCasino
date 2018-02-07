@@ -1,21 +1,34 @@
+/*****************************************
+ * Roulette Table for Virtual Casino
+ * @author Brendan Caywood
+ ****************************************/
 import java.util.ArrayList;
 import java.util.List;
 
 public class RouWheel{
-	private int bet;
+	/**collection of lists used to represent the roulette table*/ 
+	//handles the black and red colored spots
 	private List<Integer> blackNums = new ArrayList<Integer>();
 	private List<Integer> redNums = new ArrayList<Integer>();
+	//handles odd numbers and even numbers
 	private List<Integer> odds = new ArrayList<Integer>();
 	private List<Integer> evens = new ArrayList<Integer>();
+	//handles the columns
 	private List<Integer> column1 = new ArrayList<Integer>();
 	private List<Integer> column2 = new ArrayList<Integer>();
 	private List<Integer> column3 = new ArrayList<Integer>();
+	//handles each dozen of numbers
 	private List<Integer> dozen1 = new ArrayList<Integer>();
 	private List<Integer> dozen2 = new ArrayList<Integer>();
 	private List<Integer> dozen3 = new ArrayList<Integer>();
+	//handles each half of numbers
 	private List<Integer> half1 = new ArrayList<Integer>();
 	private List<Integer> half2 = new ArrayList<Integer>();
+	
 	private List<Integer> allNums = new ArrayList<Integer>();
+	/*****************************************
+	 * constructor for roulette wheel
+	 ****************************************/
 	public RouWheel() {
 		//sets up odds/evens
 		for(int y = 1; y <= 36; y++) {
@@ -26,33 +39,38 @@ public class RouWheel{
 			}
 		}
 		//sets up red/black numbers
+		int partitions = 1;
 		for(int x = 1; x <=36; x++) {
-			int partitions = 1;
 			if(partitions % 2 == 0) {
 				if(x % 2 != 0) {
-					redNums.add(x);
-				}else {
 					blackNums.add(x);
+				}else {
+					redNums.add(x);
 				}
 			}else {
 				if(x % 2 != 0) {
-					blackNums.add(x);
-				}else {
 					redNums.add(x);
+				}else {
+					blackNums.add(x);
 				}
 			}
-			if(x % 10 == 0) {
+			if(x == 10 || x == 18 || x == 28) {
 				partitions++;
 			}
 		}
 		//sets up columns 
+		int count = 0;
 		for(int z = 1; z<=36; z++) {
-			if(z % 3 == 0) {
+			if(count == 2) {
 				column3.add(z);
-			}else if(z % 2 == 0) {
+			}else if(count == 1) {
 				column2.add(z);
 			}else {
 				column1.add(z);
+			}
+			count++;
+			if(count == 3) {
+				count = 0;
 			}
 		}
 		//sets up dozens
@@ -77,11 +95,8 @@ public class RouWheel{
 		for(int num = 0; num <= 36; num++) {
 			allNums.add(num);
 		}
-		allNums.add(00);
-	}
-	public void printLists() {
-		System.out.println(allNums);
-		
+		//37 is placeholder for 00
+		allNums.add(37);
 	}
 }
 
