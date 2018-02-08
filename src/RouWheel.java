@@ -5,6 +5,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class RouWheel{
 	/**collection of lists used to represent the roulette table*/ 
@@ -29,6 +30,7 @@ public class RouWheel{
 	private List<Integer> allNums = new ArrayList<Integer>();
 	//hold current value of wheel
 	private int value;
+	private static Scanner scanner;
 	//random number helper
 	private Random rand;
 	/*****************************************
@@ -111,9 +113,17 @@ public class RouWheel{
 	public void spin() {
 		value = rand.nextInt(38);
 	}
-	public int checkBet(int type, int bet) {
+	/**************************************************
+	 * checks the given bet type and returns multiplier
+	 * @param type the type of bet (outlined in Roulette.java)
+	 * @return returns multiplier to multiply the bet by
+	 *************************************************/
+	public int checkBet(int type) {
 		if(type == 1) {
-			if(value == bet) {
+			int num;
+			System.out.println("choose a number 1-36");
+			num = scanner.nextInt();
+			if(value == num) {
 				return 1;
 			}
 			return 0;
