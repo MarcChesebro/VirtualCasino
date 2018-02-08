@@ -103,6 +103,11 @@ public class RouWheel{
 		//37 is placeholder for 00
 		allNums.add(37);
 	}
+	/********************************
+	 * "spins the roulette board"
+	 * Generates a random int between
+	 * 0-37 (37 being 00)
+	 *******************************/
 	public void spin() {
 		value = rand.nextInt(38);
 	}
@@ -149,6 +154,26 @@ public class RouWheel{
 			return 0;
 		}else if(type == 9) {
 			if(redNums.contains(value)) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 10) {
+			if(odds.contains(value)) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 11) {
+			if(evens.contains(value)) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 12) {
+			if(half1.contains(value)) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 13) {
+			if(half2.contains(value)) {
 				return 1;
 			}
 			return 0;
