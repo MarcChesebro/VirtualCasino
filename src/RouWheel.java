@@ -113,45 +113,43 @@ public class RouWheel{
 			}
 			return 0;
 		}else if(type == 2) {
-			for(int check: column1) {
-				if(check == value) {
-					return 1;
-				}
+			if(column1.contains(value)) {
+				return 1;
 			}
 			return 0;
 		}else if(type == 3) {
-			for(int check: column2) {
-				if(check == value) {
-					return 1;
-				}
+			if(column2.contains(value)) {
+				return 1;
 			}
 			return 0;
 		}else if(type == 4) {
-			for(int check: column3) {
-				if(check == value) {
-					return 1;
-				}
+			if(column3.contains(value)) {
+				return 1;
 			}
 			return 0;
 		}else if(type == 5) {
-			for(int check: dozen1) {
-				if(check == value) {
-					return 1;
-				}
+			if(dozen1.contains(value)) {
+				return 1;
 			}
 			return 0;
 		}else if(type == 6) {
-			for(int check: dozen2) {
-				if(check == value) {
-					return 1;
-				}
+			if(dozen2.contains(value)) {
+				return 1;
 			}
 			return 0;
 		}else if(type == 7) {
-			for(int check: dozen3) {
-				if(check == value) {
-					return 1;
-				}
+			if(dozen3.contains(value)) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 8) {
+			if(blackNums.contains(value)) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 9) {
+			if(redNums.contains(value)) {
+				return 1;
 			}
 			return 0;
 		}
