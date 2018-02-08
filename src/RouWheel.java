@@ -4,6 +4,7 @@
  ****************************************/
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RouWheel{
 	/**collection of lists used to represent the roulette table*/ 
@@ -24,8 +25,12 @@ public class RouWheel{
 	//handles each half of numbers
 	private List<Integer> half1 = new ArrayList<Integer>();
 	private List<Integer> half2 = new ArrayList<Integer>();
-	
+	//holds all the roulette numbers
 	private List<Integer> allNums = new ArrayList<Integer>();
+	//hold current value of wheel
+	private int value;
+	//random number helper
+	private Random rand;
 	/*****************************************
 	 * constructor for roulette wheel
 	 ****************************************/
@@ -98,6 +103,61 @@ public class RouWheel{
 		//37 is placeholder for 00
 		allNums.add(37);
 	}
+	public void spin() {
+		value = rand.nextInt(38);
+	}
+	public int checkBet(int type, int bet) {
+		if(type == 1) {
+			if(value == bet) {
+				return 1;
+			}
+			return 0;
+		}else if(type == 2) {
+			for(int check: column1) {
+				if(check == value) {
+					return 1;
+				}
+			}
+			return 0;
+		}else if(type == 3) {
+			for(int check: column2) {
+				if(check == value) {
+					return 1;
+				}
+			}
+			return 0;
+		}else if(type == 4) {
+			for(int check: column3) {
+				if(check == value) {
+					return 1;
+				}
+			}
+			return 0;
+		}else if(type == 5) {
+			for(int check: dozen1) {
+				if(check == value) {
+					return 1;
+				}
+			}
+			return 0;
+		}else if(type == 6) {
+			for(int check: dozen2) {
+				if(check == value) {
+					return 1;
+				}
+			}
+			return 0;
+		}else if(type == 7) {
+			for(int check: dozen3) {
+				if(check == value) {
+					return 1;
+				}
+			}
+			return 0;
+		}
+		return 0;
+	}
 }
+	
 
 
