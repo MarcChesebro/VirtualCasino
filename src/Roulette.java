@@ -17,9 +17,12 @@ public class Roulette {
 				System.out.println("please enter bet amount:");
 				int betAmount = scanner.nextInt();
 				int multiplier = wheel.checkBet(betType);
-				betAmount = betAmount*multiplier;
-				
-				
+				if(multiplier == 0) {
+					player.changeMoney(betAmount * -1);
+				}else {
+					betAmount = betAmount*multiplier;
+					player.changeMoney(betAmount);
+				}
 				
 			}while(true);
 		}
