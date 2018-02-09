@@ -12,6 +12,7 @@ public class VirtualCasino {
 
     	//Have buttons call
 		//Blackjack.play(player);
+    	Roulette.play(player);
     }
 
     public static class Blackjack {
@@ -92,16 +93,6 @@ public class VirtualCasino {
 				//play the game
 			}while(true);
 
-		}
-	}
-	public static class Roulette {
-
-		// have buttons call this with the player
-		public static void play(Player player){
-
-			do{
-				//play the game
-			}while(true);
 		}
 	}
 }
