@@ -113,6 +113,13 @@ public class RouWheel{
 	public void spin() {
 		value = rand.nextInt(38);
 	}
+	/*******************************
+	 * gets the value of board
+	 * @return value of board
+	 *****************************/
+	public int getValue() {
+		return value;
+	}
 	/**************************************************
 	 * checks the given bet type and returns multiplier
 	 * @param type the type of bet (outlined in Roulette.java)
