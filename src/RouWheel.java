@@ -124,37 +124,37 @@ public class RouWheel{
 			System.out.println("choose a number 1-36");
 			num = scanner.nextInt();
 			if(value == num) {
-				return 1;
+				return 35;
 			}
 			return 0;
 		}else if(type == 2) {
 			if(column1.contains(value)) {
-				return 1;
+				return 2;
 			}
 			return 0;
 		}else if(type == 3) {
 			if(column2.contains(value)) {
-				return 1;
+				return 2;
 			}
 			return 0;
 		}else if(type == 4) {
 			if(column3.contains(value)) {
-				return 1;
+				return 2;
 			}
 			return 0;
 		}else if(type == 5) {
 			if(dozen1.contains(value)) {
-				return 1;
+				return 2;
 			}
 			return 0;
 		}else if(type == 6) {
 			if(dozen2.contains(value)) {
-				return 1;
+				return 2;
 			}
 			return 0;
 		}else if(type == 7) {
 			if(dozen3.contains(value)) {
-				return 1;
+				return 2;
 			}
 			return 0;
 		}else if(type == 8) {
