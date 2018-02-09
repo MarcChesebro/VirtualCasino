@@ -32,7 +32,7 @@ public class RouWheel{
 	private int value;
 	private static Scanner scanner;
 	//random number helper
-	private Random rand;
+	private Random rand = new Random();
 	/*****************************************
 	 * constructor for roulette wheel
 	 ****************************************/
@@ -125,6 +125,7 @@ public class RouWheel{
 	 * @param type the type of bet (outlined in Roulette.java)
 	 * @return returns multiplier to multiply the bet by
 	 *************************************************/
+	//TODO: Add other bets with GUI in release 2
 	public int checkBet(int type) {
 		if(type == 1) {
 			int num;
