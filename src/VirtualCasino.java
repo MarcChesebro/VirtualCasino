@@ -8,11 +8,18 @@ public class VirtualCasino {
     public static void main(String[] args) {
     	// create player with $100
     	Player player = new Player(100);
+    	//scanner to ask what game
+    	Scanner scanner = new Scanner(System.in);
 
 
     	//Have buttons call
+    	System.out.println("Please choose a game:");
+    	System.out.println("'1' for roulette, '2' for blackjack, '3' for slots");
+    	int x = scanner.nextInt();
 		//Blackjack.play(player);
+    	if(x == 1) {
     	Roulette.play(player);
+    	}
     }
 
     public static class Blackjack {
