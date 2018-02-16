@@ -14,11 +14,15 @@ public class VirtualCasino {
 
     	//Have buttons call
     	System.out.println("Please choose a game:");
-    	System.out.println("'1' for roulette, '2' for blackjack, '3' for slots");
+    	System.out.println("'1' for roulette, '2' for blackjack, '3' for slots, '4' for player options.");
+    	System.out.print("Input: ");
     	int x = scanner.nextInt();
 		//Blackjack.play(player);
     	if(x == 1) {
-    	Roulette.play(player);
+    		Roulette.play(player);
+    	}
+    	else if(x == 3){
+    		Slots.play(player);
     	}
     }
 
@@ -88,17 +92,6 @@ public class VirtualCasino {
 				deck.shuffle();
 
 			}while(player.getMoney() > 0);
-
-		}
-	}
-	public static class Slots {
-
-		// have buttons call this with the player
-		public static void play(Player player){
-
-			do{
-				//play the game
-			}while(true);
 
 		}
 	}
