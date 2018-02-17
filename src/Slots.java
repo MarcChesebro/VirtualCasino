@@ -15,10 +15,10 @@ public class Slots{
 		while(options != 0){
 
 			System.out.println("=======================");
-			System.out.println("Enter '1' to place bet.\nEnter '0' to quit.");
+			System.out.println("Enter '1' to place bet.\nEnter '2' to view credit");
+			System.out.println("Enter '0' to quit.");
 			System.out.print("Input: ");
 			options=scanner.nextInt();
-			System.out.println("=======================");
 
 			//If the user wants to place a bet
 			if(options == 1){
@@ -30,10 +30,12 @@ public class Slots{
 					System.out.println("Insuficient funds. Bet invalid.\nCurrent balance: "+player.getMoney());
 					continue;
 				}
-
+				System.out.println("=======================");
 				int gains = pullLever(bet);
 				gains = gains - bet;
 				player.changeMoney(gains);
+			}else if(options == 2){
+				System.out.println("Money: "+player.getMoney());
 			}
 			else
 				return;
@@ -57,23 +59,29 @@ public class Slots{
 			
 			int temp = oneSlot();
 			if(temp<40){
+				System.out.print(" Ace ");
 				indivSlots[i] = 1;
 				ace++;
 			}else if(temp < 65 && temp >= 40){
+				System.out.print(" King ");
 				indivSlots[i] = 2;
 				king++;
 			}else if(temp < 85 && temp >= 65){
+				System.out.print(" Queen ");
 				indivSlots[i] = 3;
 				queen++;
 			}else if(temp < 95 && temp >= 85){
+				System.out.print(" Jack ");
 				indivSlots[i] = 4;
 				jack++;
 			}else if(temp <= 100 && temp >= 95){
+				System.out.print(" Ten ");
 				indivSlots[i] = 5;
 				ten++;
 			}
-			System.out.println("indivSlots: "+indivSlots[i]);
 		}
+
+		System.out.println("");
 
 		if(ace == NUMSLOTS)
 			winner = 5.0;
@@ -88,13 +96,6 @@ public class Slots{
 		else
 			winner = 0;
 
-
-
-		int retVal = bet * (int)winner;
-		
-		System.out.println("ret: "+retVal);
-
-
-		return retVal;
+		return bet * (int)winner;
 	}
 }

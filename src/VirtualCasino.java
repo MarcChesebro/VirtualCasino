@@ -25,7 +25,7 @@ public class VirtualCasino {
     	}else if(x == 3){
     		Slots.play(player);
     	}else if(x == 4){
-    		System.out.println("enter '1' to add money, '0' to exit")
+    		System.out.println("enter '1' to add money, '0' to exit");
     		System.out.print("Input: ");
     		int playerOptionsInput = scanner.nextInt();
     		if(playerOptionsInput == 1){
@@ -34,7 +34,6 @@ public class VirtualCasino {
     			player.changeMoney(moreMoneyMoreProblems);
     			System.out.println("New balance: "+player.getMoney());
     		}
-
     	}
     }
 
