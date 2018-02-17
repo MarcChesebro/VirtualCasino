@@ -31,9 +31,14 @@ public class Slots{
 					continue;
 				}
 				System.out.println("=======================");
+				
+				//pull the lever and return the total gains
 				int gains = pullLever(bet);
 				gains = gains - bet;
+
+				//send changeMoney the total net gains
 				player.changeMoney(gains);
+
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
 			}
@@ -43,18 +48,26 @@ public class Slots{
 		return;
 	}
 
+	//Just creates a random number, may be useful for future features
 	public static int oneSlot(){
 		Random rand = new Random();
 		return (rand.nextInt(100)+1);
 	}
 
+	//The work horse of the program.
+	//Will run the slots and controls the output.
+	//May be split up into multiple functions if needed.
 	public static int pullLever(int bet){
 
 		int indivSlots[] = new int[NUMSLOTS]; 
 		
+		//Used ace through ten, because they are easily recognizable.
 		int ace=0, king=0, queen=0, jack=0, ten = 0;
 		double winner=0.0;
 
+		//makes the slots array
+		//prints the output
+		//counts the number of each option
 		for(int i = 0; i<NUMSLOTS; i++){
 			
 			int temp = oneSlot();
@@ -81,8 +94,9 @@ public class Slots{
 			}
 		}
 
-		System.out.println("");
+		System.out.println("\n");
 
+		//determins the multiplyer for the return value
 		if(ace == NUMSLOTS)
 			winner = 5.0;
 		else if(king == NUMSLOTS)
@@ -96,6 +110,14 @@ public class Slots{
 		else
 			winner = 0;
 
-		return bet * (int)winner;
+		int retVal = bet * (int)winner;
+
+		//Output to let the user know the outcome
+		if(winner>0)
+			System.out.println(" You Won $"+retVal);
+		else
+			System.out.println(" You Lose.");
+
+		return retVal;
 	}
 }
