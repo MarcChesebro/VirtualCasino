@@ -26,8 +26,8 @@ public class Slots{
 				System.out.print("Place bet: ");
 				int bet = scanner.nextInt();
 
-				if(bet>player.getMoney()){
-					System.out.println("Insuficient funds. Bet invalid.\nCurrent balance: "+player.getMoney());
+				if(bet>player.getMoney() || bet<0){
+					System.out.println("Bet invalid.\nCurrent balance: "+player.getMoney());
 					continue;
 				}
 				System.out.println("=======================");
