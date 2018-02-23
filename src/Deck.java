@@ -85,7 +85,7 @@ public class Deck {
      */
     public static void printHand(ArrayList<Card> hand){
 
-        for(int i = 0; i < hand.size(); i++){
+        for(int i = 0; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString());
         }
     }
@@ -99,15 +99,15 @@ public class Deck {
         int val = 0;
         int numAces = 0;
 
-        for(int i = 0; i < hand.size(); i++){
+        for(int i = 0; i < hand.size(); i++) {
             val += hand.get(i).getValues()[0];
-            if(hand.get(i).getNumber() == 1){
+            if(hand.get(i).getNumber() == 1) {
                 numAces++;
             }
         }
 
-        for(int i = 0; i < numAces; i++){
-            if(21 - val >= 10){
+        for(int i = 0; i < numAces; i++) {
+            if(21 - val >= 10) {
                 val += 10;
             }
         }

@@ -37,7 +37,7 @@ public class Slots{
 			options=scanner.nextInt();
 
 			//If the user wants to place a bet
-			if(options == 1){
+			if(options == 1)  {
 
 				System.out.print("Place bet: ");
 
@@ -61,6 +61,7 @@ public class Slots{
 				//send changeMoney the total net gains
 				player.changeMoney(gains);
 
+
 			//If the user wants to see their balance
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
@@ -70,6 +71,7 @@ public class Slots{
 		}
 		return;
 	}
+
 
 	/* *************************************************************** /
 	/ Description: Just creates a random number, useful for 
@@ -103,26 +105,26 @@ public class Slots{
 		//makes the slots array
 		//prints the output
 		//counts the number of each option
-		for(int i = 0; i<NUMSLOTS; i++){
+		for(int i = 0; i<NUMSLOTS; i++) {
 			
 			int temp = oneSlot();
-			if(temp<40){
+			if(temp<40) {
 				System.out.print(" Ace ");
 				indivSlots[i] = 1;
 				ace++;
-			}else if(temp < 65 && temp >= 40){
+			}else if(temp < 65 && temp >= 40) {
 				System.out.print(" King ");
 				indivSlots[i] = 2;
 				king++;
-			}else if(temp < 85 && temp >= 65){
+			}else if(temp < 85 && temp >= 65) {
 				System.out.print(" Queen ");
 				indivSlots[i] = 3;
 				queen++;
-			}else if(temp < 95 && temp >= 85){
+			}else if(temp < 95 && temp >= 85) {
 				System.out.print(" Jack ");
 				indivSlots[i] = 4;
 				jack++;
-			}else if(temp <= 100 && temp >= 95){
+			}else if(temp <= 100 && temp >= 95) {
 				System.out.print(" Ten ");
 				indivSlots[i] = 5;
 				ten++;

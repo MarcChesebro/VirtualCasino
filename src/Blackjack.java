@@ -9,6 +9,7 @@ import java.util.Scanner;
  */
 public class Blackjack {
 
+
     /**
      * Function for playing blackjack.
      *
@@ -24,13 +25,14 @@ public class Blackjack {
         ArrayList<Card> dealerHand = new ArrayList<Card>();
         ArrayList<Card> playerHand = new ArrayList<Card>();
 
+
         //main game loop
         do{
-
             //ask for the players bet
             System.out.println("Player Money: $" + player.getMoney());
             System.out.println("Amount to bet(-1 to quit): ");
             int bet = scanner.nextInt();
+
 
             //if the bet is less than 0 the player wants to quit break out
             if(bet < 0){
@@ -61,6 +63,7 @@ public class Blackjack {
                 }
             }while(input == 1 && Deck.totalValue(playerHand) < 22);
 
+
             //Dealer loop
             //dealer hits until 17 or above
             while(Deck.totalValue(dealerHand) < 17){
@@ -73,14 +76,15 @@ public class Blackjack {
             System.out.println("playerHand: " + Deck.totalValue(playerHand));
             Deck.printHand(playerHand);
 
+
             //check who won and give or take money from player
             if(Deck.totalValue(playerHand) > Deck.totalValue(dealerHand) && Deck.totalValue(playerHand) < 22){
                 System.out.println("player win");
                 player.changeMoney(bet);
-            }else if(Deck.totalValue(dealerHand) > 21 && Deck.totalValue(playerHand) < 22){
+            }else if(Deck.totalValue(dealerHand) > 21 && Deck.totalValue(playerHand) < 22) {
                 System.out.println("dealer bust");
                 player.changeMoney(bet);
-            }else{
+            }else {
                 System.out.println("player lose");
                 player.changeMoney(bet * -1);
             }

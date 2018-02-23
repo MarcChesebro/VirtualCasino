@@ -8,39 +8,39 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class RouWheel{
+public class RouWheel {
 	/**collection of lists used to represent the roulette table*/ 
-	/**Black numbers on a roulette table*/
+	/**Black numbers on a roulette table.*/
 	private List<Integer> blackNums = new ArrayList<Integer>();
-	/**Red numbers on the roulette table*/
+	/**Red numbers on the roulette table.*/
 	private List<Integer> redNums = new ArrayList<Integer>();
-	/**Odd numbers on the roulette table*/
+	/**Odd numbers on the roulette table.*/
 	private List<Integer> odds = new ArrayList<Integer>();
-	/**Even Numbers on the roulette table*/
+	/**Even Numbers on the roulette table.*/
 	private List<Integer> evens = new ArrayList<Integer>();
-	/**The first(left) column on the roulette table*/
+	/**The first(left) column on the roulette table.*/
 	private List<Integer> column1 = new ArrayList<Integer>();
-	/**The second(middle) column on the roulette table*/
+	/**The second(middle) column on the roulette table.*/
 	private List<Integer> column2 = new ArrayList<Integer>();
-	/**The Third (right) column on the roulette table*/
+	/**The Third (right) column on the roulette table.*/
 	private List<Integer> column3 = new ArrayList<Integer>();
-	/** first dozen numbers(1-12)*/
+	/** first dozen numbers(1-12).*/
 	private List<Integer> dozen1 = new ArrayList<Integer>();
-	/** Second dozen numbers(13-24)*/
+	/** Second dozen numbers(13-24).*/
 	private List<Integer> dozen2 = new ArrayList<Integer>();
-	/** Third Dozen Numbers (25-36)*/
+	/** Third Dozen Numbers (25-36).*/
 	private List<Integer> dozen3 = new ArrayList<Integer>();
-	/** First half of the numbers (1-18)*/
+	/** First half of the numbers (1-18).*/
 	private List<Integer> half1 = new ArrayList<Integer>();
-	/** Second half of the numbers (2-36*/
+	/** Second half of the numbers (2-36).*/
 	private List<Integer> half2 = new ArrayList<Integer>();
-	/**All numbers on the roulette table*/
+	/**All numbers on the roulette table.*/
 	private List<Integer> allNums = new ArrayList<Integer>();
-	/**Current value of the roulette table*/
+	/**Current value of the roulette table.*/
 	private int value;
-	/**Scanner to recieve player input*/
+	/**Scanner to recieve player input.*/
 	private static Scanner scanner;
-	/**used to make a random number*/
+	/**used to make a random number.*/
 	private Random rand = new Random();
 	/*****************************************
 	 * constructor for roulette wheel
@@ -103,7 +103,7 @@ public class RouWheel{
 		for(int halves = 1; halves <= 36; halves++) {
 			if(halves <= 18) {
 				half1.add(halves);
-			}else{
+			}else {
 				half2.add(halves);
 			}
 		}

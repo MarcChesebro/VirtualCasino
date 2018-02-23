@@ -33,12 +33,17 @@ public class Player {
         this.money = money;
     }
 
+<<<<<<< HEAD
     /**
      * Function for changing the amount of money a player has.
      * can accept negative numbers to remove Money
      * @param int change amount to change.
      */
     public void changeMoney(int change){
+=======
+    //use this to add or remove money
+    public void changeMoney(int change) {
+>>>>>>> 976d5dd78c0ceb36fb287d4e4aa5a0471cc20535
         this.money += change;
     }
 }
