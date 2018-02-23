@@ -1,6 +1,7 @@
 /*****************************************
  * Roulette Table for Virtual Casino
  * @author Brendan Caywood
+ * @version 2/23/18
  ****************************************/
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +10,17 @@ import java.util.Scanner;
 
 public class RouWheel{
 	/**collection of lists used to represent the roulette table*/ 
-	//handles the black and red colored spots
+	/**Black numbers on a roulette table*/
 	private List<Integer> blackNums = new ArrayList<Integer>();
+	/**Red numbers on the roulette table*/
 	private List<Integer> redNums = new ArrayList<Integer>();
-	//handles odd numbers and even numbers
+	/**Odd numbers on the roulette table*/
 	private List<Integer> odds = new ArrayList<Integer>();
+	/**Even Numbers on the roulette table*/
 	private List<Integer> evens = new ArrayList<Integer>();
-	//handles the columns
+	/**The first(left) column on the roulette table*/
 	private List<Integer> column1 = new ArrayList<Integer>();
+	/**The second(middle) column on the roulette table*/
 	private List<Integer> column2 = new ArrayList<Integer>();
 	private List<Integer> column3 = new ArrayList<Integer>();
 	//handles each dozen of numbers

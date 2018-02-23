@@ -16,9 +16,14 @@ public class VirtualCasino {
     	System.out.println("Please choose a game:");
     	System.out.println("'1' for roulette, '2' for blackjack, '3' for slots");
     	int x = scanner.nextInt();
-		//Blackjack.play(player);
     	if(x == 1) {
     	Roulette.play(player);
+    	}else if(x == 2) {
+    		Blackjack.play(player);
+    	}else if(x == 3) {
+    		//slots.play(player);
+    	}else {
+    		System.out.println("invalid input");
     	}
     }
 
