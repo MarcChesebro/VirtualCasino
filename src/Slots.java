@@ -30,7 +30,7 @@ public class Slots{
 		while(options != 0){
 
 			System.out.println("=======================");
-			System.out.println("Enter '1' to place bet.\n");
+			System.out.println("Enter '1' to place bet.");
 			System.out.println("Enter '2' to view credit");
 			System.out.println("Enter '0' to quit.");
 			System.out.print("Input: ");
