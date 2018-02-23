@@ -37,7 +37,7 @@ public class VirtualCasino {
 	    			System.out.println("Updated balance: "+player.getMoney());
 	    		}
 	    	}
-    	}while(x != 0)
+    	}while(x != 0);
     }
 
     public static class Blackjack {
