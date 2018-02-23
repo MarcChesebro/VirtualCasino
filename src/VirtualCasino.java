@@ -17,8 +17,8 @@ public class VirtualCasino {
     	System.out.println("'1' for roulette, '2' for blackjack, '3' for slots, '4' for player options, '0' to exit.");
     	System.out.print("Input: ");
     	int x = scanner.nextInt();
-		//Blackjack.play(player);
     	if(x == 1) {
+
     		Roulette.play(player);
     	}else if (x == 2){
     		Blackjack.play(player);
