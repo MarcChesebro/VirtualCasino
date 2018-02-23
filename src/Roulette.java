@@ -19,6 +19,9 @@ public class Roulette {
 				}
 				System.out.println("please enter bet amount:");
 				int betAmount = scanner.nextInt();
+				if(betAmount < 0 || betAmount>player.getMoney()) {
+					System.out.println("Invalid Bet. Get out of my Roulette table!!");
+				}
 				int multiplier = wheel.checkBet(betType);
 				System.out.println("Board Value:" + wheel.getValue());
 				if(multiplier == 0) {
