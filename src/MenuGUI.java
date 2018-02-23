@@ -12,9 +12,9 @@ import static javafx.application.Application.launch;
 public class MenuGUI extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
-        try{
+        try {
             Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
 
             Scene scene = new Scene(root);
@@ -24,12 +24,12 @@ public class MenuGUI extends Application {
             primaryStage.setResizable(false);
             primaryStage.show();
         }
-        catch (IOException e){
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 }

@@ -1,6 +1,3 @@
-
-import java.util.ArrayList;
-
 import java.util.Scanner;
 
 public class VirtualCasino {
@@ -20,15 +17,15 @@ public class VirtualCasino {
     	if(x == 1) {
 
     		Roulette.play(player);
-    	}else if (x == 2){
+    	}else if (x == 2) {
     		Blackjack.play(player);
-    	}else if(x == 3){
+    	}else if(x == 3) {
     		Slots.play(player);
-    	}else if(x == 4){
+    	}else if(x == 4) {
     		System.out.println("enter '1' to add money, '0' to exit");
     		System.out.print("Input: ");
     		int playerOptionsInput = scanner.nextInt();
-    		if(playerOptionsInput == 1){
+    		if(playerOptionsInput == 1) {
     			System.out.print("how much?: ");
     			int moreMoneyMoreProblems = scanner.nextInt();
     			player.changeMoney(moreMoneyMoreProblems);

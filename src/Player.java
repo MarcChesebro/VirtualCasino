@@ -15,7 +15,7 @@ public class Player {
     }
 
     //use this to add or remove money
-    public void changeMoney(int change){
+    public void changeMoney(int change) {
         this.money += change;
     }
 }

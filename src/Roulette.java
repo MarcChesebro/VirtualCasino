@@ -1,13 +1,21 @@
 import java.util.Scanner;
-public class Roulette {
+/******************************
+ * The actual play for the roulette table
+ * @author Brendan Caywood
+ * @version 2/23/2018
+ *****************************/
+public class Roulette  {
 
 
 	
-		// have buttons call this with the player
-		public static void play(Player player){
+		/***************************************
+		 * Plays the roulette game
+		 * @param player the player who plays the game
+		 **************************************/
+		public static void play(Player player) {
 			RouWheel wheel = new RouWheel();
 			Scanner scanner = new Scanner(System.in);
-			do{
+			do {
 				wheel.spin();
 				System.out.println("player money:$" + player.getMoney());
 				System.out.println("Please select what type of bet to make(or '0' to quit): ");

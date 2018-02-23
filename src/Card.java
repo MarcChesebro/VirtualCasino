@@ -11,15 +11,15 @@ public class Card {
     public int[] getValues() {
 
         // Cards 2 through 10 have the same value as there number
-        if(this.number > 1 && this.number < 11){
+        if(this.number > 1 && this.number < 11) {
             return new int[]{this.number};
 
         // Face cards(over 10) have a value of 10
-        }else if(this.number > 10){
+        }else if(this.number > 10) {
             return new int[]{10};
 
         // Aces have the value of wither 1 or 11
-        }else{
+        }else {
 
             return new int[]{1, 11};
         }
@@ -43,7 +43,7 @@ public class Card {
 
      public String toString() {
         String str = "";
-        switch (this.number){
+        switch (this.number) {
             case 1:
                 str = "Ace";
                 break;
