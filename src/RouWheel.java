@@ -22,20 +22,25 @@ public class RouWheel{
 	private List<Integer> column1 = new ArrayList<Integer>();
 	/**The second(middle) column on the roulette table*/
 	private List<Integer> column2 = new ArrayList<Integer>();
+	/**The Third (right) column on the roulette table*/
 	private List<Integer> column3 = new ArrayList<Integer>();
-	//handles each dozen of numbers
+	/** first dozen numbers(1-12)*/
 	private List<Integer> dozen1 = new ArrayList<Integer>();
+	/** Second dozen numbers(13-24)*/
 	private List<Integer> dozen2 = new ArrayList<Integer>();
+	/** Third Dozen Numbers (25-36)*/
 	private List<Integer> dozen3 = new ArrayList<Integer>();
-	//handles each half of numbers
+	/** First half of the numbers (1-18)*/
 	private List<Integer> half1 = new ArrayList<Integer>();
+	/** Second half of the numbers (2-36*/
 	private List<Integer> half2 = new ArrayList<Integer>();
-	//holds all the roulette numbers
+	/**All numbers on the roulette table*/
 	private List<Integer> allNums = new ArrayList<Integer>();
-	//hold current value of wheel
+	/**Current value of the roulette table*/
 	private int value;
+	/**Scanner to recieve player input*/
 	private static Scanner scanner;
-	//random number helper
+	/**used to make a random number*/
 	private Random rand = new Random();
 	/*****************************************
 	 * constructor for roulette wheel
