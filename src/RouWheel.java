@@ -1,13 +1,12 @@
-/*****************************************
- * Roulette Table for Virtual Casino
- * @author Brendan Caywood
- * @version 2/23/18
- ****************************************/
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
+/*****************************************
+ * Roulette Table for Virtual Casino.
+ * @author Brendan Caywood
+ * @version 2/23/18
+ ****************************************/
 public class RouWheel {
 	/**collection of lists used to represent the roulette table*/ 
 	/**Black numbers on a roulette table.*/
@@ -43,7 +42,7 @@ public class RouWheel {
 	/**used to make a random number.*/
 	private Random rand = new Random();
 	/*****************************************
-	 * constructor for roulette wheel
+	 * constructor for roulette wheel.
 	 ****************************************/
 	public RouWheel() {
 		//sets up odds/evens
@@ -115,22 +114,22 @@ public class RouWheel {
 		allNums.add(37);
 	}
 	/********************************
-	 * "spins the roulette board"
+	 * "spins the roulette board".
 	 * Generates a random int between
-	 * 0-37 (37 being 00)
+	 * 0-37 (37 being 00).
 	 *******************************/
 	public void spin() {
 		value = rand.nextInt(38);
 	}
 	/*******************************
-	 * gets the value of board
+	 * gets the value of board.
 	 * @return value of board
 	 *****************************/
 	public int getValue() {
 		return value;
 	}
 	/**************************************************
-	 * checks the given bet type and returns multiplier
+	 * checks the given bet type and returns multiplier.
 	 * @param type the type of bet (outlined in Roulette.java)
 	 * @return returns multiplier to multiply the bet by
 	 *************************************************/
