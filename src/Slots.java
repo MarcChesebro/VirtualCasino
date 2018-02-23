@@ -1,21 +1,37 @@
 import java.util.Scanner;
-// import java.util.ArrayList;
 import java.util.Random;
 
-public class Slots {
 
+/* *************************************************************** /
+/ Description: The class that contains all of the information on how to
+			   play the game of slots.
+/ @author Patrick McMahon
+/ @Version 2/23/18
+/ *************************************************************** */
+public class Slots{
+
+	//The number of slots being used in the game
 	public static final int NUMSLOTS=3;
 
-	public static void play(Player player) {
+	/* *************************************************************** /
+	/ Description: Will accept user input and run the game of slots
+				   accordingly
+	/ @param player: The user that is playing the game of slots 
+	/ *************************************************************** */
+	public static void play(Player player){
 
+		//Scanenr object used to read in user input
 		Scanner scanner = new Scanner(System.in);
 
+		//used to keep track of the users desired move.
 		int options=1;
 
-		while(options != 0)  {
+		//This will run the game of slots until the user enters 0.
+		while(options != 0){
 
 			System.out.println("=======================");
-			System.out.println("Enter '1' to place bet.\nEnter '2' to view credit");
+			System.out.println("Enter '1' to place bet.");
+			System.out.println("Enter '2' to view credit");
 			System.out.println("Enter '0' to quit.");
 			System.out.print("Input: ");
 			options=scanner.nextInt();
@@ -24,12 +40,18 @@ public class Slots {
 			if(options == 1)  {
 
 				System.out.print("Place bet: ");
+
+				//The users desired bet
 				int bet = scanner.nextInt();
 
-				if(bet>player.getMoney()) {
-					System.out.println("Insuficient funds. Bet invalid.\nCurrent balance: "+player.getMoney());
+				//Check to make sure bet is valid
+				if(bet>player.getMoney() || bet<0){
+					System.out.println("Bet invalid.");
+					System.out.println("Current balance: "+
+						player.getMoney());
 					continue;
 				}
+
 				System.out.println("=======================");
 				
 				//pull the lever and return the total gains
@@ -39,7 +61,9 @@ public class Slots {
 				//send changeMoney the total net gains
 				player.changeMoney(gains);
 
-			}else if(options == 2) {
+
+			//If the user wants to see their balance
+			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
 			}
 			else
@@ -48,21 +72,34 @@ public class Slots {
 		return;
 	}
 
-	//Just creates a random number, may be useful for future features
-	public static int oneSlot() {
+
+	/* *************************************************************** /
+	/ Description: Just creates a random number, useful for 
+	/				future features
+	/ @return random integer between 1 and 100
+	/ *************************************************************** */
+	public static int oneSlot(){
 		Random rand = new Random();
 		return (rand.nextInt(100)+1);
 	}
 
-	//The work horse of the program.
-	//Will run the slots and controls the output.
-	//May be split up into multiple functions if needed.
-	public static int pullLever(int bet) {
+	/* *************************************************************** /
+	/ Description: Will run the slots and controls the output. 
+	/ @param bet: The original bet
+	/ @return retVal: The amount of money won
+	/ *************************************************************** */
+	public static int pullLever(int bet){
 
 		int indivSlots[] = new int[NUMSLOTS]; 
 		
 		//Used ace through ten, because they are easily recognizable.
-		int ace=0, king=0, queen=0, jack=0, ten = 0;
+		int ace=0;
+		int king=0;
+		int queen=0;
+		int jack=0;
+		int ten = 0;
+
+		//The multiplyer based on winning a round.
 		double winner=0.0;
 
 		//makes the slots array

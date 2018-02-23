@@ -1,13 +1,31 @@
+/**
+ * Card class to represent a standard poker cards
+ *
+ * @author Marc Chesebro
+ * @version 2/23/2018
+ */
 public class Card {
 
+    /** suit of the card */
     private Suit suit;
+
+    /** number of the card */
     private int number;
 
+    /**
+     * Constructor that takes the suit and the number of the cards
+     * @param Suit suit   the suit of the card
+     * @param int  number the number of the card
+     */
     public Card(Suit suit, int number) {
         this.suit = suit;
         this.number = number;
     }
 
+    /**
+     * returns an integer array of all the possible values of the cards
+     * @return int array with all possible values of thhe card
+     */
     public int[] getValues() {
 
         // Cards 2 through 10 have the same value as there number
@@ -25,23 +43,43 @@ public class Card {
         }
     }
 
+    /**
+     * returns the suit of the cards
+     * @return the suit of the card
+     */
     public Suit getSuit() {
         return suit;
     }
 
+    /**
+     * set the suit of the cards
+     * @param Suit suit suit to be set
+     */
     public void setSuit(Suit suit) {
         this.suit = suit;
     }
 
+    /**
+     * get the number of the cards
+     * @return the number of the cards
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * set the number of the cards
+     * @param int number the number of the card
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
-     public String toString() {
+    /**
+     * returns a string representing the cards
+     * @return string representation of the card
+     */
+    public String toString() {
         String str = "";
         switch (this.number) {
             case 1:
@@ -63,6 +101,9 @@ public class Card {
         return str;
      }
 
+    /**
+     * enum that represents the suit of the card
+     */
     public enum Suit {
         heart,
         diamond,
