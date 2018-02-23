@@ -1,5 +1,5 @@
 /**
- * Card class to represent a standard poker cards
+ * Card class to represent a standard poker cards.
  *
  * @author Marc Chesebro
  * @version 2/23/2018
@@ -13,9 +13,10 @@ public class Card {
     private int number;
 
     /**
-     * Constructor that takes the suit and the number of the cards
-     * @param Suit suit   the suit of the card
-     * @param int  number the number of the card
+     * Constructor that takes the suit and the number of the cards.
+     *
+     * @param Suit suit   the suit of the card.
+     * @param int  number the number of the card.
      */
     public Card(Suit suit, int number) {
         this.suit = suit;
@@ -23,8 +24,8 @@ public class Card {
     }
 
     /**
-     * returns an integer array of all the possible values of the cards
-     * @return int array with all possible values of thhe card
+     * returns an integer array of all the possible values of the cards.
+     * @return int array with all possible values of the card.
      */
     public int[] getValues() {
 
@@ -44,40 +45,40 @@ public class Card {
     }
 
     /**
-     * returns the suit of the cards
-     * @return the suit of the card
+     * returns the suit of the cards.
+     * @return the suit of the card.
      */
     public Suit getSuit() {
         return suit;
     }
 
     /**
-     * set the suit of the cards
-     * @param Suit suit suit to be set
+     * set the suit of the cards.
+     * @param Suit suit suit to be set.
      */
     public void setSuit(Suit suit) {
         this.suit = suit;
     }
 
     /**
-     * get the number of the cards
-     * @return the number of the cards
+     * get the number of the cards.
+     * @return the number of the cards.
      */
     public int getNumber() {
         return number;
     }
 
     /**
-     * set the number of the cards
-     * @param int number the number of the card
+     * set the number of the cards.
+     * @param int number the number of the card.
      */
     public void setNumber(int number) {
         this.number = number;
     }
 
     /**
-     * returns a string representing the cards
-     * @return string representation of the card
+     * returns a string representing the cards.
+     * @return string representation of the card.
      */
     public String toString() {
         String str = "";
@@ -102,7 +103,7 @@ public class Card {
      }
 
     /**
-     * enum that represents the suit of the card
+     * enum that represents the suit of the card.
      */
     public enum Suit {
         heart,
