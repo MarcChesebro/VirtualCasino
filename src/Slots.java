@@ -66,7 +66,7 @@ public class Slots{
 				System.out.println("Money: "+player.getMoney());
 			}
 			else{
-				scanner.Close();
+				scanner.close();
 				return;
 			}
 		}

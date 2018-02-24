@@ -18,7 +18,7 @@ public class VirtualCasino {
     	
         //Initialize player with $100.
     	Player player = new Player(100);
-    	//scanner to ask what game
+    	//scanner to ask what game.
     	Scanner scanner = new Scanner(System.in);
 
         //Varable used to check loop.
