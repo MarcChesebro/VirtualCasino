@@ -134,7 +134,7 @@ public class RouWheel {
 	 * @return returns multiplier to multiply the bet by
 	 *************************************************/
 	//TODO: Add other bets with GUI in release 2
-	public int checkBet(int type) {
+	public int checkBet(final int type) {
 		if(type == 1) {
 			int num;
 			System.out.println("choose a number 1-36");

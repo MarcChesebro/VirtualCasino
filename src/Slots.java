@@ -36,13 +36,9 @@ public class Slots{
 			System.out.print("Input: ");
 			options=scanner.nextInt();
 
-<<<<<<< HEAD
 			//If the user wants to place a bet.
 			if(options == 1){
-=======
-			//If the user wants to place a bet
-			if(options == 1)  {
->>>>>>> 2cb2d07bd26caeeac0fea22af35057a62a72fdb2
+
 
 				System.out.print("Place bet: ");
 
@@ -66,12 +62,8 @@ public class Slots{
 				//send changeMoney the total net gains.
 				player.changeMoney(gains);
 
-<<<<<<< HEAD
 			//If the user wants to see their balance.
-=======
 
-			//If the user wants to see their balance
->>>>>>> 2cb2d07bd26caeeac0fea22af35057a62a72fdb2
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
 			}

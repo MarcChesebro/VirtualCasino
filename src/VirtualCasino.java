@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
-/* *************************************************************** /
-/ Description: The main class in the Virtual Casino program.
-/ @author Marc Chesebro
-/         Brendan Caywood
-/         Patrick McMahon
-/ @version 2/23/18
-/ *************************************************************** */
+/**************************************************************** 
+* Description: The main class in the Virtual Casino program.
+* @author Marc Chesebro
+*         Brendan Caywood
+*         Patrick McMahon
+* @version 2/23/18
+****************************************************************/
 public class VirtualCasino {
 
-    /* *************************************************************** /
-    / Description: The function that runs the entire virtual casino 
-                   program.
-    / @param args: The input that the program is ran with.
-    / *************************************************************** */
-    public static void main(String[] args) {
+    /**************************************************************** 
+    * Description: The function that runs the entire virtual casino 
+    *              program.
+    * @param args The input that the program is ran with.
+    **************************************************************** */
+    public static void main(final String[] args) {
     	
         //Initialize player with $100.
     	Player player = new Player(100);
@@ -46,16 +46,19 @@ public class VirtualCasino {
         	}else if(x == 4){
                 //This will be a function in a later release.
                 //Add more money for the player.
-        		System.out.println("enter '1' to add money, '0' to exit");
+        		System.out.println("enter '1' to add money"
+        				+ ", '0' to exit");
         		System.out.print("Input: ");
         		int playerOptionsInput = scanner.nextInt();
         		if(playerOptionsInput == 1){
         			System.out.print("how much?: ");
         			int moreMoneyMoreProblems = scanner.nextInt();
         			player.changeMoney(moreMoneyMoreProblems);
-        			System.out.println("New balance: "+player.getMoney());
+        			System.out.println("New balance: "
+        			+player.getMoney());
         		}
         	}
+        	scanner.close();
         }while(x != 0);
     }
 }
