@@ -36,8 +36,13 @@ public class Slots{
 			System.out.print("Input: ");
 			options=scanner.nextInt();
 
+<<<<<<< HEAD
 			//If the user wants to place a bet.
 			if(options == 1){
+=======
+			//If the user wants to place a bet
+			if(options == 1)  {
+>>>>>>> 2cb2d07bd26caeeac0fea22af35057a62a72fdb2
 
 				System.out.print("Place bet: ");
 
@@ -61,7 +66,12 @@ public class Slots{
 				//send changeMoney the total net gains.
 				player.changeMoney(gains);
 
+<<<<<<< HEAD
 			//If the user wants to see their balance.
+=======
+
+			//If the user wants to see their balance
+>>>>>>> 2cb2d07bd26caeeac0fea22af35057a62a72fdb2
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
 			}
@@ -72,6 +82,7 @@ public class Slots{
 		}
 		return;
 	}
+
 
 	/* *************************************************************** /
 	/ Description: Just creates a random number, useful for 
@@ -102,29 +113,29 @@ public class Slots{
 		//The multiplyer based on winning a round.
 		double winner=0.0;
 
-		//Creates the slots array.
-		//Prints the output.
-		//Counts the number of each option.
-		for(int i = 0; i<NUMSLOTS; i++){
-			
+		//makes the slots array
+		//prints the output
+		//counts the number of each option
+		for(int i = 0; i<NUMSLOTS; i++) {
+
 			int temp = oneSlot();
-			if(temp<40){
+			if(temp<40) {
 				System.out.print(" Ace ");
 				indivSlots[i] = 1;
 				ace++;
-			}else if(temp < 65 && temp >= 40){
+			}else if(temp < 65 && temp >= 40) {
 				System.out.print(" King ");
 				indivSlots[i] = 2;
 				king++;
-			}else if(temp < 85 && temp >= 65){
+			}else if(temp < 85 && temp >= 65) {
 				System.out.print(" Queen ");
 				indivSlots[i] = 3;
 				queen++;
-			}else if(temp < 95 && temp >= 85){
+			}else if(temp < 95 && temp >= 85) {
 				System.out.print(" Jack ");
 				indivSlots[i] = 4;
 				jack++;
-			}else if(temp <= 100 && temp >= 95){
+			}else if(temp <= 100 && temp >= 95) {
 				System.out.print(" Ten ");
 				indivSlots[i] = 5;
 				ten++;

@@ -1,49 +1,48 @@
-/*****************************************
- * Roulette Table for Virtual Casino
- * @author Brendan Caywood
- * @version 2/23/18
- ****************************************/
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
-public class RouWheel{
+/*****************************************
+ * Roulette Table for Virtual Casino.
+ * @author Brendan Caywood
+ * @version 2/23/18
+ ****************************************/
+public class RouWheel {
 	/**collection of lists used to represent the roulette table*/ 
-	/**Black numbers on a roulette table*/
+	/**Black numbers on a roulette table.*/
 	private List<Integer> blackNums = new ArrayList<Integer>();
-	/**Red numbers on the roulette table*/
+	/**Red numbers on the roulette table.*/
 	private List<Integer> redNums = new ArrayList<Integer>();
-	/**Odd numbers on the roulette table*/
+	/**Odd numbers on the roulette table.*/
 	private List<Integer> odds = new ArrayList<Integer>();
-	/**Even Numbers on the roulette table*/
+	/**Even Numbers on the roulette table.*/
 	private List<Integer> evens = new ArrayList<Integer>();
-	/**The first(left) column on the roulette table*/
+	/**The first(left) column on the roulette table.*/
 	private List<Integer> column1 = new ArrayList<Integer>();
-	/**The second(middle) column on the roulette table*/
+	/**The second(middle) column on the roulette table.*/
 	private List<Integer> column2 = new ArrayList<Integer>();
-	/**The Third (right) column on the roulette table*/
+	/**The Third (right) column on the roulette table.*/
 	private List<Integer> column3 = new ArrayList<Integer>();
-	/** first dozen numbers(1-12)*/
+	/** first dozen numbers(1-12).*/
 	private List<Integer> dozen1 = new ArrayList<Integer>();
-	/** Second dozen numbers(13-24)*/
+	/** Second dozen numbers(13-24).*/
 	private List<Integer> dozen2 = new ArrayList<Integer>();
-	/** Third Dozen Numbers (25-36)*/
+	/** Third Dozen Numbers (25-36).*/
 	private List<Integer> dozen3 = new ArrayList<Integer>();
-	/** First half of the numbers (1-18)*/
+	/** First half of the numbers (1-18).*/
 	private List<Integer> half1 = new ArrayList<Integer>();
-	/** Second half of the numbers (2-36*/
+	/** Second half of the numbers (2-36).*/
 	private List<Integer> half2 = new ArrayList<Integer>();
-	/**All numbers on the roulette table*/
+	/**All numbers on the roulette table.*/
 	private List<Integer> allNums = new ArrayList<Integer>();
-	/**Current value of the roulette table*/
+	/**Current value of the roulette table.*/
 	private int value;
-	/**Scanner to recieve player input*/
+	/**Scanner to recieve player input.*/
 	private static Scanner scanner;
-	/**used to make a random number*/
+	/**used to make a random number.*/
 	private Random rand = new Random();
 	/*****************************************
-	 * constructor for roulette wheel
+	 * constructor for roulette wheel.
 	 ****************************************/
 	public RouWheel() {
 		//sets up odds/evens
@@ -103,7 +102,7 @@ public class RouWheel{
 		for(int halves = 1; halves <= 36; halves++) {
 			if(halves <= 18) {
 				half1.add(halves);
-			}else{
+			}else {
 				half2.add(halves);
 			}
 		}
@@ -115,22 +114,22 @@ public class RouWheel{
 		allNums.add(37);
 	}
 	/********************************
-	 * "spins the roulette board"
+	 * "spins the roulette board".
 	 * Generates a random int between
-	 * 0-37 (37 being 00)
+	 * 0-37 (37 being 00).
 	 *******************************/
 	public void spin() {
 		value = rand.nextInt(38);
 	}
 	/*******************************
-	 * gets the value of board
+	 * gets the value of board.
 	 * @return value of board
 	 *****************************/
 	public int getValue() {
 		return value;
 	}
 	/**************************************************
-	 * checks the given bet type and returns multiplier
+	 * checks the given bet type and returns multiplier.
 	 * @param type the type of bet (outlined in Roulette.java)
 	 * @return returns multiplier to multiply the bet by
 	 *************************************************/
