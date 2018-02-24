@@ -1,4 +1,4 @@
-import org.junit.*;
+
 
 /*******************************
  * Junit testing for the Virtual Casino

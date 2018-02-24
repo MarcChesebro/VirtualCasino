@@ -15,8 +15,8 @@ public class Card {
     /**
      * Constructor that takes the suit and the number of the cards.
      *
-     * @param Suit suit   the suit of the card.
-     * @param int  number the number of the card.
+     * @param suit   the suit of the card.
+     * @param number the number of the card.
      */
     public Card(Suit suit, int number) {
         this.suit = suit;
@@ -54,7 +54,7 @@ public class Card {
 
     /**
      * set the suit of the cards.
-     * @param Suit suit suit to be set.
+     * @param suit suit to be set.
      */
     public void setSuit(Suit suit) {
         this.suit = suit;
@@ -70,7 +70,7 @@ public class Card {
 
     /**
      * set the number of the cards.
-     * @param int number the number of the card.
+     * @param number the number of the card.
      */
     public void setNumber(int number) {
         this.number = number;
@@ -106,9 +106,21 @@ public class Card {
      * enum that represents the suit of the card.
      */
     public enum Suit {
+        /**
+         * heart suit
+         */
         heart,
+        /**
+         * diamond suit
+         */
         diamond,
+        /**
+         * spade suit
+         */
         spade,
+        /**
+         * club suit
+         */
         club
     }
 }

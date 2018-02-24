@@ -49,9 +49,9 @@ public class Deck {
     }
 
     /**
-     * Constructor that takes a draw pile and a discard pile
-     * @param ArrayList<Card> draw    draw pile
-     * @param ArrayList<Card> discard discard pile
+     * Constructor that takes a draw pile and a discard pile.
+     * @param draw the Draw pile.
+     * @param discard the Discard pile.
      */
     public Deck(ArrayList<Card> draw, ArrayList<Card> discard) {
         this.draw = draw;
@@ -81,7 +81,7 @@ public class Deck {
 
     /**
      * prints the hand to the console
-     * @param ArrayList<Card> hand hand to print
+     * @param hand hand to print
      */
     public static void printHand(ArrayList<Card> hand){
 
@@ -92,7 +92,7 @@ public class Deck {
 
     /**
      * finds the total value of a hand based off blackjack values
-     * @param  ArrayList<Card> hand          hand to evaluate
+     * @param  hand hand to evaluate
      * @return returns the total value as an int
      */
     public static int totalValue(ArrayList<Card> hand){

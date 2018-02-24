@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane id="pane" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="blackjackButton" fx:id="blackjackButton" layoutX="221.0" layoutY="133.0" mnemonicParsing="false" text="Black Jack" />
+      <Button id="rouletteButton" fx:id="rouletteButton" layoutX="234.0" layoutY="240.0" mnemonicParsing="false" text="Roulette" />
+      <Button id="slotButton" fx:id="slotsButton" layoutX="259.0" layoutY="343.0" mnemonicParsing="false" text="slots" />
+      <Label id="headerLabel" fx:id="headerLabel" layoutX="216.0" layoutY="65.0" text="Virtual Casino" />
+   </children>
+</Pane>
