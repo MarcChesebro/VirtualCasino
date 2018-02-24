@@ -3,22 +3,22 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
- * Deck object that represents a standard 52 card poker Deck
+ * Deck object that represents a standard 52 card poker Deck.
  *
  * @author Marc Chesebro
  * @version 2/23/2018
  */
 public class Deck {
 
-    /** The Decks draw pile */
+    /** The Decks draw pile. */
     private ArrayList<Card> draw;
 
-    /** The Decks discard pile */
+    /** The Decks discard pile. */
     private ArrayList<Card> discard;
 
     /**
      * Default Constructor for Deck object.
-     * Creates a standard poker deck
+     * Creates a standard poker deck.
      */
     public Deck() {
         // Create empty deck
@@ -59,7 +59,7 @@ public class Deck {
     }
 
     /**
-     * Puts the discard pile on the draw pile and then randomizes the deck
+     * Puts the discard pile on the draw pile and then randomizes the deck.
      */
     public void shuffle(){
         this.draw.addAll(this.discard);
@@ -69,9 +69,9 @@ public class Deck {
     }
 
     /**
-     * Draws a card off the draw pile and puts it on the discard pile and
-     * returns the card drawn
-     * @return The card drawn
+     * Draws a card off the draw pile and puts it on the discard pile.
+     * Then returns the card drawn.
+     * @return The card drawn.
      */
     public Card drawCard(){
         Card removed = this.draw.remove(0);
@@ -80,8 +80,8 @@ public class Deck {
     }
 
     /**
-     * prints the hand to the console
-     * @param hand hand to print
+     * prints the hand to the console.
+     * @param hand hand to print.
      */
     public static void printHand(ArrayList<Card> hand){
 
@@ -91,9 +91,9 @@ public class Deck {
     }
 
     /**
-     * finds the total value of a hand based off blackjack values
-     * @param  hand hand to evaluate
-     * @return returns the total value as an int
+     * finds the total value of a hand based off blackjack values.
+     * @param  hand hand to evaluate.
+     * @return returns the total value as an int.
      */
     public static int totalValue(ArrayList<Card> hand){
         int val = 0;

@@ -13,7 +13,7 @@ public class Blackjack {
     /**
      * Function for playing blackjack.
      *
-     * @param Player player Player that is playing the game
+     * @param Player player Player that is playing the game.
      */
     public static void play(Player player){
 
