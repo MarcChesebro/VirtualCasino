@@ -10,17 +10,17 @@ import java.util.Random;
 / *************************************************************** */
 public class Slots{
 
-	//The number of slots being used in the game
+	//The number of slots being used in the game.
 	public static final int NUMSLOTS=3;
 
 	/* *************************************************************** /
 	/ Description: Will accept user input and run the game of slots
-				   accordingly
-	/ @param player: The user that is playing the game of slots 
+				   accordingly.
+	/ @param player: The user that is playing the game of slots.
 	/ *************************************************************** */
 	public static void play(Player player){
 
-		//Scanenr object used to read in user input
+		//Scanenr object used to read in user input.
 		Scanner scanner = new Scanner(System.in);
 
 		//used to keep track of the users desired move.
@@ -36,15 +36,16 @@ public class Slots{
 			System.out.print("Input: ");
 			options=scanner.nextInt();
 
-			//If the user wants to place a bet
-			if(options == 1)  {
+			//If the user wants to place a bet.
+			if(options == 1){
+
 
 				System.out.print("Place bet: ");
 
-				//The users desired bet
+				//The users desired bet.
 				int bet = scanner.nextInt();
 
-				//Check to make sure bet is valid
+				//Check to make sure bet is valid.
 				if(bet>player.getMoney() || bet<0){
 					System.out.println("Bet invalid.");
 					System.out.println("Current balance: "+
@@ -54,20 +55,22 @@ public class Slots{
 
 				System.out.println("=======================");
 				
-				//pull the lever and return the total gains
+				//pull the lever and return the total gains.
 				int gains = pullLever(bet);
 				gains = gains - bet;
 
-				//send changeMoney the total net gains
+				//send changeMoney the total net gains.
 				player.changeMoney(gains);
 
+			//If the user wants to see their balance.
 
-			//If the user wants to see their balance
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
 			}
-			else
+			else{
+				scanner.close();
 				return;
+			}
 		}
 		return;
 	}
@@ -75,8 +78,8 @@ public class Slots{
 
 	/* *************************************************************** /
 	/ Description: Just creates a random number, useful for 
-	/				future features
-	/ @return random integer between 1 and 100
+	/				future features.
+	/ @return random integer between 1 and 100.
 	/ *************************************************************** */
 	public static int oneSlot(){
 		Random rand = new Random();
@@ -85,8 +88,8 @@ public class Slots{
 
 	/* *************************************************************** /
 	/ Description: Will run the slots and controls the output. 
-	/ @param bet: The original bet
-	/ @return retVal: The amount of money won
+	/ @param bet: The original bet.
+	/ @return retVal: The amount of money won.
 	/ *************************************************************** */
 	public static int pullLever(int bet){
 
@@ -106,7 +109,7 @@ public class Slots{
 		//prints the output
 		//counts the number of each option
 		for(int i = 0; i<NUMSLOTS; i++) {
-			
+
 			int temp = oneSlot();
 			if(temp<40) {
 				System.out.print(" Ace ");
@@ -133,27 +136,29 @@ public class Slots{
 
 		System.out.println("\n");
 
-		//determins the multiplyer for the return value
-		if(ace == NUMSLOTS)
+		//determins the multiplyer for the return value.
+		if(ace == NUMSLOTS){
 			winner = 5.0;
-		else if(king == NUMSLOTS)
+		} else if(king == NUMSLOTS){
 			winner = 1.5;	
-		else if(queen == NUMSLOTS)
+		} else if(queen == NUMSLOTS){
 			winner = 1.2;	
-		else if(jack == NUMSLOTS)
+		} else if(jack == NUMSLOTS){
 			winner = 1.1;	
-		else if(ten == NUMSLOTS)
+		} else if(ten == NUMSLOTS){
 			winner = 1;	
-		else
+		} else{
 			winner = 0;
+		}
 
 		int retVal = bet * (int)winner;
 
-		//Output to let the user know the outcome
-		if(winner>0)
+		//Output to let the user know the outcome.
+		if(winner>0){
 			System.out.println(" You Won $"+retVal);
-		else
+		} else{
 			System.out.println(" You Lose.");
+		}
 
 		return retVal;
 	}
