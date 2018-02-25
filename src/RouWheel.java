@@ -37,8 +37,6 @@ public class RouWheel {
 	private List<Integer> allNums = new ArrayList<Integer>();
 	/**Current value of the roulette table.*/
 	private int value;
-	/**Scanner to recieve player input.*/
-	private static Scanner scanner;
 	/**used to make a random number.*/
 	private Random rand = new Random();
 	/*****************************************
@@ -128,6 +126,13 @@ public class RouWheel {
 	public int getValue() {
 		return value;
 	}
+	/*******************************
+	 * sets the value of board.
+	 * @param newVal desired value for value
+	 *****************************/
+	public void setValue(final int newVal) {
+		value = newVal;
+	}
 	/**************************************************
 	 * checks the given bet type and returns multiplier.
 	 * @param type the type of bet (outlined in Roulette.java)
@@ -135,6 +140,7 @@ public class RouWheel {
 	 *************************************************/
 	//TODO: Add other bets with GUI in release 2
 	public int checkBet(final int type) {
+		Scanner scanner = new Scanner(System.in);
 		if(type == 1) {
 			int num;
 			System.out.println("choose a number 1-36");
@@ -203,8 +209,10 @@ public class RouWheel {
 				return 1;
 			}
 			return 0;
+		}else {
+			System.out.println("Invalid bet type");
+			return 0;
 		}
-		return 0;
 	}
 }
 	
