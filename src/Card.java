@@ -6,10 +6,10 @@
  */
 public class Card {
 
-    /** suit of the card */
+    /** suit of the card. */
     private Suit suit;
 
-    /** number of the card */
+    /** number of the card. */
     private int number;
 
     /**
@@ -107,19 +107,19 @@ public class Card {
      */
     public enum Suit {
         /**
-         * heart suit
+         * heart suit.
          */
         heart,
         /**
-         * diamond suit
+         * diamond suit.
          */
         diamond,
         /**
-         * spade suit
+         * spade suit.
          */
         spade,
         /**
-         * club suit
+         * club suit.
          */
         club
     }

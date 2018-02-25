@@ -2,23 +2,24 @@ import java.util.Scanner;
 import java.util.Random;
 
 
-/* *************************************************************** /
-/ Description: The class that contains all of the information on how to
-			   play the game of slots.
-/ @author Patrick McMahon
-/ @version 2/23/18
-/ *************************************************************** */
+
+/**************************************************************** 
+* Description: The class that contains all of the information on how to
+*			   play the game of slots.
+* @author Patrick McMahon
+* @version 2/23/18
+****************************************************************/
 public class Slots{
 
 	/* The number of slots being used in the game. */
 	public static final int NUMSLOTS=3;
 
-	/* *************************************************************** /
-	/ Description: Will accept user input and run the game of slots
-				   accordingly.
-	/ @param player: The user that is playing the game of slots.
-	/ *************************************************************** */
-	public static void play(Player player){
+	/****************************************************************
+	* Description: Will accept user input and run the game of slots
+	*			   accordingly.
+	* @param player: The user that is playing the game of slots.
+	*****************************************************************/
+	public static void play(final Player player){
 
 		//Scanenr object used to read in user input.
 		Scanner scanner = new Scanner(System.in);
@@ -47,8 +48,8 @@ public class Slots{
 				//Check to make sure bet is valid.
 				if(bet>player.getMoney() || bet<0){
 					System.out.println("Bet invalid.");
-					System.out.println("Current balance: "+
-						player.getMoney());
+					System.out.println("Current balance: "
+					+ player.getMoney());
 					continue;
 				}
 
@@ -64,34 +65,34 @@ public class Slots{
 			//If the user wants to see their balance.
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
-			}
-			else{
+			}else{
 				scanner.close();
 				return;
 			}
 		}
+		scanner.close();
 		return;
 	}
 
 
-	/* *************************************************************** /
-	/ Description: Just creates a random number, useful for 
-	/				future features.
-	/ @return random integer between 1 and 100.
-	/ *************************************************************** */
+	/****************************************************************
+	* Description: Just creates a random number, useful for 
+	*				future features.
+	* @return random integer between 1 and 100.
+	****************************************************************/
 	public static int oneSlot(){
 		Random rand = new Random();
 		return (rand.nextInt(100)+1);
 	}
 
-	/* *************************************************************** /
-	/ Description: Will run the slots and controls the output. 
-	/ @param bet: The original bet.
-	/ @return retVal: The amount of money won.
-	/ *************************************************************** */
-	public static int pullLever(int bet){
+	/****************************************************************
+	* Description: Will run the slots and controls the output. 
+	* @param bet: The original bet.
+	* @return retVal: The amount of money won.
+	****************************************************************/
+	public static int pullLever(final int bet){
 
-		int indivSlots[] = new int[NUMSLOTS]; 
+		int[] indivSlots = new int[NUMSLOTS]; 
 		
 		//Used ace through ten, because they are easily recognizable.
 		int ace=0;
