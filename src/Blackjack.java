@@ -18,7 +18,7 @@ public class Blackjack {
     public static void play(final Player player){
 
         //scanner for reading input
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "utf-8");
         //create the Deck
         Deck deck = new Deck();
         //create the player and dealers hand

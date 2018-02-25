@@ -140,7 +140,7 @@ public class RouWheel {
 	 *************************************************/
 	//TODO: Add other bets with GUI in release 2
 	public int checkBet(final int type) {
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in, "utf-8");
 		if(type == 1) {
 			int num;
 			System.out.println("choose a number 1-36");

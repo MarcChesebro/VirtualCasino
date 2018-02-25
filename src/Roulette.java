@@ -15,7 +15,7 @@ public class Roulette  {
 		 **************************************/
 		public static void play(final Player player) {
 			RouWheel wheel = new RouWheel();
-			Scanner scanner = new Scanner(System.in);
+			Scanner scanner = new Scanner(System.in, "utf-8");
 			do {
 				wheel.spin();
 				System.out.println("player money:$"

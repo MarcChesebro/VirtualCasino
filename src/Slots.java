@@ -23,7 +23,7 @@ public class Slots{
 	public static void play(final Player player){
 
 		//scanner object used to read in user input.
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in, "utf-8");
 
 		//used to keep track of the users desired move.
 		int options=1;
@@ -105,7 +105,7 @@ public class Slots{
 	****************************************************************/
 	private static int pullLever(final int bet){
 
-		int[] indivSlots = new int[NUMSLOTS]; 
+		//int[] indivSlots = new int[NUMSLOTS]; 
 		
 		//Used ace through ten, because they are easily recognizable.
 		int ace=0;
@@ -125,23 +125,23 @@ public class Slots{
 			int temp = oneSlot();
 			if(temp<40) {
 				System.out.print(" Ace ");
-				indivSlots[i] = 1;
+				//indivSlots[i] = 1;
 				ace++;
 			}else if(temp < 65 && temp >= 40) {
 				System.out.print(" King ");
-				indivSlots[i] = 2;
+				//indivSlots[i] = 2;
 				king++;
 			}else if(temp < 85 && temp >= 65) {
 				System.out.print(" Queen ");
-				indivSlots[i] = 3;
+				//indivSlots[i] = 3;
 				queen++;
 			}else if(temp < 95 && temp >= 85) {
 				System.out.print(" Jack ");
-				indivSlots[i] = 4;
+				//indivSlots[i] = 4;
 				jack++;
 			}else if(temp <= 100 && temp >= 95) {
 				System.out.print(" Ten ");
-				indivSlots[i] = 5;
+				//indivSlots[i] = 5;
 				ten++;
 			}
 		}
