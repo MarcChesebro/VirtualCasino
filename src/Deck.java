@@ -95,7 +95,7 @@ public class Deck {
      * @param  hand hand to evaluate.
      * @return returns the total value as an int.
      */
-    public static int totalValue( final ArrayList<Card> hand){
+    public static int totalValue(final ArrayList<Card> hand){
         int val = 0;
         int numAces = 0;
 

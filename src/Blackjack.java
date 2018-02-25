@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Class for playing blackjack
+ * Class for playing blackjack.
  *
  * @author Marc Chesebro
  * @version 2/23/2018
@@ -13,9 +13,9 @@ public class Blackjack {
     /**
      * Function for playing blackjack.
      *
-     * @param Player player Player that is playing the game.
+     * @param player  that is playing the game.
      */
-    public static void play(Player player){
+    public static void play(final Player player){
 
         //scanner for reading input
         Scanner scanner = new Scanner(System.in);
@@ -53,7 +53,8 @@ public class Blackjack {
                 //ask the player if they want another card
                 System.out.println("cards: ");
                 Deck.printHand(playerHand);
-                System.out.println("player Total: " + Deck.totalValue(playerHand));
+                System.out.println("player Total: " 
+                + Deck.totalValue(playerHand));
                 System.out.println("1 to hit anything else to hold");
                 input = scanner.nextInt();
 
@@ -78,10 +79,12 @@ public class Blackjack {
 
 
             //check who won and give or take money from player
-            if(Deck.totalValue(playerHand) > Deck.totalValue(dealerHand) && Deck.totalValue(playerHand) < 22){
+            if(Deck.totalValue(playerHand) > Deck.totalValue(dealerHand)
+            		&& Deck.totalValue(playerHand) < 22){
                 System.out.println("player win");
                 player.changeMoney(bet);
-            }else if(Deck.totalValue(dealerHand) > 21 && Deck.totalValue(playerHand) < 22) {
+            }else if(Deck.totalValue(dealerHand) 
+            		> 21 && Deck.totalValue(playerHand) < 22) {
                 System.out.println("dealer bust");
                 player.changeMoney(bet);
             }else {
@@ -97,5 +100,6 @@ public class Blackjack {
             deck.shuffle();
 
         }while(player.getMoney() > 0);
+        scanner.close();
     }
 }
