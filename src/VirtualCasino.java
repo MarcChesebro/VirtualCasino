@@ -58,7 +58,6 @@ public class VirtualCasino {
         			+player.getMoney());
         		}
         	}
-        	scanner.close();
         }while(x != 0);
     }
 }

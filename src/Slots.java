@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+// import java.util.InputMismatchException;
 
 
 
@@ -21,7 +22,7 @@ public class Slots{
 	*****************************************************************/
 	public static void play(final Player player){
 
-		//Scanenr object used to read in user input.
+		//scanner object used to read in user input.
 		Scanner scanner = new Scanner(System.in);
 
 		//used to keep track of the users desired move.
@@ -33,9 +34,16 @@ public class Slots{
 			System.out.println("=======================");
 			System.out.println("Enter '1' to place bet.");
 			System.out.println("Enter '2' to view credit");
-			System.out.println("Enter '0' to quit.");
+			System.out.println("Enter '0' to quit.");				
 			System.out.print("Input: ");
-			options=scanner.nextInt();
+
+			//Make sure the input is a number
+			while (!scanner.hasNextInt()) {
+				System.out.println("Try again");
+				System.out.print("Input: ");
+				scanner.next();
+			}
+			options = scanner.nextInt();
 
 			//If the user wants to place a bet
 			if(options == 1) {
@@ -43,7 +51,15 @@ public class Slots{
 				System.out.print("Place bet: ");
 
 				//The users desired bet.
-				int bet = scanner.nextInt();
+				int bet = 0;
+
+				//making sure the bet is a number
+				while (!scanner.hasNextInt()) {
+					System.out.println("Try again");
+					System.out.print("Input: ");
+					scanner.next();
+				}
+				bet = scanner.nextInt();
 
 				//Check to make sure bet is valid.
 				if(bet>player.getMoney() || bet<0){
@@ -65,12 +81,9 @@ public class Slots{
 			//If the user wants to see their balance.
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
-			}else{
-				scanner.close();
-				return;
 			}
 		}
-		scanner.close();
+		//scanner.close();
 		return;
 	}
 
@@ -80,7 +93,7 @@ public class Slots{
 	*				future features.
 	* @return random integer between 1 and 100.
 	****************************************************************/
-	public static int oneSlot(){
+	private static int oneSlot(){
 		Random rand = new Random();
 		return (rand.nextInt(100)+1);
 	}
@@ -90,7 +103,7 @@ public class Slots{
 	* @param bet The original bet.
 	* @return retVal: The amount of money won.
 	****************************************************************/
-	public static int pullLever(final int bet){
+	private static int pullLever(final int bet){
 
 		int[] indivSlots = new int[NUMSLOTS]; 
 		
