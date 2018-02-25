@@ -6,11 +6,11 @@ import java.util.Random;
 / Description: The class that contains all of the information on how to
 			   play the game of slots.
 / @author Patrick McMahon
-/ @Version 2/23/18
+/ @version 2/23/18
 / *************************************************************** */
 public class Slots{
 
-	//The number of slots being used in the game.
+	/* The number of slots being used in the game. */
 	public static final int NUMSLOTS=3;
 
 	/* *************************************************************** /
@@ -36,9 +36,8 @@ public class Slots{
 			System.out.print("Input: ");
 			options=scanner.nextInt();
 
-			//If the user wants to place a bet.
-			if(options == 1){
-
+			//If the user wants to place a bet
+			if(options == 1) {
 
 				System.out.print("Place bet: ");
 
@@ -63,7 +62,6 @@ public class Slots{
 				player.changeMoney(gains);
 
 			//If the user wants to see their balance.
-
 			}else if(options == 2){
 				System.out.println("Money: "+player.getMoney());
 			}
