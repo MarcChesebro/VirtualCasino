@@ -13,7 +13,7 @@ public class Player {
      * Constructor that take the amount of money the player starts with.
      * @param money amount of money the player starts with.
      */
-    public Player(int money) {
+    public Player(final int money) {
         this.money = money;
     }
 
@@ -29,7 +29,7 @@ public class Player {
      * set the amount of money the player currently has.
      * @param money the amount of money to set the player to.
      */
-    public void setMoney(int money) {
+    public void setMoney(final int money) {
         this.money = money;
     }
 
@@ -38,7 +38,7 @@ public class Player {
      * can accept negative numbers to remove Money
      * @param change amount to change.
      */
-    public void changeMoney(int change){
+    public void changeMoney(final int change){
         this.money += change;
     }
 }

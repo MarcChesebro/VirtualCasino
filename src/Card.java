@@ -18,7 +18,7 @@ public class Card {
      * @param suit   the suit of the card.
      * @param number the number of the card.
      */
-    public Card(Suit suit, int number) {
+    public Card(final Suit suit, final int number) {
         this.suit = suit;
         this.number = number;
     }
@@ -56,7 +56,7 @@ public class Card {
      * set the suit of the cards.
      * @param suit suit to be set.
      */
-    public void setSuit(Suit suit) {
+    public void setSuit(final Suit suit) {
         this.suit = suit;
     }
 
@@ -72,7 +72,7 @@ public class Card {
      * set the number of the cards.
      * @param number the number of the card.
      */
-    public void setNumber(int number) {
+    public void setNumber(final int number) {
         this.number = number;
     }
 
