@@ -53,7 +53,7 @@ public class Deck {
      * @param draw the Draw pile.
      * @param discard the Discard pile.
      */
-    public Deck(ArrayList<Card> draw, ArrayList<Card> discard) {
+    public Deck(final ArrayList<Card> draw, final ArrayList<Card> discard) {
         this.draw = draw;
         this.discard = discard;
     }
@@ -83,7 +83,7 @@ public class Deck {
      * prints the hand to the console.
      * @param hand hand to print.
      */
-    public static void printHand(ArrayList<Card> hand){
+    public static void printHand(final ArrayList<Card> hand){
 
         for(int i = 0; i < hand.size(); i++) {
             System.out.println(hand.get(i).toString());
@@ -95,7 +95,7 @@ public class Deck {
      * @param  hand hand to evaluate.
      * @return returns the total value as an int.
      */
-    public static int totalValue(ArrayList<Card> hand){
+    public static int totalValue( final ArrayList<Card> hand){
         int val = 0;
         int numAces = 0;
 
