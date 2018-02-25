@@ -6,17 +6,17 @@ import java.util.Random;
 * Description: The class that contains all of the information on how to
 *			   play the game of slots.
 * @author Patrick McMahon
-*  @Version 2/23/18
+* @version 2/23/18
 ****************************************************************/
 public class Slots{
 
-	//The number of slots being used in the game.
+	/**The number of slots being used in the game.*/
 	public static final int NUMSLOTS=3;
 
 	/****************************************************************
 	* Description: Will accept user input and run the game of slots
 	*			   accordingly.
-	* @param player: The user that is playing the game of slots.
+	* @param player The user that is playing the game of slots.
 	*****************************************************************/
 	public static void play(final Player player){
 
@@ -88,7 +88,7 @@ public class Slots{
 
 	/****************************************************************
 	* Description: Will run the slots and controls the output. 
-	* @param bet: The original bet.
+	* @param bet The original bet.
 	* @return retVal: The amount of money won.
 	****************************************************************/
 	public static int pullLever(final int bet){
