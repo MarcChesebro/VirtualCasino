@@ -100,6 +100,5 @@ public class Blackjack {
             deck.shuffle();
 
         }while(player.getMoney() > 0);
-        scanner.close();
     }
 }

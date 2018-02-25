@@ -41,8 +41,8 @@ public class VirtualCasino {
                 System.out.print("Input: ");
                 scanner.next();
             }
+            
             x = scanner.nextInt();
-
             //Loop to parse user input.
         	if(x == 1) {
         		Roulette.play(player);
