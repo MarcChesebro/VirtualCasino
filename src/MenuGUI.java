@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 //     public void start(Stage primaryStage) throws Exception {
 
 //         try {
-//             Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
 
 //             Scene scene = new Scene(root);
 
