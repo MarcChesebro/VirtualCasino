@@ -34,7 +34,14 @@ public class VirtualCasino {
             System.out.println("'4' for player options");
             System.out.println("'0' to exit");
             System.out.print("Input: ");
-        	x = scanner.nextInt();
+
+            //Make sure the input is a number
+            while (!scanner.hasNextInt()) {
+                System.out.println("Try again");
+                System.out.print("Input: ");
+                scanner.next();
+            }
+            x = scanner.nextInt();
 
             //Loop to parse user input.
         	if(x == 1) {
