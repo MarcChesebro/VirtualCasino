@@ -53,7 +53,6 @@ public class Roulette  {
 					betAmount = betAmount*multiplier;
 					player.changeMoney(betAmount);
 				}
-				scanner.close();
 			}while(true);
 		}
 	}
