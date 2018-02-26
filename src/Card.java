@@ -93,7 +93,7 @@ public class Card {
                 str = "Queen";
                 break;
             case 13:
-                str = "king";
+                str = "King";
                 break;
             default:
                 str = "" + this.getNumber();
