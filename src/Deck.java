@@ -48,15 +48,7 @@ public class Deck {
         this.discard = new ArrayList<Card>();
     }
 
-    /**
-     * Constructor that takes a draw pile and a discard pile.
-     * @param draw the Draw pile.
-     * @param discard the Discard pile.
-     */
-    public Deck(final ArrayList<Card> draw, final ArrayList<Card> discard) {
-        this.draw = draw;
-        this.discard = discard;
-    }
+
 
     /**
      * Puts the discard pile on the draw pile and then randomizes the deck.

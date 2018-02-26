@@ -26,6 +26,13 @@ public class JUnits {
 		wheel.setValue(1);
 		assertTrue(wheel.checkBet(2) == 2);
 	}
+	
+	@Test
+	public void testInvalidBet() {
+		RouWheel wheel = new RouWheel();
+		wheel.setValue(1);
+		assertTrue(wheel.checkBet(15) == 0);
+	}
 
 	@Test
 	public void testRouWheelCheckBetCol1F() {

@@ -41,6 +41,7 @@ public class Roulette  {
 							+ "Get out of my "
 							+ "Roulette"
 							+ " table!!");
+					break;
 				}
 				int multiplier = wheel.checkBet(betType);
 				System.out.println("Board Value:" 
