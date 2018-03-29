@@ -80,17 +80,17 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="blackjackButton" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" text="Black Jack" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#blackjackButton" prefHeight="50.0" prefWidth="220.0" text="Black Jack" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="140.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="slotButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" text="Slots" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <Button mnemonicParsing="false" onAction="#slotButton" prefHeight="50.0" prefWidth="220.0" text="Slots" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="140.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="rouButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" text="Roulette" GridPane.columnIndex="4" GridPane.rowIndex="7">
+            <Button mnemonicParsing="false" onAction="#rouButton" prefHeight="50.0" prefWidth="220.0" text="Roulette" GridPane.columnIndex="4" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets left="140.0" />
                </GridPane.margin>
