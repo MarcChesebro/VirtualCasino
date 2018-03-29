@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /*******************************
- * Junit testing for the Virtual Casino
+ * Junit testing for the Virtual Casino.
  * @author Brendan Caywood, Marc Cheesebro, Patrick McMahon
  * @version 2/23/18
  ******************************/

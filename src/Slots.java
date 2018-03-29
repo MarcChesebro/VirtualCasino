@@ -34,7 +34,7 @@ public class Slots{
 			System.out.println("=======================");
 			System.out.println("Enter '1' to place bet.");
 			System.out.println("Enter '2' to view credit");
-			System.out.println("Enter '0' to quit.");				
+			System.out.println("Enter '0' to quit.");
 			System.out.print("Input: ");
 
 			//Make sure the input is a number
