@@ -1,112 +1,86 @@
-import java.util.Scanner;
 import java.util.Random;
-// import java.util.InputMismatchException;
 
-
-
-/**************************************************************** 
-* Description: The class that contains all of the information on how to
-*			   play the game of slots.
-* @author Patrick McMahon
-* @version 2/23/18
-****************************************************************/
 public class Slots{
 
-	/**The number of slots being used in the game.*/
-	public static final int NUMSLOTS=3;
+	private int num_slots;
+	private int bet;
+	private int[] slots_arr;
+	private Player player;
 
+	public Slots(Player g_player){
+		player = g_player;
+		num_slots = 3;
+		bet = 0;
+		int temp[] = new int[num_slots];
+		for(int i = 0; i < num_slots; i++){
+			temp[i] = 0;
+		}
+
+		slots_arr = temp;
+
+	}
 	/****************************************************************
-	* Description: Will accept user input and run the game of slots
-	*			   accordingly.
+	* Description: stuff
 	* @param player The user that is playing the game of slots.
 	*****************************************************************/
 	public static void play(final Player player){
 
-		//scanner object used to read in user input.
-		Scanner scanner = new Scanner(System.in, "utf-8");
+		Slots curTurn = new Slots(player);
+		slotGUI sgu = new slotGUI(curTurn);
+		sgu.showWindow();
+	}
 
-		//used to keep track of the users desired move.
-		int options=1;
+	public int get_num_slots(){
+		return this.num_slots;
+	}
 
-		//This will run the game of slots until the user enters 0.
-		while(options != 0){
+	public int[] get_slots(){
+		return this.slots_arr;
+	}
 
-			System.out.println("=======================");
-			System.out.println("Enter '1' to place bet.");
-			System.out.println("Enter '2' to view credit");
-			System.out.println("Enter '0' to quit.");				
-			System.out.print("Input: ");
+	public int get_bet(){
+		return this.bet;
+	}
 
-			//Make sure the input is a number
-			while (!scanner.hasNextInt()) {
-				System.out.println("Try again");
-				System.out.print("Input: ");
-				scanner.next();
-			}
-			options = scanner.nextInt();
+	public void set_num_slots(int g_num_slots){
+		this.num_slots = g_num_slots;
+	}
 
-			//If the user wants to place a bet
-			if(options == 1) {
+	public void set_slots(int[] g_slots){
+		this.slots_arr = g_slots;
+	}
 
-				System.out.print("Place bet: ");
+	public void set_slots(){
+		for(int i = 0; i < this.num_slots; i++){
+			this.slots_arr[i] = 0;
+		}
+	}
 
-				//The users desired bet.
-				int bet = 0;
+	public void set_bet(int g_bet){
+		this.bet = g_bet;
+	}
 
-				//making sure the bet is a number
-				while (!scanner.hasNextInt()) {
-					System.out.println("Try again");
-					System.out.print("Input: ");
-					scanner.next();
-				}
-				bet = scanner.nextInt();
+	public void randomize_slots(){
 
-				//Check to make sure bet is valid.
-				if(bet>player.getMoney() || bet<0){
-					System.out.println("Bet invalid.");
-					System.out.println("Current balance: "
-					+ player.getMoney());
-					continue;
-				}
-
-				System.out.println("=======================");
-				
-				//pull the lever and return the total gains.
-				int gains = pullLever(bet);
-				gains = gains - bet;
-
-				//send changeMoney the total net gains.
-				player.changeMoney(gains);
-
-			//If the user wants to see their balance.
-			}else if(options == 2){
-				System.out.println("Money: "+player.getMoney());
+		for(int i = 0; i<this.num_slots; i++) {
+			Random rand = new Random();
+			int temp = rand.nextInt(100)+1;
+			if(temp<40) {
+				this.slots_arr[i] = 1;
+			}else if(temp < 65 && temp >= 40) {
+				this.slots_arr[i] = 2;
+			}else if(temp < 85 && temp >= 65) {
+				this.slots_arr[i] = 3;
+			}else if(temp < 95 && temp >= 85) {
+				this.slots_arr[i] = 4;
+			}else if(temp <= 100 && temp >= 95) {
+				this.slots_arr[i] = 5;
 			}
 		}
-		//scanner.close();
-		return;
 	}
 
-
-	/****************************************************************
-	* Description: Just creates a random number, useful for 
-	*				future features.
-	* @return random integer between 1 and 100.
-	****************************************************************/
-	private static int oneSlot(){
-		Random rand = new Random();
-		return (rand.nextInt(100)+1);
-	}
-
-	/****************************************************************
-	* Description: Will run the slots and controls the output. 
-	* @param bet The original bet.
-	* @return retVal: The amount of money won.
-	****************************************************************/
-	private static int pullLever(final int bet){
-
-		//int[] indivSlots = new int[NUMSLOTS]; 
-		
+	public int update_wallet(){
+	
 		//Used ace through ten, because they are easily recognizable.
 		int ace=0;
 		int king=0;
@@ -115,63 +89,58 @@ public class Slots{
 		int ten = 0;
 
 		//The multiplyer based on winning a round.
-		double winner=0.0;
+		double multiplyer=0.0;
 
-		//makes the slots array
-		//prints the output
-		//counts the number of each option
-		for(int i = 0; i<NUMSLOTS; i++) {
+		for(int i = 0; i<this.num_slots; i++) {
 
-			int temp = oneSlot();
-			if(temp<40) {
-				System.out.print(" Ace ");
-				//indivSlots[i] = 1;
-				ace++;
-			}else if(temp < 65 && temp >= 40) {
-				System.out.print(" King ");
-				//indivSlots[i] = 2;
-				king++;
-			}else if(temp < 85 && temp >= 65) {
-				System.out.print(" Queen ");
-				//indivSlots[i] = 3;
-				queen++;
-			}else if(temp < 95 && temp >= 85) {
-				System.out.print(" Jack ");
-				//indivSlots[i] = 4;
-				jack++;
-			}else if(temp <= 100 && temp >= 95) {
-				System.out.print(" Ten ");
-				//indivSlots[i] = 5;
+			if(this.slots_arr[i] == 1) {
 				ten++;
+			}else if(this.slots_arr[i] == 2) {
+				jack++;
+			}else if(this.slots_arr[i] == 3) {
+				queen++;
+			}else if(this.slots_arr[i] == 4) {
+				king++;
+			}else if(this.slots_arr[i] == 5) {
+				ace++;
 			}
 		}
 
-		System.out.println("\n");
-
 		//determins the multiplyer for the return value.
-		if(ace == NUMSLOTS){
-			winner = 5.0;
-		} else if(king == NUMSLOTS){
-			winner = 1.5;	
-		} else if(queen == NUMSLOTS){
-			winner = 1.2;	
-		} else if(jack == NUMSLOTS){
-			winner = 1.1;	
-		} else if(ten == NUMSLOTS){
-			winner = 1;	
+		if(ace == this.num_slots){
+			multiplyer = 2.0;
+		} else if(king == this.num_slots){
+			multiplyer = 1.5;	
+		} else if(queen == this.num_slots){
+			multiplyer = 1.2;	
+		} else if(jack == this.num_slots){
+			multiplyer = 1.1;	
+		} else if(ten == this.num_slots){
+			multiplyer = 1;	
 		} else{
-			winner = 0;
+			multiplyer = 0;
 		}
 
-		int retVal = bet * (int)winner;
+		int retVal = this.bet * (int)multiplyer;
+		retVal = retVal - this.bet;
+		this.player.changeMoney(retVal);
+		return retVal;
 
-		//Output to let the user know the outcome.
-		if(winner>0){
-			System.out.println(" You Won $"+retVal);
-		} else{
-			System.out.println(" You Lose.");
+	}
+
+//Output to let the user know the outcome.
+	public String win_lose(int x){
+		String retVal = "";
+
+		if(x < this.bet){
+			retVal = "You Lost $"+x; 
+		}else if (x == this.bet){
+			retVal = "You kept your bet.";
+		}else if (x > this.bet){
+			retVal = "You won $"+x;
 		}
 
 		return retVal;
 	}
+
 }
