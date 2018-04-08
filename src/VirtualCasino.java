@@ -8,7 +8,15 @@ import java.util.Scanner;
 * @version 2/23/18
 ****************************************************************/
 public class VirtualCasino {
-
+	Player player;
+	public void start() {
+		//Initialize player with $100.
+    	player = new Player(100);
+	}
+	public void blackjack() {
+		Blackjack.play(player);
+		
+	}
     /**************************************************************** 
     * Description: The function that runs the entire virtual casino 
     *              program.
