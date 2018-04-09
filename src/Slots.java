@@ -65,16 +65,21 @@ public class Slots{
 		for(int i = 0; i<this.num_slots; i++) {
 			Random rand = new Random();
 			int temp = rand.nextInt(100)+1;
-			if(temp<40) {
+			if(temp<30) {
+			//	System.out.println("ten");
 				this.slots_arr[i] = 1;
-			}else if(temp < 65 && temp >= 40) {
+			}else if(temp < 55 && temp >= 30) {
 				this.slots_arr[i] = 2;
-			}else if(temp < 85 && temp >= 65) {
+			//	System.out.println("jack");
+			}else if(temp < 75 && temp >= 55) {
 				this.slots_arr[i] = 3;
-			}else if(temp < 95 && temp >= 85) {
+			//	System.out.println("queen");
+			}else if(temp < 90 && temp >= 75) {
 				this.slots_arr[i] = 4;
-			}else if(temp <= 100 && temp >= 95) {
+			//	System.out.println("king");
+			}else if(temp <= 100 && temp >= 90) {
 				this.slots_arr[i] = 5;
+			//	System.out.println("ace");
 			}
 		}
 	}
@@ -89,7 +94,7 @@ public class Slots{
 		int ten = 0;
 
 		//The multiplyer based on winning a round.
-		double multiplyer=0.0;
+		int multiplyer=0;
 
 		for(int i = 0; i<this.num_slots; i++) {
 
@@ -108,20 +113,20 @@ public class Slots{
 
 		//determins the multiplyer for the return value.
 		if(ace == this.num_slots){
-			multiplyer = 2.0;
+			multiplyer = 5;
 		} else if(king == this.num_slots){
-			multiplyer = 1.5;	
+			multiplyer = 4;	
 		} else if(queen == this.num_slots){
-			multiplyer = 1.2;	
+			multiplyer = 3;	
 		} else if(jack == this.num_slots){
-			multiplyer = 1.1;	
+			multiplyer = 2;	
 		} else if(ten == this.num_slots){
 			multiplyer = 1;	
 		} else{
 			multiplyer = 0;
 		}
 
-		int retVal = this.bet * (int)multiplyer;
+		int retVal = this.bet * multiplyer;
 		retVal = retVal - this.bet;
 		this.player.changeMoney(retVal);
 		return retVal;
@@ -131,13 +136,13 @@ public class Slots{
 //Output to let the user know the outcome.
 	public String win_lose(int x){
 		String retVal = "";
-
+		//System.out.println("x: "+x+"bet: " + this.bet);
 		if(x < this.bet){
-			retVal = "You Lost $"+x; 
+			retVal = "You Lost $"; 
 		}else if (x == this.bet){
-			retVal = "You kept your bet.";
+			retVal = "You kept your $";
 		}else if (x > this.bet){
-			retVal = "You won $"+x;
+			retVal = "You won $";
 		}
 
 		return retVal;
