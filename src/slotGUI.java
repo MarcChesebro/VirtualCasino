@@ -105,6 +105,7 @@ public class slotGUI{
 				String wl = current_turn.win_lose(temp);
 				temp = Math.abs(temp);
 				outcome.setText(wl + temp);
+				//TODO setcards method, and make cards global
 			}
 		});
 
@@ -114,8 +115,8 @@ public class slotGUI{
 			public void actionPerformed(ActionEvent e){
 				String new_bet = JOptionPane.showInputDialog(frame,"Enter new bet.");
 				try{
+					//TODO call a check that the bet is valid.
 					current_turn.set_bet(Integer.parseInt(new_bet));
-					//TODO setcards method, and make cards global
 				}catch(NumberFormatException exc){
 
 				}

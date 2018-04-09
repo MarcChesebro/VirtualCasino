@@ -148,4 +148,6 @@ public class Slots{
 		return retVal;
 	}
 
+//TODO Add a validate bet method here
+
 }
