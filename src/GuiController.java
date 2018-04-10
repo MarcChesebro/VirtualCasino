@@ -11,6 +11,7 @@ public class GuiController extends VirtualCasino implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		start();
 	}
 	@FXML 
 	private void blackjackButton() {
@@ -18,7 +19,7 @@ public class GuiController extends VirtualCasino implements Initializable {
 	}
 	@FXML 
 	private void slotButton() {
-		blackjack();
+		slots();
 	}
 	@FXML
 	private void refreshButton() {
@@ -26,7 +27,7 @@ public class GuiController extends VirtualCasino implements Initializable {
 	}
 	@FXML 
 	private void rouButton() {
-		blackjack();
+		roulette();
 	}
 	@FXML 
 	private void quitMItem() {
