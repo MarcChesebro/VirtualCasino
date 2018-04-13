@@ -13,6 +13,7 @@ public class VirtualCasino {
 	public VirtualCasino() {
 		//initialize player with $100.
 		player = new Player(100);
+		System.out.println("woo");
 	}
 	public void blackjack() {
 		Blackjack.play(player);
