@@ -1,6 +1,7 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,7 +12,7 @@ public class GuiController extends VirtualCasino implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		start();
+		//casino.start();
 	}
 	@FXML 
 	private void blackjackButton() {
@@ -23,7 +24,7 @@ public class GuiController extends VirtualCasino implements Initializable {
 	}
 	@FXML
 	private void refreshButton() {
-		start();
+		//start();
 	}
 	@FXML 
 	private void rouButton() {
@@ -31,6 +32,6 @@ public class GuiController extends VirtualCasino implements Initializable {
 	}
 	@FXML 
 	private void quitMItem() {
-		System.exit(0);
+		Platform.exit();
 	}
 }
