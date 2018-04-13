@@ -9,7 +9,7 @@ import static javafx.application.Application.launch;
 
 
 public class MenuGUI extends Application {
-	 public static VirtualCasino casino = new VirtualCasino();
+	 VirtualCasino casino = new VirtualCasino();
      @Override
      public void start(Stage primaryStage) throws Exception {
 
