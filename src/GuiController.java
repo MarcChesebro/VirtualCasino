@@ -7,20 +7,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Label;
-public class GuiController extends VirtualCasino implements Initializable {
+public class GuiController extends MenuGUI implements Initializable {
 	@FXML Button refreshButton;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//casino.start();
 	}
 	@FXML 
 	private void blackjackButton() {
-		blackjack();
+		casino.blackjack();
 	}
 	@FXML 
 	private void slotButton() {
-		slots();
+		casino.slots();
 	}
 	@FXML
 	private void refreshButton() {
@@ -28,7 +27,7 @@ public class GuiController extends VirtualCasino implements Initializable {
 	}
 	@FXML 
 	private void rouButton() {
-		roulette();
+		casino.roulette();
 	}
 	@FXML 
 	private void quitMItem() {
