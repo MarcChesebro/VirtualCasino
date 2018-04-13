@@ -16,10 +16,12 @@ public class GuiController extends MenuGUI implements Initializable {
 	@FXML 
 	private void blackjackButton() {
 		casino.blackjack();
+		//TODO: the whole gui
 	}
 	@FXML 
 	private void slotButton() {
 		casino.slots();
+		//TODO: Lets user go below 0, needs a "return" that comes back to the main menu
 	}
 	@FXML
 	private void refreshButton() {
@@ -28,6 +30,7 @@ public class GuiController extends MenuGUI implements Initializable {
 	@FXML 
 	private void rouButton() {
 		casino.roulette();
+		//TODO: the whole gui
 	}
 	@FXML 
 	private void quitMItem() {
