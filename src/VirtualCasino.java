@@ -8,19 +8,34 @@ import java.util.Scanner;
 * @version 2/23/18
 ****************************************************************/
 public class VirtualCasino {
-	Player player;
+	/**instance variable for player.*/
+	private Player player;
 	
+	/*********************************
+	 * constructor for virtual casino.
+	 ********************************/
 	public VirtualCasino() {
 		//initialize player with $100.
 		player = new Player(100);
-		System.out.println("woo");
 	}
+	
+	/*********************************
+	 * calls blackjack's play method.
+	 ********************************/
 	public void blackjack() {
 		Blackjack.play(player);
 	}
+	
+	/***********************************
+	 * calls roulette's play method.
+	 **********************************/
 	public void roulette() {
 		Roulette.play(player);
 	}
+	
+	/**********************************
+	 * calls slots' play method.
+	 *********************************/
 	public void slots() {
 		Slots.play(player);
 	}
