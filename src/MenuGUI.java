@@ -9,15 +9,13 @@ import static javafx.application.Application.launch;
 
 
 public class MenuGUI extends Application {
-
+	 public static VirtualCasino casino = new VirtualCasino();
+	 
      @Override
      public void start(Stage primaryStage) throws Exception {
-
          try {
             Parent root = FXMLLoader.load(getClass().getResource("/gui_css.fxml"));
-
              Scene scene = new Scene(root);
-
              primaryStage.setScene(scene);
              primaryStage.setTitle("Virtual Casino");
              primaryStage.setResizable(false);

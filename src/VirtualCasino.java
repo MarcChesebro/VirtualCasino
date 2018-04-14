@@ -8,18 +8,20 @@ import java.util.Scanner;
 * @version 2/23/18
 ****************************************************************/
 public class VirtualCasino {
-	static Player player;
-	public static void start() {
-		//Initialize player with $100.
-    	player = new Player(100);
+	Player player;
+	
+	public VirtualCasino() {
+		//initialize player with $100.
+		player = new Player(100);
+		System.out.println("woo");
 	}
-	public static void blackjack() {
+	public void blackjack() {
 		Blackjack.play(player);
 	}
-	public static void roulette() {
+	public void roulette() {
 		Roulette.play(player);
 	}
-	public static void slots() {
+	public void slots() {
 		Slots.play(player);
 	}
     /**************************************************************** 
