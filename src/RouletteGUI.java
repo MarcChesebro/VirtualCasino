@@ -96,7 +96,7 @@ public class RouletteGUI implements Initializable{
 	
 	@FXML 
 	public void betButton() {
-		int singlenum;
+		int singlenum = 0;
 		try {	
 			bet = Integer.parseInt(bettxt.getText());
 		}catch (NumberFormatException e) {
