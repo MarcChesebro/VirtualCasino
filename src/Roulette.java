@@ -43,7 +43,7 @@ public class Roulette  {
 							+ " table!!");
 					break;
 				}
-				int multiplier = wheel.checkBet(betType);
+				int multiplier = wheel.checkBet(betType, 0);
 				System.out.println("Board Value:" 
 				+ wheel.getValue());
 				if(multiplier == 0) {
