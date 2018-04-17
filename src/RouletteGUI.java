@@ -64,6 +64,9 @@ public class RouletteGUI implements Initializable{
 	@FXML
 	private Label spunNumber;
 	
+	@FXML
+	private Label playermonlbl;
+	
 	private RouWheel rou = new RouWheel();
 	private int bet = 0;
 	private Random random = new Random();
@@ -86,6 +89,9 @@ public class RouletteGUI implements Initializable{
 		singlenumrb.setToggleGroup(g1);
 		spunNumber.setText("spin!");
 		g1.selectToggle(column1rb);
+		playermonlbl.setText(
+				String.valueOf(MenuGUI.casino
+						.getPlayer().getMoney()));
 	}
 	
 	@FXML 
@@ -131,11 +137,12 @@ public class RouletteGUI implements Initializable{
 				multiplier = rou.checkBet(6, 0);
 			}else if(dozen3rb.isPressed()) {
 				multiplier = rou.checkBet(7, 0);
-			}else if(singlenumrb.isPressed()) {
+			}else {
 				multiplier = rou.checkBet(1, singlenum);
 			}
-			
 		}
+		playermonlbl.setText(String.valueOf(MenuGUI.casino
+						.getPlayer().getMoney()));
 	}
 	
 	@FXML 

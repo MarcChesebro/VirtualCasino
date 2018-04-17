@@ -24,177 +24,177 @@ public class JUnits {
 	public void testRouWheelCheckBetCol1T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertTrue(wheel.checkBet(2) == 2);
+		assertTrue(wheel.checkBet(2, 0) == 2);
 	}
 	
 	@Test
 	public void testInvalidBet() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertTrue(wheel.checkBet(15) == 0);
+		assertTrue(wheel.checkBet(15, 0) == 0);
 	}
 
 	@Test
 	public void testRouWheelCheckBetCol1F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(33);
-		assertFalse(wheel.checkBet(2) == 2);
+		assertFalse(wheel.checkBet(2, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetCol2T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertTrue(wheel.checkBet(3) == 2);
+		assertTrue(wheel.checkBet(3, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetCol2F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(33);
-		assertFalse(wheel.checkBet(3) == 2);
+		assertFalse(wheel.checkBet(3, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetCol3T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(3);
-		assertTrue(wheel.checkBet(4) == 2);
+		assertTrue(wheel.checkBet(4, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetCol3F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(32);
-		assertFalse(wheel.checkBet(4) == 2);
+		assertFalse(wheel.checkBet(4, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetDoz1T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertTrue(wheel.checkBet(5) == 2);
+		assertTrue(wheel.checkBet(5, 0) == 2);
 		wheel.setValue(32);
-		assertFalse(wheel.checkBet(5) == 2);
+		assertFalse(wheel.checkBet(5, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetDoz1F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(32);
-		assertFalse(wheel.checkBet(5) == 2);
+		assertFalse(wheel.checkBet(5, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetDoz2T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(13);
-		assertTrue(wheel.checkBet(6) == 2);
+		assertTrue(wheel.checkBet(6, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetDoz2F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertFalse(wheel.checkBet(6) == 2);
+		assertFalse(wheel.checkBet(6, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetDoz3T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(35);
-		assertTrue(wheel.checkBet(7) == 2);
+		assertTrue(wheel.checkBet(7, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetDoz3F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertFalse(wheel.checkBet(7) == 2);
+		assertFalse(wheel.checkBet(7, 0) == 2);
 	}
 
 	@Test
 	public void testRouWheelCheckBetBlackT() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertTrue(wheel.checkBet(8) == 1);
+		assertTrue(wheel.checkBet(8, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetBlackF() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertFalse(wheel.checkBet(8) == 1);
+		assertFalse(wheel.checkBet(8, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetRedT() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertTrue(wheel.checkBet(9) == 1);
+		assertTrue(wheel.checkBet(9, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetRedF() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertFalse(wheel.checkBet(9) == 1);
+		assertFalse(wheel.checkBet(9, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetOddsT() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertTrue(wheel.checkBet(10) == 1);
+		assertTrue(wheel.checkBet(10, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetOddsF() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertFalse(wheel.checkBet(10) == 1);
+		assertFalse(wheel.checkBet(10, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetEvensT() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertTrue(wheel.checkBet(11) == 1);
+		assertTrue(wheel.checkBet(11, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetEvensF() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(1);
-		assertFalse(wheel.checkBet(11) == 1);
+		assertFalse(wheel.checkBet(11, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetHalf1T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertTrue(wheel.checkBet(12) == 1);
+		assertTrue(wheel.checkBet(12, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetHalf1F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(34);
-		assertFalse(wheel.checkBet(12) == 1);
+		assertFalse(wheel.checkBet(12, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetHalf2T() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(34);
-		assertTrue(wheel.checkBet(13) == 1);
+		assertTrue(wheel.checkBet(13, 0) == 1);
 	}
 
 	@Test
 	public void testRouWheelCheckBetHalf2F() {
 		RouWheel wheel = new RouWheel();
 		wheel.setValue(2);
-		assertFalse(wheel.checkBet(13) == 1);
+		assertFalse(wheel.checkBet(13, 0) == 1);
 	}
 	
 	@Test
