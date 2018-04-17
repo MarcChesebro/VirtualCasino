@@ -1,79 +1,125 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BlackJackGUI implements Initializable {
 
+    /** Label for the dealers card 1. */
     @FXML
     private Label dealerLabel1;
+
+    /** Label for the dealers card 2. */
     @FXML
     private Label dealerLabel2;
+
+    /** Label for the dealers card 3. */
     @FXML
     private Label dealerLabel3;
+
+    /** Label for the dealers card 4. */
     @FXML
     private Label dealerLabel4;
+
+    /** Label for the dealers card 5. */
     @FXML
     private Label dealerLabel5;
+
+    /** Label for the dealers card 6. */
     @FXML
     private Label dealerLabel6;
+
+    /** Label for the dealers card 7. */
     @FXML
     private Label dealerLabel7;
+
+    /** Label for the dealers card 8. */
     @FXML
     private Label dealerLabel8;
 
+    /** Label for the players card 1. */
     @FXML
     private Label playerLabel1;
+
+    /** Label for the players card 2. */
     @FXML
     private Label playerLabel2;
+
+    /** Label for the players card 3. */
     @FXML
     private Label playerLabel3;
+
+    /** Label for the players card 4. */
     @FXML
     private Label playerLabel4;
+
+    /** Label for the players card 5. */
     @FXML
     private Label playerLabel5;
+
+    /** Label for the players card 6. */
     @FXML
     private Label playerLabel6;
+
+    /** Label for the players card 7. */
     @FXML
     private Label playerLabel7;
+
+    /** Label for the players card 8. */
     @FXML
     private Label playerLabel8;
 
+    /** Label array to hold all the labels for dealer. */
     private Label[] dealerHandLabels = new Label[8];
+
+    /** Label array to hold all the labels for player. */
     private Label[] playerHandLabels = new Label[8];
 
+    /** Label for the dealers score. */
     @FXML
     private Label dealerScore;
+
+    /** Label for the players score. */
     @FXML
     private Label playerScore;
 
+    /** Label for the players money. */
     @FXML
     private Label playerMoney;
 
-    @FXML
-    private ComboBox betPick;
-
+    /** Button to start a hand. */
     @FXML
     private Button startButton;
+
+    /** Button to receive another card. */
     @FXML
     private Button hitButton;
+
+    /** Button to hold. */
     @FXML
     private Button holdButton;
 
+    /** TextField to get users bet amount. */
     @FXML
     private TextField betAmountText;
+
+    /** label to give invalid input feedback to user. */
     @FXML
     private Label errorLabel;
 
+    /** variable for holding current game. */
     private Blackjack game;
+
+    /** variable for holding current bet. */
     private int bet = -1;
 
+    /*************************************************************************
+     * Method for setting up initial values.
+     *************************************************************************/
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //game = MenuGUI.casino.getBlackjack();
         initializeHandLabels();
         clearHands();
 
@@ -81,6 +127,9 @@ public class BlackJackGUI implements Initializable {
         hitButton.setDisable(true);
     }
 
+    /**************************************************************************
+     * method for initializing labels and label arrays.
+     **************************************************************************/
     private void initializeHandLabels() {
         dealerHandLabels[0] = dealerLabel1;
         dealerHandLabels[1] = dealerLabel2;
@@ -107,6 +156,9 @@ public class BlackJackGUI implements Initializable {
         updateErrorlabel("");
     }
 
+    /********************************************************************
+     *  Action when hit button is pressed.
+     ************************************************************************/
     @FXML
     public void hitAction(){
         addToPlayerHand();
@@ -121,6 +173,9 @@ public class BlackJackGUI implements Initializable {
         }
     }
 
+    /********************************************************************
+     *  Action when hold button is pressed.
+     ************************************************************************/
     @FXML
     public void holdAction(){
         resolveHands();
@@ -130,6 +185,9 @@ public class BlackJackGUI implements Initializable {
         startButton.setDisable(false);
     }
 
+    /********************************************************************
+     *  Action when start button is pressed.
+     ************************************************************************/
     @FXML
     public void startAction(){
         if(game == null){
@@ -138,12 +196,15 @@ public class BlackJackGUI implements Initializable {
 
         reset();
 
-
         try {
             bet = Integer.parseInt(betAmountText.getText());
         }catch (NumberFormatException e){
             updateErrorlabel("Not a Number");
             return;
+        }
+
+        if(bet < 0){
+            updateErrorlabel("Must Give Valid Number");
         }
 
         if(bet > MenuGUI.casino.getPlayer().getMoney()){
@@ -165,10 +226,16 @@ public class BlackJackGUI implements Initializable {
         startButton.setDisable(true);
     }
 
+    /************************************************************************
+     *  Action when hit button is pressed.
+     ************************************************************************/
     public void exit(){
         MenuGUI.screenController.activate("main");
     }
 
+    /**************************************************************************
+     * Resolves the current hand state and gives reward or removes bet amount
+     **************************************************************************/
     private void resolveHands(){
 
         while(game.dealerScore() < 17){
@@ -192,11 +259,18 @@ public class BlackJackGUI implements Initializable {
         }
         updatePlayerMoneyLabel();
     }
+
+    /************************************************************************
+     * Updates the playerMoney Label to the players current amount.
+     ************************************************************************/
     private void updatePlayerMoneyLabel(){
         playerMoney.setText(String.valueOf(MenuGUI.casino.getPlayer().getMoney()));
     }
 
-    public void addToDealerHand(){
+    /************************************************************************
+     * Draws a card and add it to the dealers hand.
+     ************************************************************************/
+    private void addToDealerHand(){
 
         Card card = game.dealerDraw();
 
@@ -208,7 +282,10 @@ public class BlackJackGUI implements Initializable {
         }
     }
 
-    public void addToPlayerHand(){
+    /************************************************************************
+     * Draws a card and add it to the players hand.
+     ************************************************************************/
+    private void addToPlayerHand(){
 
         Card card = game.playerDraw();
 
@@ -220,18 +297,33 @@ public class BlackJackGUI implements Initializable {
         }
     }
 
+    /************************************************************************
+     * Updates the players score Label.
+     * @param Score int to set the label to.
+     ************************************************************************/
     private void updatePlayerScore(int Score){
         playerScore.setText(String.valueOf(Score));
     }
 
+    /************************************************************************
+     * Updates the dealers score Label.
+     * @param Score int to set the label to.
+     ************************************************************************/
     private void updateDealerScore(int Score){
         dealerScore.setText(String.valueOf(Score));
     }
 
+    /************************************************************************
+     * Updates the error Label.
+     * @param str String to set the label to.
+     ************************************************************************/
     private void updateErrorlabel(String str){
         errorLabel.setText(str);
     }
 
+    /************************************************************************
+     * Resets the hand. clearing both hands and making sure a new bet must be made.
+     ************************************************************************/
     private void reset(){
         game.getDealerHand().clear();
         game.getPlayerHand().clear();
@@ -242,6 +334,9 @@ public class BlackJackGUI implements Initializable {
         startButton.setDisable(false);
     }
 
+    /************************************************************************
+     * Clears both hand label arrays and sets the score labels to 0.
+     ************************************************************************/
     private void clearHands(){
         for(int i = 0; i < dealerHandLabels.length; i++){
             dealerHandLabels[i].setText("");
