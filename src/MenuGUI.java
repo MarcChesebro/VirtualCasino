@@ -21,6 +21,7 @@ public class MenuGUI extends Application {
 
              screenController.addScreen("main", FXMLLoader.load(getClass().getResource("/gui_css.fxml")));
              screenController.addScreen("blackjack", FXMLLoader.load(getClass().getResource("/blackjack.fxml")));
+             screenController.addScreen("roulette", FXMLLoader.load(getClass().getResource("/roulette.fxml")));
 
              primaryStage.setScene(scene);
              primaryStage.setTitle("Virtual Casino");
