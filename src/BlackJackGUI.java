@@ -146,7 +146,7 @@ public class BlackJackGUI implements Initializable {
             return;
         }
 
-        if(bet > MenuGUI.casino.player.getMoney()){
+        if(bet > MenuGUI.casino.getPlayer().getMoney()){
             updateErrorlabel("Not Enough Money");
             return;
         }
@@ -182,18 +182,18 @@ public class BlackJackGUI implements Initializable {
 
         //TODO update winLabel
         if(playerScore > 21){
-            MenuGUI.casino.player.changeMoney(-bet);
+            MenuGUI.casino.getPlayer().changeMoney(-bet);
         }else if(dealerScore > 21){
-            MenuGUI.casino.player.changeMoney(bet);
+            MenuGUI.casino.getPlayer().changeMoney(bet);
         }else if(dealerScore >= playerScore){
-            MenuGUI.casino.player.changeMoney(-bet);
+            MenuGUI.casino.getPlayer().changeMoney(-bet);
         }else{
-            MenuGUI.casino.player.changeMoney(bet);
+            MenuGUI.casino.getPlayer().changeMoney(bet);
         }
         updatePlayerMoneyLabel();
     }
     private void updatePlayerMoneyLabel(){
-        playerMoney.setText(String.valueOf(MenuGUI.casino.player.getMoney()));
+        playerMoney.setText(String.valueOf(MenuGUI.casino.getPlayer().getMoney()));
     }
 
     public void addToDealerHand(){

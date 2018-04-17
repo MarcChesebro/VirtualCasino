@@ -25,6 +25,7 @@ public class MenuGUI extends Application {
              primaryStage.setScene(scene);
              primaryStage.setTitle("Virtual Casino");
 
+             primaryStage.setResizable(true);
              primaryStage.show();
          }
          catch (IOException e) {

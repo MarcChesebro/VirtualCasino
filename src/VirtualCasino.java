@@ -9,25 +9,48 @@ import java.util.Scanner;
 * @version 2/23/18
 ****************************************************************/
 public class VirtualCasino {
-	Player player;
+
+	/**instance variable for player.*/
+	private Player player;
+
+	/**instance variable for blackjack.*/
 	private Blackjack blackjack;
 
+
+	/*********************************
+	 * constructor for virtual casino.
+	 ********************************/
 	public VirtualCasino() {
 		//initialize player with $100.
 		player = new Player(100);
-		System.out.println("woo");
 	}
 
 	public Blackjack getBlackjack() {
 		return blackjack;
 	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	/*********************************
+	 * calls blackjack's play method.
+	 ********************************/
 	public void blackjack() {
 		this.blackjack = new Blackjack();
 		MenuGUI.screenController.activate("blackjack");
 	}
+	
+	/***********************************
+	 * calls roulette's play method.
+	 **********************************/
 	public void roulette() {
 		Roulette.play(player);
 	}
+	
+	/**********************************
+	 * calls slots' play method.
+	 *********************************/
 	public void slots() {
 		Slots.play(player);
 	}
@@ -69,7 +92,7 @@ public class VirtualCasino {
         	if(x == 1) {
         		Roulette.play(player);
         	}else if (x == 2){
-        		Blackjack.play(player);
+        		//Blackjack.play(player);
         	}else if(x == 3){
         		Slots.play(player);
         	}else if(x == 4){
