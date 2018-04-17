@@ -104,7 +104,9 @@ public class RouletteGUI implements Initializable{
 			return;
 		}
 		try {
-			singlenum = Integer.parseInt(singlenumtxt.getText());
+			if(singlenumrb.isPressed()) {
+				singlenum = Integer.parseInt(singlenumtxt.getText());
+			}
 		}catch (NumberFormatException e) {
 			spunNumber.setText("desired number is not a number");
 			return;
