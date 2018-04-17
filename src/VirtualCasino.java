@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Scanner;
 
 /**************************************************************** 
@@ -9,14 +10,20 @@ import java.util.Scanner;
 ****************************************************************/
 public class VirtualCasino {
 	Player player;
-	
+	private Blackjack blackjack;
+
 	public VirtualCasino() {
 		//initialize player with $100.
 		player = new Player(100);
 		System.out.println("woo");
 	}
+
+	public Blackjack getBlackjack() {
+		return blackjack;
+	}
 	public void blackjack() {
-		Blackjack.play(player);
+		this.blackjack = new Blackjack();
+		MenuGUI.screenController.activate("blackjack");
 	}
 	public void roulette() {
 		Roulette.play(player);

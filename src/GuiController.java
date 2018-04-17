@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 *         Patrick McMahon
 * @version 4/14/18
 ****************************************************************/
-public class GuiController extends MenuGUI implements Initializable {
+public class GuiController implements Initializable {
 	
 	/*******************************************************
 	 * Runs at runtime of the GUI.
@@ -28,7 +28,7 @@ public class GuiController extends MenuGUI implements Initializable {
 	 ******************************************************/
 	@FXML 
 	private void blackjackButton() {
-		casino.blackjack();
+		MenuGUI.casino.blackjack();
 		//TODO: the whole gui
 	}
 	/********************************************************
@@ -36,7 +36,7 @@ public class GuiController extends MenuGUI implements Initializable {
 	 *******************************************************/
 	@FXML 
 	private void slotButton() {
-		casino.slots();
+		MenuGUI.casino.slots();
 		//TODO: Lets user go below 0, needs a "return" that comes back to the main menu
 	}
 	
@@ -53,7 +53,7 @@ public class GuiController extends MenuGUI implements Initializable {
 	 ******************************************************/
 	@FXML 
 	private void rouButton() {
-		casino.roulette();
+		MenuGUI.casino.roulette();
 		//TODO: the whole gui
 	}
 	
