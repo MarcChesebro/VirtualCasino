@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="913.0" prefWidth="1381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="913.0" prefWidth="1381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RouletteGUI">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -52,11 +52,6 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="598.0" prefWidth="897.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
             <GridPane prefHeight="848.0" prefWidth="1381.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="62.0" />
@@ -103,6 +98,9 @@
                   <TextField fx:id="singlenumtxt" GridPane.columnIndex="4" GridPane.rowIndex="8" />
                   <ImageView fx:id="numimg" fitHeight="236.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <ImageView fx:id="boardimg" fitHeight="234.0" fitWidth="630.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#betButton" text="Bet" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                  <Button mnemonicParsing="false" onAction="#exitButton" text="Exit" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                  <Label fx:id="spunNumber" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
       </children>

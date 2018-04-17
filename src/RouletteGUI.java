@@ -15,7 +15,6 @@ public class RouletteGUI implements Initializable{
 	@FXML
 	private TextField bettxt;
 	
-	
 	final ToggleGroup g1 = new ToggleGroup();
 	
 	@FXML
@@ -60,6 +59,9 @@ public class RouletteGUI implements Initializable{
 	@FXML
 	private RadioButton singlenumrb;
 	
+	@FXML
+	private Label spunNumber;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		half1rb.setToggleGroup(g1);	
@@ -75,6 +77,18 @@ public class RouletteGUI implements Initializable{
 		dozen2rb.setToggleGroup(g1);
 		dozen3rb.setToggleGroup(g1);
 		singlenumrb.setToggleGroup(g1);
+		spunNumber.setText("spin!");
 	}
+	
+	@FXML 
+	public void betButton() {
+		
+	}
+	
+	@FXML 
+	public void exitButton() {
+		
+	}
+	
 
 }

@@ -45,7 +45,7 @@ public class VirtualCasino {
 	 * calls roulette's play method.
 	 **********************************/
 	public void roulette() {
-		Roulette.play(player);
+		//Roulette.play(player);
 		MenuGUI.screenController.activate("roulette");
 	}
 	
