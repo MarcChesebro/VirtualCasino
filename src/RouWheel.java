@@ -139,12 +139,8 @@ public class RouWheel {
 	 * @return returns multiplier to multiply the bet by
 	 *************************************************/
 	//TODO: Add other bets with GUI in release 2
-	public int checkBet(final int type) {
-		Scanner scanner = new Scanner(System.in, "utf-8");
+	public int checkBet(final int type, int num) {
 		if(type == 1) {
-			int num;
-			System.out.println("choose a number 1-36");
-			num = scanner.nextInt();
 			if(value == num) {
 				return 35;
 			}

@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Scanner;
 
 /**************************************************************** 
@@ -8,9 +9,14 @@ import java.util.Scanner;
 * @version 2/23/18
 ****************************************************************/
 public class VirtualCasino {
+
 	/**instance variable for player.*/
 	private Player player;
-	
+
+	/**instance variable for blackjack.*/
+	private Blackjack blackjack;
+
+
 	/*********************************
 	 * constructor for virtual casino.
 	 ********************************/
@@ -18,19 +24,29 @@ public class VirtualCasino {
 		//initialize player with $100.
 		player = new Player(100);
 	}
-	
+
+	public Blackjack getBlackjack() {
+		return blackjack;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
 	/*********************************
 	 * calls blackjack's play method.
 	 ********************************/
 	public void blackjack() {
-		Blackjack.play(player);
+		this.blackjack = new Blackjack();
+		MenuGUI.screenController.activate("blackjack");
 	}
 	
 	/***********************************
 	 * calls roulette's play method.
 	 **********************************/
 	public void roulette() {
-		Roulette.play(player);
+		//Roulette.play(player);
+		MenuGUI.screenController.activate("roulette");
 	}
 	
 	/**********************************
@@ -77,7 +93,7 @@ public class VirtualCasino {
         	if(x == 1) {
         		Roulette.play(player);
         	}else if (x == 2){
-        		Blackjack.play(player);
+        		//Blackjack.play(player);
         	}else if(x == 3){
         		Slots.play(player);
         	}else if(x == 4){

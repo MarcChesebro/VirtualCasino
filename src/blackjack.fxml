@@ -11,12 +11,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Blackjack">
+<AnchorPane prefHeight="574.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BlackJackGUI">
    <children>
-      <HBox layoutX="9.0" layoutY="70.0" prefHeight="100.0" prefWidth="583.0">
+      <HBox layoutX="9.0" layoutY="70.0" prefHeight="100.0" prefWidth="660.0">
          <children>
-            <GridPane gridLinesVisible="true" prefHeight="100.0" prefWidth="620.0">
+            <GridPane fx:id="dealerGrid" gridLinesVisible="true" prefHeight="104.0" prefWidth="655.0" HBox.hgrow="ALWAYS">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,26 +24,54 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Label" />
-                  <Label text="Label" GridPane.columnIndex="1" />
-                  <Label text="Label" GridPane.columnIndex="2" />
-                  <Label text="Label" GridPane.columnIndex="3" />
-                  <Label text="Label" GridPane.columnIndex="4" />
-                  <Label text="Label" GridPane.columnIndex="5" />
-                  <Label text="Label" GridPane.columnIndex="6" />
+                  <Label fx:id="dealerLabel1" text="Label" />
+                  <Label fx:id="dealerLabel2" text="Label" GridPane.columnIndex="1" />
+                  <Label fx:id="dealerLabel3" text="Label" GridPane.columnIndex="2" />
+                  <Label fx:id="dealerLabel4" text="Label" GridPane.columnIndex="3" />
+                  <Label fx:id="dealerLabel5" text="Label" GridPane.columnIndex="4" />
+                  <Label fx:id="dealerLabel6" text="Label" GridPane.columnIndex="5" />
+                  <Label fx:id="dealerLabel7" text="Label" GridPane.columnIndex="6" />
+                  <Label fx:id="dealerLabel8" text="Label" GridPane.columnIndex="7" />
                </children>
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="9.0" layoutY="226.0" prefHeight="100.0" prefWidth="594.0" />
-      <Button layoutX="120.0" layoutY="341.0" mnemonicParsing="false" text="Hit" />
-      <Button layoutX="235.0" layoutY="341.0" mnemonicParsing="false" text="Hold" />
+      <HBox layoutX="9.0" layoutY="226.0" prefHeight="100.0" prefWidth="660.0">
+         <children>
+            <GridPane fx:id="dealerGrid1" gridLinesVisible="true" prefHeight="100.0" prefWidth="659.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="playerLabel1" text="Label" />
+                  <Label fx:id="playerLabel2" text="Label" GridPane.columnIndex="1" />
+                  <Label fx:id="playerLabel3" text="Label" GridPane.columnIndex="2" />
+                  <Label fx:id="playerLabel4" text="Label" GridPane.columnIndex="3" />
+                  <Label fx:id="playerLabel5" text="Label" GridPane.columnIndex="4" />
+                  <Label fx:id="playerLabel6" text="Label" GridPane.columnIndex="5" />
+                  <Label fx:id="playerLabel7" text="Label" GridPane.columnIndex="6" />
+                  <Label fx:id="playerLabel8" text="Label" GridPane.columnIndex="7" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children></HBox>
+      <Button fx:id="hitButton" layoutX="120.0" layoutY="341.0" mnemonicParsing="false" onAction="#hitAction" text="Hit" />
+      <Button fx:id="holdButton" layoutX="235.0" layoutY="341.0" mnemonicParsing="false" onAction="#holdAction" text="Hold" />
       <Label layoutX="14.0" layoutY="14.0" prefHeight="56.0" prefWidth="583.0" text="Dealers Hand">
          <font>
             <Font size="24.0" />
@@ -55,5 +82,33 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Button layoutX="510.0" layoutY="341.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
+      <Label fx:id="dealerScore" layoutX="714.0" layoutY="110.0" text="Label" />
+      <Label fx:id="playerScore" layoutX="714.0" layoutY="266.0" text="Label" />
+      <Button fx:id="startButton" layoutX="356.0" layoutY="403.0" mnemonicParsing="false" onAction="#startAction" text="Start Hand" />
+      <MenuBar prefHeight="32.0" prefWidth="822.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextField fx:id="betAmountText" layoutX="212.0" layoutY="403.0" prefHeight="31.0" prefWidth="98.0" />
+      <Label layoutX="123.0" layoutY="408.0" text="Bet Amount:" />
+      <Label layoutX="580.0" layoutY="408.0" text="Your Money:" />
+      <Label fx:id="playerMoney" layoutX="714.0" layoutY="408.0" text="0" />
+      <Label fx:id="errorLabel" layoutX="244.0" layoutY="444.0" text="Label" textFill="#f50000" />
    </children>
 </AnchorPane>
