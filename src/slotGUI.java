@@ -14,9 +14,14 @@ public class slotGUI{
 
 	private Slots current_turn;
 
+	private final String[] CARDSTRING = {"Ten","Jack","Queen","King","Ace"}
+	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"}
+
 	public slotGUI(Slots g_current_turn){
 		current_turn = g_current_turn;
 	}
+
+	public
 
 	public void showWindow(){
 
@@ -32,10 +37,13 @@ public class slotGUI{
 
 		//Creating lables to change when user does various things
 		final JLabel outcome = new JLabel("Win/Lose");
-		final JLabel Wallet = new JLabel("Wallet:   ", JLabel.CENTER);
-		final JLabel betInput = new JLabel("CurrentBet:   ", JLabel.CENTER);
+		int mywallet = current_turn.get_wallet()
+		final JLabel Wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
+		final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
 		JButton roll = new JButton("Roll");
 		JButton change_bet = new JButton("  Change Bet  ");
+      	JButton exit = new JButton("Exit");
+
 
 		//Creates the three sections of the window
 		JPanel title_panel = new JPanel();
@@ -90,6 +98,7 @@ public class slotGUI{
 
 		//Add everything to the three sections
 		title_panel.add(outcome);
+                title_panel.add(exit);
 		gameplay_panel.add(slots_panel);
 		gameplay_panel.add(roll);
 		data_panel.add(change_bet);
@@ -100,12 +109,45 @@ public class slotGUI{
 		roll.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
+
+				//Lets check the bet to make sure it is valid
+				int currBet = current_turn.get_bet(); 
+				if(currBet <= 0){
+					JOptionPane.showMessageDialog(frame,"No bet selected!");
+					return;
+				}else if(!current_turn.check_bet(currBet)) {
+					JOptionPane.showMessageDialog(frame,"Bet Invalid");
+					return;
+				}
+				//Roll the slots
 				current_turn.randomize_slots();
-				int temp =current_turn.update_wallet();
-				String wl = current_turn.win_lose(temp);
-				temp = Math.abs(temp);
-				outcome.setText(wl + temp);
-				//TODO setcards method, and make cards global
+
+				//update the player wallet and return the value
+				int moneyWon = current_turn.update_wallet();
+
+				Wallet.setText("Wallet:  " + current_turn.get_wallet());
+
+				//set the text the user will see
+				String wl = current_turn.win_lose(moneyWon);
+				moneyWon = Math.abs(moneyWon);
+				outcome.setText(wl + moneyWon);
+                
+                //update the card images
+                int cards[] = current_turn.get_slots()
+                for(int i = 0; i<number_of_slots;i++){
+          			String file_name = CARDIMAGES[cards[i]] ;
+					String working_directory = System.getProperty("user.dir") + "/images";
+					String file_path = working_directory + System.getProperty("file.separator") + file_name;
+					
+					//Check if the images exsist
+					try{
+						BufferedImage img = ImageIO.read(new File(file_path));
+						ImageIcon front_icon = new ImageIcon(img);
+						slot_Arr[i].setIcon(front_icon)
+                	}catch(IOException exception){
+                		slot_Arr[i].setText(CARDSTRING[cards[i]]);
+                	}
+                }
 			}
 		});
 
@@ -115,14 +157,27 @@ public class slotGUI{
 			public void actionPerformed(ActionEvent e){
 				String new_bet = JOptionPane.showInputDialog(frame,"Enter new bet.");
 				try{
-					//TODO call a check that the bet is valid.
-					current_turn.set_bet(Integer.parseInt(new_bet));
+					int tryBet = Integer.parseInt(new_bet);
+					if(current_turn.check_bet(tryBet)){
+						current_turn.set_bet(tryBet);
+						betInput.setText("Current Bet:  " + tryBet);						
+					}else{
+						JOptionPane.showMessageDialog(frame,"Invalid Bet!!");
+					}
 				}catch(NumberFormatException exc){
 
 				}
 			}
 		});
 
+                //What to do when the change bet button is pressed.
+		exit.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e){
+				System.exit(0);
+			}
+		});
+                
 		//Adds the sections of the window to the frame
 		frame.add(title_panel);
 		frame.add(gameplay_panel);

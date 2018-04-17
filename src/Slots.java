@@ -42,6 +42,10 @@ public class Slots{
 		return this.bet;
 	}
 
+	public int get_wallet(){
+		return this.player.getMoney();
+	}
+
 	public void set_num_slots(int g_num_slots){
 		this.num_slots = g_num_slots;
 	}
@@ -67,18 +71,18 @@ public class Slots{
 			int temp = rand.nextInt(100)+1;
 			if(temp<30) {
 			//	System.out.println("ten");
-				this.slots_arr[i] = 1;
+				this.slots_arr[i] = 0;
 			}else if(temp < 55 && temp >= 30) {
-				this.slots_arr[i] = 2;
+				this.slots_arr[i] = 1;
 			//	System.out.println("jack");
 			}else if(temp < 75 && temp >= 55) {
-				this.slots_arr[i] = 3;
+				this.slots_arr[i] = 2;
 			//	System.out.println("queen");
 			}else if(temp < 90 && temp >= 75) {
-				this.slots_arr[i] = 4;
+				this.slots_arr[i] = 3;
 			//	System.out.println("king");
 			}else if(temp <= 100 && temp >= 90) {
-				this.slots_arr[i] = 5;
+				this.slots_arr[i] = 4;
 			//	System.out.println("ace");
 			}
 		}
@@ -133,7 +137,7 @@ public class Slots{
 
 	}
 
-//Output to let the user know the outcome.
+	//Output to let the user know the outcome.
 	public String win_lose(int x){
 		String retVal = "";
 		//System.out.println("x: "+x+"bet: " + this.bet);
@@ -148,6 +152,12 @@ public class Slots{
 		return retVal;
 	}
 
-//TODO Add a validate bet method here
+	public Boolean check_bet(int testBet){
 
+		if(testBet >= 1 && testBet <= player.getMoney()){
+			return true;
+		}
+
+		return false;
+	}
 }
