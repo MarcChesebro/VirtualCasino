@@ -62,6 +62,10 @@ public class RouletteGUI implements Initializable{
 	@FXML
 	private Label spunNumber;
 	
+	private RouWheel rou = new RouWheel();
+	private int bet = 0;
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		half1rb.setToggleGroup(g1);	
@@ -82,12 +86,11 @@ public class RouletteGUI implements Initializable{
 	
 	@FXML 
 	public void betButton() {
-		
 	}
 	
 	@FXML 
 	public void exitButton() {
-		
+		MenuGUI.screenController.activate("main");
 	}
 	
 
