@@ -142,6 +142,13 @@ public class RouletteGUI implements Initializable{
 			}else {
 				multiplier = rou.checkBet(1, singlenum);
 			}
+			if(multiplier == 0) {
+				MenuGUI.casino.getPlayer()
+				.changeMoney(bet * -1);
+			}else {
+				MenuGUI.casino.getPlayer()
+				.changeMoney(bet * multiplier);
+			}
 		}
 		playermonlbl.setText(String.valueOf(MenuGUI.casino
 						.getPlayer().getMoney()));
