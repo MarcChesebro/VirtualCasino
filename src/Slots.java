@@ -70,20 +70,15 @@ public class Slots{
 			Random rand = new Random();
 			int temp = rand.nextInt(100)+1;
 			if(temp<30) {
-			//	System.out.println("ten");
 				this.slots_arr[i] = 0;
 			}else if(temp < 55 && temp >= 30) {
 				this.slots_arr[i] = 1;
-			//	System.out.println("jack");
 			}else if(temp < 75 && temp >= 55) {
 				this.slots_arr[i] = 2;
-			//	System.out.println("queen");
 			}else if(temp < 90 && temp >= 75) {
 				this.slots_arr[i] = 3;
-			//	System.out.println("king");
 			}else if(temp <= 100 && temp >= 90) {
 				this.slots_arr[i] = 4;
-			//	System.out.println("ace");
 			}
 		}
 	}
@@ -140,7 +135,7 @@ public class Slots{
 	//Output to let the user know the outcome.
 	public String win_lose(int x){
 		String retVal = "";
-		//System.out.println("x: "+x+"bet: " + this.bet);
+
 		if(x < this.bet){
 			retVal = "You Lost $"; 
 		}else if (x == this.bet){
@@ -152,6 +147,7 @@ public class Slots{
 		return retVal;
 	}
 
+	//method to make sure the given bet is valid.
 	public Boolean check_bet(int testBet){
 
 		if(testBet >= 1 && testBet <= player.getMoney()){

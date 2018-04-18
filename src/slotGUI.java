@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import java.awt.Color;
@@ -14,45 +15,50 @@ public class slotGUI{
 
 	private Slots current_turn;
 
-	private final String[] CARDSTRING = {"Ten","Jack","Queen","King","Ace"}
-	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"}
+	private final String[] CARDSTRING = {"Ten","Jack","Queen","King","Ace"};
+	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
 
 	public slotGUI(Slots g_current_turn){
 		current_turn = g_current_turn;
 	}
-
-	public
 
 	public void showWindow(){
 
 		//the background color of the window
 		Color bgc = new Color(255,150,150);
 
+                //the color of the roll button
+      		Color rc = new Color(150,150,255);
+
+
 		//Creates the JFrame and sets the details
 		frame = new JFrame("Slots");
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		frame.setLayout(new GridLayout(3,1));
+		frame.setLayout(new FlowLayout());
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setBackground(bgc);
 
+                //The panel that we will add to the frame
+                JPanel panel = new JPanel();
+                GroupLayout layout = new GroupLayout(panel);
+                panel.setLayout(layout);
+                
 		//Creating lables to change when user does various things
-		final JLabel outcome = new JLabel("Win/Lose");
-		int mywallet = current_turn.get_wallet()
+		final JLabel outcome = new JLabel("Welcome to Slots!");
+		int mywallet = current_turn.get_wallet();
 		final JLabel Wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
-		final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
+                final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
 		JButton roll = new JButton("Roll");
-		JButton change_bet = new JButton("  Change Bet  ");
-      	JButton exit = new JButton("Exit");
+		JButton change_bet = new JButton("Set Bet  ");
+		JButton exit = new JButton("Exit");
 
-
-		//Creates the three sections of the window
-		JPanel title_panel = new JPanel();
-		title_panel.setBackground(bgc);
-		JPanel gameplay_panel = new JPanel();
-		gameplay_panel.setBackground(bgc);
+		//Creates the panels for roll and other data
+		JPanel roll_panel = new JPanel();
+		roll_panel.setBackground(bgc);
+                roll_panel.setLayout(new GridLayout(1,1));
 		JPanel data_panel = new JPanel();
 		data_panel.setBackground(bgc);
-		data_panel.setLayout(new FlowLayout());
+		data_panel.setLayout(new GridLayout(1,3));
 
 		//Creates the panel where the slots will reside
 		int number_of_slots = this.current_turn.get_num_slots();
@@ -96,18 +102,21 @@ public class slotGUI{
 			JOptionPane.showMessageDialog(null, label);
 		}
 
-		//Add everything to the three sections
-		title_panel.add(outcome);
-                title_panel.add(exit);
-		gameplay_panel.add(slots_panel);
-		gameplay_panel.add(roll);
-		data_panel.add(change_bet);
-		data_panel.add(betInput);
+		//Add all of the components to the panels
 		data_panel.add(Wallet);
+                data_panel.add(change_bet);
+                data_panel.add(betInput);
+                roll.setBorder(BorderFactory.createLineBorder(bgc,10));
+                Font font = new Font("Arial", Font.PLAIN, 40);
+                roll.setFont(font);
+                roll.setBackground(rc);
+                roll_panel.add(roll);
+
 
 		//What to do when the roll button is pressed
 		roll.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent e){
 
 				//Lets check the bet to make sure it is valid
@@ -131,11 +140,11 @@ public class slotGUI{
 				String wl = current_turn.win_lose(moneyWon);
 				moneyWon = Math.abs(moneyWon);
 				outcome.setText(wl + moneyWon);
-                
-                //update the card images
-                int cards[] = current_turn.get_slots()
-                for(int i = 0; i<number_of_slots;i++){
-          			String file_name = CARDIMAGES[cards[i]] ;
+
+				//update the card images
+				int cards[] = current_turn.get_slots();
+				for(int i = 0; i<number_of_slots;i++){
+					String file_name = CARDIMAGES[cards[i]] ;
 					String working_directory = System.getProperty("user.dir") + "/images";
 					String file_path = working_directory + System.getProperty("file.separator") + file_name;
 					
@@ -143,22 +152,24 @@ public class slotGUI{
 					try{
 						BufferedImage img = ImageIO.read(new File(file_path));
 						ImageIcon front_icon = new ImageIcon(img);
-						slot_Arr[i].setIcon(front_icon)
-                	}catch(IOException exception){
-                		slot_Arr[i].setText(CARDSTRING[cards[i]]);
-                	}
-                }
+						slot_Arr[i].setIcon(front_icon);
+					}catch(IOException exception){
+						slot_Arr[i].setText(CARDSTRING[cards[i]]);
+					}
+				}
 			}
 		});
 
 		//What to do when the change bet button is pressed.
 		change_bet.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent e){
 				String new_bet = JOptionPane.showInputDialog(frame,"Enter new bet.");
 				try{
 					int tryBet = Integer.parseInt(new_bet);
 					if(current_turn.check_bet(tryBet)){
+                                                change_bet.setText("Change Bet");
 						current_turn.set_bet(tryBet);
 						betInput.setText("Current Bet:  " + tryBet);						
 					}else{
@@ -170,18 +181,41 @@ public class slotGUI{
 			}
 		});
 
-                //What to do when the change bet button is pressed.
+		//What to do when the change bet button is pressed.
 		exit.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent e){
 				System.exit(0);
 			}
 		});
+
+                //This is the layout for the whole frame
+                layout.setHorizontalGroup(
+                        layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                            .addGroup(layout.createSequentialGroup())
+                                .addComponent(outcome)
+                            .addGroup(layout.createSequentialGroup())
+                                .addComponent(slots_panel)
+                            .addGroup(layout.createSequentialGroup())
+                                .addComponent(data_panel)
+                            .addGroup(layout.createSequentialGroup())
+                                .addComponent(roll_panel)
+                            .addGroup(layout.createSequentialGroup())
+                                .addComponent(exit)
+                );
+                layout.setVerticalGroup(
+                        layout.createSequentialGroup()
+                            .addComponent(outcome)
+                            .addComponent(slots_panel)
+                            .addComponent(roll_panel)
+                            .addComponent(data_panel)
+                            .addComponent(exit)
+                );
                 
-		//Adds the sections of the window to the frame
-		frame.add(title_panel);
-		frame.add(gameplay_panel);
-		frame.add(data_panel);
+                //add the panel to the frame.
+                panel.setBackground(bgc);
+                frame.add(panel);
 		this.frame.setVisible(true);
 		
 	}
