@@ -1,5 +1,5 @@
 /**
- * Represents the player of the game.
+ * Description: Represents the player of the game.
  *
  * @author Marc Chesebro
  * @version 2/23/2018
@@ -15,6 +15,7 @@ public class Player {
     /**
      * Constructor that take the amount of money the player starts with.
      * @param money amount of money the player starts with.
+     * @param name name of the player
      */
     public Player(final int money, final String name) {
         this.money = money;

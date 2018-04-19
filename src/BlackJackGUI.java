@@ -8,46 +8,83 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Description: Class for the GUI to play blackjack.
+ *
+ * @author Marc Chesebro
+ * @version 4/19/2018
+ */
 public class BlackJackGUI implements Initializable {
 
+    /** ImageBox 1 for dealer hand. */
     @FXML
     private ImageView dealerImage1;
+
+    /** ImageBox 2 for dealer hand. */
     @FXML
     private ImageView dealerImage2;
+
+    /** ImageBox 3 for dealer hand. */
     @FXML
     private ImageView dealerImage3;
+
+    /** ImageBox 4 for dealer hand. */
     @FXML
     private ImageView dealerImage4;
+
+    /** ImageBox 5 for dealer hand. */
     @FXML
     private ImageView dealerImage5;
+
+    /** ImageBox 6 for dealer hand. */
     @FXML
     private ImageView dealerImage6;
+
+    /** ImageBox 7 for dealer hand. */
     @FXML
     private ImageView dealerImage7;
+
+    /** ImageBox 8 for dealer hand. */
     @FXML
     private ImageView dealerImage8;
-    /** Label array to hold all the labels for dealer. */
+
+    /** Label array to hold all the images for dealer. */
     private ImageView[] dealerHandImages = new ImageView[8];
 
+    /** ImageBox 1 for player hand. */
     @FXML
     private ImageView playerImage1;
+
+    /** ImageBox 2 for player hand. */
     @FXML
     private ImageView playerImage2;
+
+    /** ImageBox 3 for player hand. */
     @FXML
     private ImageView playerImage3;
+
+    /** ImageBox 4 for player hand. */
     @FXML
     private ImageView playerImage4;
+
+    /** ImageBox 5 for player hand. */
     @FXML
     private ImageView playerImage5;
+
+    /** ImageBox 6 for player hand. */
     @FXML
     private ImageView playerImage6;
+
+    /** ImageBox 7 for player hand. */
     @FXML
     private ImageView playerImage7;
+
+    /** ImageBox 8 for player hand. */
     @FXML
     private ImageView playerImage8;
-    /** Label array to hold all the labels for dealer. */
-    private ImageView[] playerHandImages = new ImageView[8];
 
+    /** Label array to hold all the images for the player. */
+    private ImageView[] playerHandImages = new ImageView[8];
 
     /** Label for the dealers score. */
     @FXML
@@ -100,7 +137,7 @@ public class BlackJackGUI implements Initializable {
     }
 
     /**************************************************************************
-     * method for initializing labels and label arrays.
+     * method for initializing labels and hand arrays.
      **************************************************************************/
     private void initializeHandLabels() {
 

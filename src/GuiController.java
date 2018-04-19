@@ -1,22 +1,20 @@
-                      import java.io.*;
-					  import java.net.URL;
-					  import java.util.Optional;
-					  import java.util.ResourceBundle;
+import java.io.*;
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-					  import javafx.scene.control.*;
-					  import javafx.stage.FileChooser;
-					  import javafx.stage.Stage;
+import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-					  import javax.swing.filechooser.FileNameExtensionFilter;
-
-					  /****************************************************************
+/****************************************************************
 * Description: The Controller for the main gui screen.
 * @author Marc Chesebro
 *         Brendan Caywood
 *         Patrick McMahon
-* @version 4/14/18
+* @version 4/19/18
 ****************************************************************/
 public class GuiController implements Initializable {
 
@@ -66,6 +64,9 @@ public class GuiController implements Initializable {
 		MenuGUI.casino.roulette();
 	}
 
+	/**
+	 * Action for the change user action.
+	 **/
 	@FXML
 	private void changeUserAction(){
 		FileChooser fileChooser = new FileChooser();
@@ -89,6 +90,9 @@ public class GuiController implements Initializable {
 		}
 	}
 
+	/**
+	 * Action for the new user button.
+	 **/
 	@FXML
 	private void newUserAction(){
 		TextInputDialog dialog = new TextInputDialog("Name");
@@ -123,6 +127,9 @@ public class GuiController implements Initializable {
 		}
 	}
 
+	/**
+	 * saves the users data.
+	 **/
 	@FXML
 	private void saveUser(){
 

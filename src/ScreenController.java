@@ -3,6 +3,12 @@ import javafx.scene.layout.Pane;
 
 import java.util.HashMap;
 
+/****************************************************************
+ * Description: used to manage screens for the GUI.
+ * @author Marc Chesebro
+ *
+ * @version 2/19/18
+ ****************************************************************/
 public class ScreenController {
     private HashMap<String, Pane> screenMap = new HashMap<>();
     private Scene main;
