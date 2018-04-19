@@ -13,23 +13,23 @@ public class ScreenController {
     private HashMap<String, Pane> screenMap = new HashMap<>();
     private Scene main;
 
-    public ScreenController(Scene main) {
+    public ScreenController(final Scene main) {
         this.main = main;
     }
 
-    protected void addScreen(String name, Pane pane){
+    protected void addScreen(final String name, final Pane pane){
         screenMap.put(name, pane);
     }
 
-    public Pane getScreen(String name){
+    public Pane getScreen(final String name){
         return screenMap.get(name);
     }
 
-    protected void removeScreen(String name){
+    protected void removeScreen(final String name){
         screenMap.remove(name);
     }
 
-    protected void activate(String name){
+    protected void activate(final String name){
         main.setRoot( screenMap.get(name) );
     }
 }

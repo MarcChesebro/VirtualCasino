@@ -15,32 +15,39 @@ public class MenuGUI extends Application {
 	 public static BlackJackGUI blackjackController;
 	 
      @Override
-     public void start(Stage primaryStage) throws Exception {
+     public void start(final Stage primaryStage) throws Exception {
          try {
-             Parent root = FXMLLoader.load(getClass().getResource("/gui_css.fxml"));
+             Parent root = FXMLLoader.load(getClass()
+            		 .getResource("/gui_css.fxml"));
              Scene scene = new Scene(root);
              screenController = new ScreenController(scene);
-             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/gui_css.fxml"));
-             FXMLLoader blackjackLoader = new FXMLLoader(getClass().getResource("/blackjack.fxml"));
+             FXMLLoader mainLoader = 
+            		 new FXMLLoader(getClass()
+            				 .getResource("/gui_css.fxml"));
+             FXMLLoader blackjackLoader = 
+            		 new FXMLLoader(getClass()
+            				 .getResource("/blackjack.fxml"));
 
              screenController.addScreen("main", mainLoader.load());
              screenController.addScreen("blackjack", blackjackLoader.load());
-             screenController.addScreen("roulette", FXMLLoader.load(getClass().getResource("/roulette.fxml")));
+             screenController
+             .addScreen("roulette", FXMLLoader
+            		 .load(getClass().getResource("/roulette.fxml")));
 
-             blackjackController = blackjackLoader.<BlackJackGUI>getController();
+             blackjackController = blackjackLoader
+            		 .<BlackJackGUI>getController();
 
              primaryStage.setScene(scene);
              primaryStage.setTitle("Virtual Casino");
 
              primaryStage.setResizable(true);
              primaryStage.show();
-         }
-         catch (IOException e) {
+             }catch (IOException e) {
              e.printStackTrace();
          }
      }
 
-     public static void main(String[] args) {
+     public static void main(final String[] args) {
          launch(args);
      }
 

@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @version 2/23/18
  ******************************/
 public class JUnits {
-
+	//CHECKSTYLE:OFF
 	@Test
 	public void testRouWheelSpin() {
 		RouWheel wheel = new RouWheel();
@@ -533,4 +533,5 @@ public class JUnits {
 		assertTrue(player.getMoney() == expected);
 	}
 	*/
+	//CHECKSTYLE:ON
 }

@@ -11,7 +11,6 @@ import java.util.Random;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.io.File;
-import java.lang.Thread;
 
 /**************************************************
  * Description: The Controller for the roulette gui screen.

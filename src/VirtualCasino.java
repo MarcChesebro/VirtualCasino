@@ -42,7 +42,7 @@ public class VirtualCasino {
 	 * Sets the current instance of Player.
 	 * @param player The Player to set the instance to.
 	 */
-	public void setPlayer(Player player) {
+	public void setPlayer(final Player player) {
 		this.player = player;
 	}
 
