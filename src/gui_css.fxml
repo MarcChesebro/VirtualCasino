@@ -69,32 +69,45 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="515.0" text="Virtual Casino" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="515.0" text="Virtual Casino" textAlignment="CENTER" GridPane.columnIndex="4">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#blackjackButton" prefHeight="50.0" prefWidth="220.0" text="Black Jack" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#blackjackButton" prefHeight="50.0" prefWidth="220.0" text="Black Jack" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="140.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#slotButton" prefHeight="50.0" prefWidth="220.0" text="Slots" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#slotButton" prefHeight="50.0" prefWidth="220.0" text="Slots" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="140.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#rouButton" prefHeight="50.0" prefWidth="220.0" text="Roulette" GridPane.columnIndex="4" GridPane.rowIndex="7">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#rouButton" prefHeight="50.0" prefWidth="220.0" text="Roulette" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="140.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#changeUserAction" prefHeight="50.0" prefWidth="220.0" text="Change User" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label text="Current User:" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="150.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="currentUser" prefHeight="21.0" prefWidth="201.0" text="none" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="250.0" />
+               </GridPane.margin>
+            </Label>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#newUserAction" prefHeight="50.0" prefWidth="220.0" text="New User" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#saveUser" prefHeight="50.0" prefWidth="220.0" text="Save" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
          </children>
       </GridPane>
   </children>

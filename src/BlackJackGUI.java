@@ -87,7 +87,7 @@ public class BlackJackGUI implements Initializable {
 
     /** Label for the players money. */
     @FXML
-    private Label playerMoney;
+    public Label playerMoney;
 
     /** Button to start a hand. */
     @FXML

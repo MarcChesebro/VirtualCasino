@@ -84,21 +84,21 @@ public class Card {
         String str = "";
         switch (this.number) {
             case 1:
-                str = "Ace";
+                str = "ace";
                 break;
             case 11:
-                str = "Jack";
+                str = "jack";
                 break;
             case 12:
-                str = "Queen";
+                str = "queen";
                 break;
             case 13:
-                str = "King";
+                str = "king";
                 break;
             default:
                 str = "" + this.getNumber();
         }
-        str = str + " of " + this.suit.toString();
+        str = str + "_of_" + this.suit.toString() + "s";
         return str;
      }
 

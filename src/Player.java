@@ -9,12 +9,24 @@ public class Player {
     /** current amount of money the player has. */
     private int money;
 
+    /** current name of the player. */
+    private String name;
+
     /**
      * Constructor that take the amount of money the player starts with.
      * @param money amount of money the player starts with.
      */
-    public Player(final int money) {
+    public Player(final int money, final String name) {
         this.money = money;
+        this.name = name;
+    }
+
+    /**
+     * get the name of the player.
+     * @return name of the player.
+     */
+    public String getName() {
+        return name;
     }
 
     /**
