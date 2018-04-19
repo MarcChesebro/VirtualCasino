@@ -1,81 +1,53 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BlackJackGUI implements Initializable {
 
-    /** Label for the dealers card 1. */
     @FXML
-    private Label dealerLabel1;
-
-    /** Label for the dealers card 2. */
+    private ImageView dealerImage1;
     @FXML
-    private Label dealerLabel2;
-
-    /** Label for the dealers card 3. */
+    private ImageView dealerImage2;
     @FXML
-    private Label dealerLabel3;
-
-    /** Label for the dealers card 4. */
+    private ImageView dealerImage3;
     @FXML
-    private Label dealerLabel4;
-
-    /** Label for the dealers card 5. */
+    private ImageView dealerImage4;
     @FXML
-    private Label dealerLabel5;
-
-    /** Label for the dealers card 6. */
+    private ImageView dealerImage5;
     @FXML
-    private Label dealerLabel6;
-
-    /** Label for the dealers card 7. */
+    private ImageView dealerImage6;
     @FXML
-    private Label dealerLabel7;
-
-    /** Label for the dealers card 8. */
+    private ImageView dealerImage7;
     @FXML
-    private Label dealerLabel8;
-
-    /** Label for the players card 1. */
-    @FXML
-    private Label playerLabel1;
-
-    /** Label for the players card 2. */
-    @FXML
-    private Label playerLabel2;
-
-    /** Label for the players card 3. */
-    @FXML
-    private Label playerLabel3;
-
-    /** Label for the players card 4. */
-    @FXML
-    private Label playerLabel4;
-
-    /** Label for the players card 5. */
-    @FXML
-    private Label playerLabel5;
-
-    /** Label for the players card 6. */
-    @FXML
-    private Label playerLabel6;
-
-    /** Label for the players card 7. */
-    @FXML
-    private Label playerLabel7;
-
-    /** Label for the players card 8. */
-    @FXML
-    private Label playerLabel8;
-
+    private ImageView dealerImage8;
     /** Label array to hold all the labels for dealer. */
-    private Label[] dealerHandLabels = new Label[8];
+    private ImageView[] dealerHandImages = new ImageView[8];
 
-    /** Label array to hold all the labels for player. */
-    private Label[] playerHandLabels = new Label[8];
+    @FXML
+    private ImageView playerImage1;
+    @FXML
+    private ImageView playerImage2;
+    @FXML
+    private ImageView playerImage3;
+    @FXML
+    private ImageView playerImage4;
+    @FXML
+    private ImageView playerImage5;
+    @FXML
+    private ImageView playerImage6;
+    @FXML
+    private ImageView playerImage7;
+    @FXML
+    private ImageView playerImage8;
+    /** Label array to hold all the labels for dealer. */
+    private ImageView[] playerHandImages = new ImageView[8];
+
 
     /** Label for the dealers score. */
     @FXML
@@ -131,23 +103,24 @@ public class BlackJackGUI implements Initializable {
      * method for initializing labels and label arrays.
      **************************************************************************/
     private void initializeHandLabels() {
-        dealerHandLabels[0] = dealerLabel1;
-        dealerHandLabels[1] = dealerLabel2;
-        dealerHandLabels[2] = dealerLabel3;
-        dealerHandLabels[3] = dealerLabel4;
-        dealerHandLabels[4] = dealerLabel5;
-        dealerHandLabels[5] = dealerLabel6;
-        dealerHandLabels[6] = dealerLabel7;
-        dealerHandLabels[7] = dealerLabel8;
 
-        playerHandLabels[0] = playerLabel1;
-        playerHandLabels[1] = playerLabel2;
-        playerHandLabels[2] = playerLabel3;
-        playerHandLabels[3] = playerLabel4;
-        playerHandLabels[4] = playerLabel5;
-        playerHandLabels[5] = playerLabel6;
-        playerHandLabels[6] = playerLabel7;
-        playerHandLabels[7] = playerLabel8;
+        dealerHandImages[0] = dealerImage1;
+        dealerHandImages[1] = dealerImage2;
+        dealerHandImages[2] = dealerImage3;
+        dealerHandImages[3] = dealerImage4;
+        dealerHandImages[4] = dealerImage5;
+        dealerHandImages[5] = dealerImage6;
+        dealerHandImages[6] = dealerImage7;
+        dealerHandImages[7] = dealerImage8;
+
+        playerHandImages[0] = playerImage1;
+        playerHandImages[1] = playerImage2;
+        playerHandImages[2] = playerImage3;
+        playerHandImages[3] = playerImage4;
+        playerHandImages[4] = playerImage5;
+        playerHandImages[5] = playerImage6;
+        playerHandImages[6] = playerImage7;
+        playerHandImages[7] = playerImage8;
 
         dealerScore.setText("0");
         playerScore.setText("0");
@@ -274,9 +247,12 @@ public class BlackJackGUI implements Initializable {
 
         Card card = game.dealerDraw();
 
-        for(int i = 0; i < dealerHandLabels.length; i++){
-            if(dealerHandLabels[i].getText().equals("")){
-                dealerHandLabels[i].setText(card.toString());
+        for(int i = 0; i < dealerHandImages.length; i++){
+            if(dealerHandImages[i].getImage() == null){
+
+                File image = new File("images/" + card.toString() + ".png");
+                String path = image.toURI().toString();
+                dealerHandImages[i].setImage(new Image(path));
                 break;
             }
         }
@@ -289,9 +265,12 @@ public class BlackJackGUI implements Initializable {
 
         Card card = game.playerDraw();
 
-        for(int i = 0; i < playerHandLabels.length; i++){
-            if(playerHandLabels[i].getText().equals("")){
-                playerHandLabels[i].setText(card.toString());
+        for(int i = 0; i < playerHandImages.length; i++){
+            if(playerHandImages[i].getImage() == null){
+
+                File image = new File("images/" + card.toString() + ".png");
+                String path = image.toURI().toString();
+                playerHandImages[i].setImage(new Image(path));
                 break;
             }
         }
@@ -325,8 +304,7 @@ public class BlackJackGUI implements Initializable {
      * Resets the hand. clearing both hands and making sure a new bet must be made.
      ************************************************************************/
     private void reset(){
-        game.getDealerHand().clear();
-        game.getPlayerHand().clear();
+        game.reset();
         clearHands();
 
         hitButton.setDisable(true);
@@ -338,9 +316,9 @@ public class BlackJackGUI implements Initializable {
      * Clears both hand label arrays and sets the score labels to 0.
      ************************************************************************/
     private void clearHands(){
-        for(int i = 0; i < dealerHandLabels.length; i++){
-            dealerHandLabels[i].setText("");
-            playerHandLabels[i].setText("");
+        for(int i = 0; i < dealerHandImages.length; i++){
+            dealerHandImages[i].setImage(null);
+            playerHandImages[i].setImage(null);
         }
         dealerScore.setText("0");
         playerScore.setText("0");

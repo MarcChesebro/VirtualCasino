@@ -30,14 +30,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="dealerLabel1" text="Label" />
-                  <Label fx:id="dealerLabel2" text="Label" GridPane.columnIndex="1" />
-                  <Label fx:id="dealerLabel3" text="Label" GridPane.columnIndex="2" />
-                  <Label fx:id="dealerLabel4" text="Label" GridPane.columnIndex="3" />
-                  <Label fx:id="dealerLabel5" text="Label" GridPane.columnIndex="4" />
-                  <Label fx:id="dealerLabel6" text="Label" GridPane.columnIndex="5" />
-                  <Label fx:id="dealerLabel7" text="Label" GridPane.columnIndex="6" />
-                  <Label fx:id="dealerLabel8" text="Label" GridPane.columnIndex="7" />
+                  <ImageView fx:id="dealerImage2" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="1" />
+                  <ImageView fx:id="dealerImage1" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" />
+                  <ImageView fx:id="dealerImage3" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="2" />
+                  <ImageView fx:id="dealerImage4" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="3" />
+                  <ImageView fx:id="dealerImage5" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="4" />
+                  <ImageView fx:id="dealerImage6" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="5" />
+                  <ImageView fx:id="dealerImage7" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="6" />
+                  <ImageView fx:id="dealerImage8" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="7" />
                </children>
             </GridPane>
          </children>
@@ -46,14 +46,14 @@
          <children>
             <GridPane fx:id="dealerGrid1" gridLinesVisible="true" prefHeight="100.0" prefWidth="659.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="playerLabel1" text="Label" />
-                  <Label fx:id="playerLabel2" text="Label" GridPane.columnIndex="1" />
-                  <Label fx:id="playerLabel3" text="Label" GridPane.columnIndex="2" />
-                  <Label fx:id="playerLabel4" text="Label" GridPane.columnIndex="3" />
-                  <Label fx:id="playerLabel5" text="Label" GridPane.columnIndex="4" />
-                  <Label fx:id="playerLabel6" text="Label" GridPane.columnIndex="5" />
-                  <Label fx:id="playerLabel7" text="Label" GridPane.columnIndex="6" />
-                  <Label fx:id="playerLabel8" text="Label" GridPane.columnIndex="7" />
+                  <ImageView fx:id="playerImage1" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" />
+                  <ImageView fx:id="playerImage2" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="1" />
+                  <ImageView fx:id="playerImage3" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="2" />
+                  <ImageView fx:id="playerImage4" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="3" />
+                  <ImageView fx:id="playerImage5" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="4" />
+                  <ImageView fx:id="playerImage6" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="5" />
+                  <ImageView fx:id="playerImage7" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="6" />
+                  <ImageView fx:id="playerImage8" fitHeight="101.0" fitWidth="96.0" pickOnBounds="true" GridPane.columnIndex="7" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
