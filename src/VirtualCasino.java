@@ -1,7 +1,4 @@
-import java.awt.*;
-import java.util.Scanner;
-
-/**************************************************************** 
+/****************************************************************
 * Description: The main class in the Virtual Casino program.
 * @author Marc Chesebro
 *         Brendan Caywood
@@ -25,14 +22,26 @@ public class VirtualCasino {
 		player = new Player(100, "Guest");
 	}
 
+	/**
+	 * Returns the current instance of Blackjack.
+	 * @return The current instance of Blackjack.
+	 */
 	public Blackjack getBlackjack() {
 		return blackjack;
 	}
 
+	/**
+	 * Returns the current instance of Player.
+	 * @return The current instance of Player.
+	 */
 	public Player getPlayer() {
 		return player;
 	}
 
+	/**
+	 * Sets the current instance of Player.
+	 * @param player The Player to set the instance to.
+	 */
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
