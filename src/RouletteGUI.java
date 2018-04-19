@@ -1,14 +1,13 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
-
-import java.util.Random;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.lang.Thread;
 
 /**************************************************
  * Description: The Controller for the roulette gui screen.

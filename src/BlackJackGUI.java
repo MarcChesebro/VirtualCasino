@@ -1,6 +1,8 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -325,15 +327,15 @@ public class BlackJackGUI implements Initializable {
      * Updates the dealers score Label.
      * @param Score int to set the label to.
      ************************************************************************/
-    private void updateDealerScore(int Score){
-        dealerScore.setText(String.valueOf(Score));
+    private void updateDealerScore(final int score){
+        dealerScore.setText(String.valueOf(score));
     }
 
     /************************************************************************
      * Updates the error Label.
      * @param str String to set the label to.
      ************************************************************************/
-    private void updateErrorlabel(String str){
+    private void updateErrorlabel(final String str){
         errorLabel.setText(str);
     }
 
