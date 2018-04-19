@@ -4,10 +4,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.io.File;
 
 /**************************************************
  * Description: The Controller for the roulette gui screen.
@@ -87,6 +90,10 @@ public class RouletteGUI implements Initializable{
 	@FXML
 	private Label playermonlbl;
 	
+	/**the image view for roulette board.*/
+	@FXML
+	private ImageView boardimg;
+	
 	/**The roulette wheel object.*/
 	private RouWheel rou = new RouWheel();
 	
@@ -117,6 +124,9 @@ public class RouletteGUI implements Initializable{
 		playermonlbl.setText(
 				String.valueOf(MenuGUI.casino
 						.getPlayer().getMoney()));
+		File image = new File("images/table.jpg");
+        String path = image.toURI().toString();
+        boardimg.setImage(new Image(path));
 	}
 	
 	/***************************************
@@ -210,8 +220,4 @@ public class RouletteGUI implements Initializable{
 	public ToggleGroup getGroup() {
 		return g1;
 	}
-	
-	
-	
-
 }

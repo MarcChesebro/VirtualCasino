@@ -46,7 +46,6 @@ public class GuiController implements Initializable {
 	@FXML 
 	private void slotButton() {
 		MenuGUI.casino.slots();
-		//TODO: Lets user go below 0, needs a "return" that comes back to the main menu
 	}
 	
 	/********************************************************

@@ -1,5 +1,9 @@
 import java.util.Random;
 
+/**
+ * This is the game of slots, it includes cards as the slot tokens.
+ * @author sully
+ */
 public class Slots{
 
 	private int num_slots;
@@ -7,7 +11,12 @@ public class Slots{
 	private int[] slots_arr;
 	private Player player;
 
-	public Slots(Player g_player){
+        /**
+         * This is the constructor for the Slots game play
+         * creates the slots and bet values
+         * @param g_player 
+         */
+	public Slots(final Player g_player){
 		player = g_player;
 		num_slots = 3;
 		bet = 0;
@@ -15,14 +24,13 @@ public class Slots{
 		for(int i = 0; i < num_slots; i++){
 			temp[i] = 0;
 		}
-
 		slots_arr = temp;
-
 	}
-	/****************************************************************
-	* Description: stuff
+        
+	/**
+	* play will launch the slots GUI
 	* @param player The user that is playing the game of slots.
-	*****************************************************************/
+	*/
 	public static void play(final Player player){
 
 		Slots curTurn = new Slots(player);
@@ -30,26 +38,42 @@ public class Slots{
 		sgu.showWindow();
 	}
 
+        /**
+         * get_num_slots returns the number of slots in the current game.
+         * @return the number of slots in the game
+         */
 	public int get_num_slots(){
 		return this.num_slots;
 	}
 
+        /**
+         * Get_slots returns an array containing the slots value
+         * @return an array containing the slots
+         */
 	public int[] get_slots(){
 		return this.slots_arr;
 	}
 
+        /**
+         * get_bet returns the players current bet amount.
+         * @return bet - the players current bet amount
+         */
 	public int get_bet(){
 		return this.bet;
 	}
 
+        /**
+         * get_wallet returns the players wallet amount
+         * @return the players wallet amount
+         */
 	public int get_wallet(){
 		return this.player.getMoney();
 	}
 
-	public void set_num_slots(int g_num_slots){
-		this.num_slots = g_num_slots;
-	}
-
+        /**
+         * set_slots will set the slots for the game play
+         * @param g_slots 
+         */
 	public void set_slots(int[] g_slots){
 		this.slots_arr = g_slots;
 	}
@@ -69,11 +93,11 @@ public class Slots{
 		for(int i = 0; i<this.num_slots; i++) {
 			Random rand = new Random();
 			int temp = rand.nextInt(100)+1;
-			if(temp<30) {
+			if(temp<20) {
 				this.slots_arr[i] = 0;
-			}else if(temp < 55 && temp >= 30) {
+			}else if(temp < 50 && temp >= 20) {
 				this.slots_arr[i] = 1;
-			}else if(temp < 75 && temp >= 55) {
+			}else if(temp < 75 && temp >= 50) {
 				this.slots_arr[i] = 2;
 			}else if(temp < 90 && temp >= 75) {
 				this.slots_arr[i] = 3;
