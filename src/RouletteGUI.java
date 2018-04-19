@@ -1,6 +1,8 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
@@ -8,6 +10,7 @@ import java.util.Random;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.io.File;
 import java.lang.Thread;
 
 /**************************************************
@@ -88,6 +91,10 @@ public class RouletteGUI implements Initializable{
 	@FXML
 	private Label playermonlbl;
 	
+	/**the image view for roulette board.*/
+	@FXML
+	private ImageView boardimg;
+	
 	/**The roulette wheel object.*/
 	private RouWheel rou = new RouWheel();
 	
@@ -118,6 +125,9 @@ public class RouletteGUI implements Initializable{
 		playermonlbl.setText(
 				String.valueOf(MenuGUI.casino
 						.getPlayer().getMoney()));
+		File image = new File("images/table.jpg");
+        String path = image.toURI().toString();
+        boardimg.setImage(new Image(path));
 	}
 	
 	/***************************************
