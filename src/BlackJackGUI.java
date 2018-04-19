@@ -273,7 +273,7 @@ public class BlackJackGUI implements Initializable {
     /************************************************************************
      * Updates the playerMoney Label to the players current amount.
      ************************************************************************/
-    private void updatePlayerMoneyLabel(){
+    public void updatePlayerMoneyLabel(){
         playerMoney.setText(String.valueOf(MenuGUI.casino.getPlayer().getMoney()));
     }
 

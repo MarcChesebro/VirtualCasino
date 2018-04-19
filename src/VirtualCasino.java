@@ -51,6 +51,7 @@ public class VirtualCasino {
 	 ********************************/
 	public void blackjack() {
 		this.blackjack = new Blackjack();
+		MenuGUI.blackjackController.updatePlayerMoneyLabel();
 		MenuGUI.screenController.activate("blackjack");
 	}
 	

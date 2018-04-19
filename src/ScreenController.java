@@ -21,6 +21,10 @@ public class ScreenController {
         screenMap.put(name, pane);
     }
 
+    public Pane getScreen(String name){
+        return screenMap.get(name);
+    }
+
     protected void removeScreen(String name){
         screenMap.remove(name);
     }
