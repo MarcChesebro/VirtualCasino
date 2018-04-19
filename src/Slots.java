@@ -1,30 +1,32 @@
 import java.util.Random;
 
 /**
- * This is the game of slots, it includes cards as the slot tokens.
- * @author sully
+ * This is the game of slots, it allows you to create a slot game,
+ * bet money and win/lose money.
+ * @author Patrick McMahon
+ * @date 4/10/2018
  */
 public class Slots{
 
-	private int num_slots;
+	private int numSlots;
 	private int bet;
-	private int[] slots_arr;
+	private int[] slotsArray;
 	private Player player;
 
         /**
          * This is the constructor for the Slots game play
          * creates the slots and bet values
-         * @param g_player 
+         * @param givenPlayer a player object
          */
-	public Slots(final Player g_player){
-		player = g_player;
-		num_slots = 3;
+	public Slots(final Player givenPlayer){
+		player = givenPlayer;
+		numSlots = 3;
 		bet = 0;
-		int temp[] = new int[num_slots];
-		for(int i = 0; i < num_slots; i++){
+		int temp[] = new int[numSlots];
+		for(int i = 0; i < numSlots; i++){
 			temp[i] = 0;
 		}
-		slots_arr = temp;
+		slotsArray = temp;
 	}
         
 	/**
@@ -39,75 +41,86 @@ public class Slots{
 	}
 
         /**
-         * get_num_slots returns the number of slots in the current game.
+         * getNumSlots returns the number of slots in the current game.
          * @return the number of slots in the game
          */
-	public int get_num_slots(){
-		return this.num_slots;
+	public int getNumSlots(){
+		return this.numSlots;
 	}
 
         /**
-         * Get_slots returns an array containing the slots value
+         * getSlots returns an array containing the slots value
          * @return an array containing the slots
          */
-	public int[] get_slots(){
-		return this.slots_arr;
+	public int[] getSlots(){
+		return this.slotsArray;
 	}
 
         /**
-         * get_bet returns the players current bet amount.
+         * getBet returns the players current bet amount.
          * @return bet - the players current bet amount
          */
-	public int get_bet(){
+	public int getBet(){
 		return this.bet;
 	}
 
         /**
-         * get_wallet returns the players wallet amount
+         * getWallet returns the players wallet amount
          * @return the players wallet amount
          */
-	public int get_wallet(){
+	public int getWallet(){
 		return this.player.getMoney();
 	}
 
         /**
-         * set_slots will set the slots for the game play
-         * @param g_slots 
+         * setSlots will set the slots for the game play
+         * @param givenSlots 
          */
-	public void set_slots(int[] g_slots){
-		this.slots_arr = g_slots;
+	public void setSlots(int[] givenSlots){
+		this.slotsArray = givenSlots;
 	}
 
-	public void set_slots(){
-		for(int i = 0; i < this.num_slots; i++){
-			this.slots_arr[i] = 0;
-		}
+        /**
+         * Sets the bet 
+         * @param givenbet - the value to set bet to 
+         */
+	public void setBet(int givenBet){
+		this.bet = givenBet;
 	}
 
-	public void set_bet(int g_bet){
-		this.bet = g_bet;
-	}
+        /**
+         * Randomizes the slots based on certain odds.
+         * Tens - 20%
+         * Jacks - 30%
+         * Queens - 25%
+         * Kings - 15%
+         * Aces - 10% 
+         */
+	public void randomizeSlots(){
 
-	public void randomize_slots(){
-
-		for(int i = 0; i<this.num_slots; i++) {
+		for(int i = 0; i<this.numSlots; i++) {
 			Random rand = new Random();
 			int temp = rand.nextInt(100)+1;
 			if(temp<20) {
-				this.slots_arr[i] = 0;
+				this.slotsArray[i] = 0;
 			}else if(temp < 50 && temp >= 20) {
-				this.slots_arr[i] = 1;
+				this.slotsArray[i] = 1;
 			}else if(temp < 75 && temp >= 50) {
-				this.slots_arr[i] = 2;
+				this.slotsArray[i] = 2;
 			}else if(temp < 90 && temp >= 75) {
-				this.slots_arr[i] = 3;
+				this.slotsArray[i] = 3;
 			}else if(temp <= 100 && temp >= 90) {
-				this.slots_arr[i] = 4;
+				this.slotsArray[i] = 4;
 			}
 		}
 	}
 
-	public int update_wallet(){
+	/**
+	* Based on the current array of slots this will return the players winnings
+	* and this will update the player wallet.
+	* @return retVal - the amount of money that the player won/lost
+	*/
+	public int updateWallet(){
 	
 		//Used ace through ten, because they are easily recognizable.
 		int ace=0;
@@ -119,31 +132,31 @@ public class Slots{
 		//The multiplyer based on winning a round.
 		int multiplyer=0;
 
-		for(int i = 0; i<this.num_slots; i++) {
+		for(int i = 0; i<this.numSlots; i++) {
 
-			if(this.slots_arr[i] == 1) {
+			if(this.slotsArray[i] == 1) {
 				ten++;
-			}else if(this.slots_arr[i] == 2) {
+			}else if(this.slotsArray[i] == 2) {
 				jack++;
-			}else if(this.slots_arr[i] == 3) {
+			}else if(this.slotsArray[i] == 3) {
 				queen++;
-			}else if(this.slots_arr[i] == 4) {
+			}else if(this.slotsArray[i] == 4) {
 				king++;
-			}else if(this.slots_arr[i] == 5) {
+			}else if(this.slotsArray[i] == 5) {
 				ace++;
 			}
 		}
 
 		//determins the multiplyer for the return value.
-		if(ace == this.num_slots){
+		if(ace == this.numSlots){
 			multiplyer = 5;
-		} else if(king == this.num_slots){
+		} else if(king == this.numSlots){
 			multiplyer = 4;	
-		} else if(queen == this.num_slots){
+		} else if(queen == this.numSlots){
 			multiplyer = 3;	
-		} else if(jack == this.num_slots){
+		} else if(jack == this.numSlots){
 			multiplyer = 2;	
-		} else if(ten == this.num_slots){
+		} else if(ten == this.numSlots){
 			multiplyer = 1;	
 		} else{
 			multiplyer = 0;
@@ -156,28 +169,36 @@ public class Slots{
 
 	}
 
-	//Output to let the user know the outcome.
-	public String win_lose(int x){
-		String retVal = "";
+	/** 
+	* based on the amount of money the player won/lost
+	* this method will return a string to output to the player
+	*  @param playerMoney - the players winings/losings
+	*  @return retVal - a string that will be outputted to the player
+	*/
+	public String winLose(int playerMoney){
+		
+            String retVal = "";
+            if(playerMoney < this.bet){
+                    retVal = "You Lost $"; 
+            }else if (playerMoney == this.bet){
+                    retVal = "You kept your $";
+            }else if (playerMoney > this.bet){
+                    retVal = "You won $";
+            }
 
-		if(x < this.bet){
-			retVal = "You Lost $"; 
-		}else if (x == this.bet){
-			retVal = "You kept your $";
-		}else if (x > this.bet){
-			retVal = "You won $";
-		}
-
-		return retVal;
+            return retVal;
 	}
 
-	//method to make sure the given bet is valid.
-	public Boolean check_bet(int testBet){
+	/**
+	* method to make sure the given bet is valid.
+	* @param testBet - the bet to check for validity
+	* @return boolean value based on if the bet is valid of not
+	*/
+	public Boolean checkBet(int testBet){
 
-		if(testBet >= 1 && testBet <= player.getMoney()){
-			return true;
-		}
-
-		return false;
+            if(testBet >= 1 && testBet <= player.getMoney()){
+                    return true;
+            }
+            return false;
 	}
 }

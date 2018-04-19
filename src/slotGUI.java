@@ -1,4 +1,11 @@
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.GroupLayout;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
@@ -9,19 +16,33 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+/**
+ * This is the GUI for a game of slots. allowing player functionality
+ * for betting money and wining/losing money.
+ * @author Patrick McMahon
+ * @date 4/10/2018
+ */
 public class slotGUI{
 
 	public JFrame frame;
 
-	private Slots current_turn;
+	private Slots currentTurn;
 
 	private final String[] CARDSTRING = {"Ten","Jack","Queen","King","Ace"};
 	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
 
-	public slotGUI(Slots g_current_turn){
-		current_turn = g_current_turn;
+	/**
+	* Initializes the slots game play
+	* @param givenCurrTurn a slots game
+	*/
+	public slotGUI(Slots givenCurrTurn){
+		currentTurn = givenCurrTurn;
 	}
 
+	/**
+	* This is the GUI for the whole slots game. creates the window, adds the slots and 
+	* additional buttons, and shows player money.
+	*/
 	public void showWindow(){
 
 		//the background color of the window
@@ -48,74 +69,74 @@ public class slotGUI{
                 
 		//Creating lables to change when user does various things
 		final JLabel outcome = new JLabel("Welcome to Slots!");
-		int mywallet = current_turn.get_wallet();
+		int mywallet = currentTurn.getWallet();
 		final JLabel Wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
                 final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
 		JButton roll = new JButton("Roll");
-		JButton change_bet = new JButton("Set Bet  ");
+		JButton changeBet = new JButton("Set Bet  ");
 		JButton exit = new JButton("Exit");
 
 		//Creates the panels for roll and other data
-		JPanel roll_panel = new JPanel();
-		roll_panel.setBackground(bgc);
-                roll_panel.setLayout(new GridLayout(1,1));
-		JPanel data_panel = new JPanel();
-		data_panel.setBackground(bgc);
-		data_panel.setLayout(new GridLayout(1,3));
+		JPanel rollPanel = new JPanel();
+		rollPanel.setBackground(bgc);
+                rollPanel.setLayout(new GridLayout(1,1));
+		JPanel dataPanel = new JPanel();
+		dataPanel.setBackground(bgc);
+		dataPanel.setLayout(new GridLayout(1,3));
 
 		//Creates the panel where the slots will reside
-		int number_of_slots = this.current_turn.get_num_slots();
-		JPanel slots_panel = new JPanel();
-		slots_panel.setBackground(bgc);
-		slots_panel.setBorder(BorderFactory.createLineBorder(bgc));
-		slots_panel.setLayout(new GridLayout(1,number_of_slots));
+		int numberOfSlots = this.currentTurn.getNumSlots();
+		JPanel slotsPanel = new JPanel();
+		slotsPanel.setBackground(bgc);
+		slotsPanel.setBorder(BorderFactory.createLineBorder(bgc));
+		slotsPanel.setLayout(new GridLayout(1,numberOfSlots));
 
 		//The slot lables will be stored in this array
-		JLabel slot_Arr[] = new JLabel[number_of_slots];
+		JLabel slotArr[] = new JLabel[numberOfSlots];
 
 		//gets the filepath needed to use the card images
-		String file_name = "back.png";
-		String working_directory = System.getProperty("user.dir") + "/images";
-		String file_path = working_directory + System.getProperty("file.separator") + file_name;
+		String fileName = "back.png";
+		String workingDirectory = System.getProperty("user.dir") + "/images";
+		String filePath = workingDirectory + System.getProperty("file.separator") + fileName;
 
-		boolean images_exsist = false;
+		boolean imagesExsist = false;
 
 		//createing the slot array with an image
-		for(int i = 0; i<number_of_slots;i++){
+		for(int i = 0; i<numberOfSlots;i++){
 
 			//Check the filepath to verify location. If images are dead/gone
 			//Use plane text instead
 			try {
-				images_exsist = true;
-				BufferedImage img = ImageIO.read(new File(file_path));
-				ImageIcon back_icon = new ImageIcon(img);
-				slot_Arr[i] = new JLabel(back_icon,JLabel.CENTER );
-				slot_Arr[i].setBorder(BorderFactory.createLineBorder(bgc,5));
-				slots_panel.add(slot_Arr[i]);
-                                slot_Arr[i].setBackground(cardColor);
-                                slots_panel.setBackground(cardColor);
+				imagesExsist = true;
+				BufferedImage img = ImageIO.read(new File(filePath));
+				ImageIcon backIcon = new ImageIcon(img);
+				slotArr[i] = new JLabel(backIcon,JLabel.CENTER );
+				slotArr[i].setBorder(BorderFactory.createLineBorder(bgc,5));
+				slotsPanel.add(slotArr[i]);
+                                slotArr[i].setBackground(cardColor);
+                                slotsPanel.setBackground(cardColor);
 			} catch (IOException e) {
-				images_exsist = false;
-				slot_Arr[i] = new JLabel("Slot #" + i + " ");
-				slots_panel.add(slot_Arr[i]);
+				imagesExsist = false;
+				slotArr[i] = new JLabel("Slot #" + i + " ");
+				slotsPanel.add(slotArr[i]);
 			}
 		}
 
 		//If the images dont exist throw this pop up message
-		if (images_exsist == false){
+		if (imagesExsist == false){
 			JLabel label = new JLabel("Images were moved or deleted.");
 			JOptionPane.showMessageDialog(null, label);
 		}
 
 		//Add all of the components to the panels
-		data_panel.add(Wallet);
-                data_panel.add(change_bet);
-                data_panel.add(betInput);
+		dataPanel.add(Wallet);
+                dataPanel.add(changeBet);
+                dataPanel.add(betInput);
                 roll.setBorder(BorderFactory.createLineBorder(bgc,10));
                 Font font = new Font("Arial", Font.PLAIN, 40);
                 roll.setFont(font);
                 roll.setBackground(rc);
-                roll_panel.add(roll);
+                rollPanel.add(roll);
 
 
 		//What to do when the roll button is pressed
@@ -125,57 +146,57 @@ public class slotGUI{
 			public void actionPerformed(ActionEvent e){
 
 				//Lets check the bet to make sure it is valid
-				int currBet = current_turn.get_bet(); 
+				int currBet = currentTurn.getBet(); 
 				if(currBet <= 0){
 					JOptionPane.showMessageDialog(frame,"No bet selected!");
 					return;
-				}else if(!current_turn.check_bet(currBet)) {
+				}else if(!currentTurn.checkBet(currBet)) {
 					JOptionPane.showMessageDialog(frame,"Bet Invalid");
 					return;
 				}
 				//Roll the slots
-				current_turn.randomize_slots();
+				currentTurn.randomizeSlots();
 
 				//update the player wallet and return the value
-				int moneyWon = current_turn.update_wallet();
+				int moneyWon = currentTurn.updateWallet();
 
-				Wallet.setText("Wallet:  " + current_turn.get_wallet());
+				Wallet.setText("Wallet:  " + currentTurn.getWallet());
 
 				//set the text the user will see
-				String wl = current_turn.win_lose(moneyWon);
+				String wl = currentTurn.winLose(moneyWon);
 				moneyWon = Math.abs(moneyWon);
 				outcome.setText(wl + moneyWon);
 
 				//update the card images
-				int cards[] = current_turn.get_slots();
-				for(int i = 0; i<number_of_slots;i++){
-					String file_name = CARDIMAGES[cards[i]] ;
-					String working_directory = System.getProperty("user.dir") + "/images";
-					String file_path = working_directory + System.getProperty("file.separator") + file_name;
+				int cards[] = currentTurn.getSlots();
+				for(int i = 0; i<numberOfSlots;i++){
+					String fileName = CARDIMAGES[cards[i]] ;
+					String workingDirectory = System.getProperty("user.dir") + "/images";
+					String filePath = workingDirectory + System.getProperty("file.separator") + fileName;
 					
 					//Check if the images exsist
 					try{
-						BufferedImage img = ImageIO.read(new File(file_path));
-						ImageIcon front_icon = new ImageIcon(img);
-						slot_Arr[i].setIcon(front_icon);
+						BufferedImage img = ImageIO.read(new File(filePath));
+						ImageIcon frontIcon = new ImageIcon(img);
+						slotArr[i].setIcon(frontIcon);
 					}catch(IOException exception){
-						slot_Arr[i].setText(CARDSTRING[cards[i]]);
+						slotArr[i].setText(CARDSTRING[cards[i]]);
 					}
 				}
 			}
 		});
 
 		//What to do when the change bet button is pressed.
-		change_bet.addActionListener(new ActionListener()
+		changeBet.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e){
-				String new_bet = JOptionPane.showInputDialog(frame,"Enter new bet.");
+				String newBet = JOptionPane.showInputDialog(frame,"Enter new bet.");
 				try{
-					int tryBet = Integer.parseInt(new_bet);
-					if(current_turn.check_bet(tryBet)){
-                                                change_bet.setText("Change Bet");
-						current_turn.set_bet(tryBet);
+					int tryBet = Integer.parseInt(newBet);
+					if(currentTurn.checkBet(tryBet)){
+                                                changeBet.setText("Change Bet");
+						currentTurn.setBet(tryBet);
 						betInput.setText("Current Bet:  " + tryBet);						
 					}else{
 						JOptionPane.showMessageDialog(frame,"Invalid Bet!!");
@@ -201,20 +222,20 @@ public class slotGUI{
                             .addGroup(layout.createSequentialGroup())
                                 .addComponent(outcome)
                             .addGroup(layout.createSequentialGroup())
-                                .addComponent(slots_panel)
+                                .addComponent(slotsPanel)
                             .addGroup(layout.createSequentialGroup())
-                                .addComponent(data_panel)
+                                .addComponent(dataPanel)
                             .addGroup(layout.createSequentialGroup())
-                                .addComponent(roll_panel)
+                                .addComponent(rollPanel)
                             .addGroup(layout.createSequentialGroup())
                                 .addComponent(exit)
                 );
                 layout.setVerticalGroup(
                         layout.createSequentialGroup()
                             .addComponent(outcome)
-                            .addComponent(slots_panel)
-                            .addComponent(roll_panel)
-                            .addComponent(data_panel)
+                            .addComponent(slotsPanel)
+                            .addComponent(rollPanel)
+                            .addComponent(dataPanel)
                             .addComponent(exit)
                 );
                 
