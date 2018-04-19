@@ -135,11 +135,11 @@ public class RouWheel {
 	}
 	/**************************************************
 	 * checks the given bet type and returns multiplier.
-	 * @param type the type of bet (outlined in Roulette.java)
+	 * @param type the type of bet (outlined in gui)
+	 * @param num the number desired in a single number bet
 	 * @return returns multiplier to multiply the bet by
 	 *************************************************/
-	//TODO: Add other bets with GUI in release 2
-	public int checkBet(final int type, int num) {
+	public int checkBet(final int type, final int num) {
 		if(type == 1) {
 			if(value == num) {
 				return 35;
@@ -208,6 +208,20 @@ public class RouWheel {
 		}else {
 			System.out.println("Invalid bet type");
 			return 0;
+		}
+	}
+
+	/***************************************************
+	 * checks color of number.
+	 * @return the color (0 = red, 1 = black, 2=green)
+	 **************************************************/
+	public int getColor() {
+		if(redNums.contains(value)) {
+			return 0;
+		}else if(blackNums.contains(value)) {
+			return 1; 
+		}else {
+			return 2;
 		}
 	}
 }
