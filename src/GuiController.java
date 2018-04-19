@@ -17,7 +17,8 @@ import javafx.stage.Stage;
 * @version 4/19/18
 ****************************************************************/
 public class GuiController implements Initializable {
-
+	
+	/**The label for the current user.*/
 	@FXML
 	private Label currentUser;
 
@@ -72,9 +73,11 @@ public class GuiController implements Initializable {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open Resource File");
 		fileChooser.setInitialDirectory(new File("./users"));
-		fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("User Saves", "*.vcsf"));
+		fileChooser.getExtensionFilters()
+		.add(new FileChooser.ExtensionFilter("User Saves", "*.vcsf"));
 		File userFile = fileChooser.showOpenDialog(new Stage());
-		try (BufferedReader br = new BufferedReader(new FileReader(userFile))) {
+		try (BufferedReader br = new 
+				BufferedReader(new FileReader(userFile))) {
 			String name = br.readLine();
 			String moneyString = br.readLine();
 			int money = Integer.parseInt(moneyString);
@@ -118,7 +121,8 @@ public class GuiController implements Initializable {
 			e.printStackTrace();
 		}
 
-		try (BufferedWriter br = new BufferedWriter(new FileWriter(newUser))) {
+		try (BufferedWriter br = new 
+				BufferedWriter(new FileWriter(newUser))) {
 			br.write(name + "\n");
 			br.write("100");
 
@@ -138,7 +142,8 @@ public class GuiController implements Initializable {
 
 		File userFile = new File("./users/" + name + ".vcsf");
 
-		try (BufferedWriter br = new BufferedWriter(new FileWriter(userFile))) {
+		try (BufferedWriter br = new 
+				BufferedWriter(new FileWriter(userFile))) {
 			br.write(name + "\n");
 			br.write(String.valueOf(money));
 

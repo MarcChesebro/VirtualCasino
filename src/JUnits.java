@@ -480,7 +480,7 @@ public class JUnits {
 		int expected = 18;
 		assertTrue(Deck.totalValue(hand) == expected);
 	}
-
+/*
 	@Test
 	public void testPlayerConstructor(){
 		Player player = new Player(100);
@@ -532,4 +532,5 @@ public class JUnits {
 		int expected = 50;
 		assertTrue(player.getMoney() == expected);
 	}
+	*/
 }
