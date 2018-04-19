@@ -29,6 +29,9 @@ public class slotGUI{
 
                 //the color of the roll button
       		Color rc = new Color(150,150,255);
+                
+                //color of the back of cards
+                Color cardColor = new Color(255,255,255);
 
 
 		//Creates the JFrame and sets the details
@@ -89,6 +92,8 @@ public class slotGUI{
 				slot_Arr[i] = new JLabel(back_icon,JLabel.CENTER );
 				slot_Arr[i].setBorder(BorderFactory.createLineBorder(bgc,5));
 				slots_panel.add(slot_Arr[i]);
+                                slot_Arr[i].setBackground(cardColor);
+                                slots_panel.setBackground(cardColor);
 			} catch (IOException e) {
 				images_exsist = false;
 				slot_Arr[i] = new JLabel("Slot #" + i + " ");
@@ -186,7 +191,7 @@ public class slotGUI{
 		{
 			@Override
 			public void actionPerformed(ActionEvent e){
-				System.exit(0);
+				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
 		});
 
