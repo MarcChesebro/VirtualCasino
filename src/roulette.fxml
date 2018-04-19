@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RouletteGUI">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RouletteGUI">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -50,9 +50,9 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="700.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
       <children>
-            <GridPane prefHeight="700.0" prefWidth="1000.0">
+            <GridPane prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="62.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="433.0" minWidth="10.0" prefWidth="134.0" />
