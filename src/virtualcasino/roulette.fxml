@@ -104,7 +104,4 @@
       </children>
     </AnchorPane>
   </children>
-  <stylesheets>
-    <URL value="@../../../../roulette/BasicApplication.css" />
-  </stylesheets>
 </VBox>
