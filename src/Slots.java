@@ -73,14 +73,6 @@ public class Slots{
 	}
 
         /**
-         * setSlots will set the slots for the game play
-         * @param givenSlots 
-         */
-	public void setSlots(final int[] givenSlots){
-		this.slotsArray = givenSlots;
-	}
-
-        /**
          * Sets the bet 
          * @param givenBet - the value to set bet to 
          */
