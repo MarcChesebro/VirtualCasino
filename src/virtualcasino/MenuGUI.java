@@ -16,27 +16,54 @@ import static javafx.application.Application.launch;
 
 public class MenuGUI extends Application {
 	 /** The virtual casino object.*/
-	 public static VirtualCasino casino = new VirtualCasino();
+	 private static VirtualCasino casino = new VirtualCasino();
 	 
 	 /**The screen controller.*/
-	 public static ScreenController screenController;
-	 
-	 /**The blackjack gui.*/
-	 public static BlackJackGUI blackjackController;
-	 
+	 private static ScreenController screenController;
+
+    /**The blackjack gui.*/
+    private static BlackJackGUI blackjackController;
+
+    /**
+     * returns virtual casino instance
+     * @return virtual casino instance
+     */
+    public static VirtualCasino getCasino() {
+        return casino;
+    }
+
+    /**
+     * returns virtual casino instance
+     * @return virtual casino instance
+     */
+    public static void setCasino(VirtualCasino casino) {
+        MenuGUI.casino = casino;
+    }
+
+    public static ScreenController getScreenController() {
+        return screenController;
+    }
+
+    public static void setScreenController(ScreenController screenController) {
+        MenuGUI.screenController = screenController;
+    }
+
+    public static BlackJackGUI getBlackjackController() {
+        return blackjackController;
+    }
+
+    public static void setBlackjackController(BlackJackGUI blackjackController) {
+        MenuGUI.blackjackController = blackjackController;
+    }
+
      @Override
      public void start(final Stage primaryStage) throws Exception {
          try {
-             Parent root = FXMLLoader.load(getClass()
-            		 .getResource("gui_css.fxml"));
+             Parent root = FXMLLoader.load(getClass().getResource("gui_css.fxml"));
              Scene scene = new Scene(root);
              screenController = new ScreenController(scene);
-             FXMLLoader mainLoader = 
-            		 new FXMLLoader(getClass()
-            				 .getResource("gui_css.fxml"));
-             FXMLLoader blackjackLoader = 
-            		 new FXMLLoader(getClass()
-            				 .getResource("blackjack.fxml"));
+             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("gui_css.fxml"));
+             FXMLLoader blackjackLoader = new FXMLLoader(getClass().getResource("blackjack.fxml"));
 
              screenController.addScreen("main", mainLoader.load());
              screenController.addScreen("blackjack", blackjackLoader.load());

@@ -53,8 +53,8 @@ public class VirtualCasino {
 	 ********************************/
 	public void blackjack() {
 		this.blackjack = new Blackjack();
-		MenuGUI.blackjackController.updatePlayerMoneyLabel();
-		MenuGUI.screenController.activate("blackjack");
+		MenuGUI.getBlackjackController().updatePlayerMoneyLabel();
+		MenuGUI.getScreenController().activate("blackjack");
 	}
 	
 	/***********************************
@@ -62,7 +62,7 @@ public class VirtualCasino {
 	 **********************************/
 	public void roulette() {
 		//Roulette.play(player);
-		MenuGUI.screenController.activate("roulette");
+		MenuGUI.getScreenController().activate("roulette");
 	}
 	
 	/**********************************

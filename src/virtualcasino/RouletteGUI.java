@@ -124,7 +124,7 @@ public class RouletteGUI implements Initializable{
 		spunNumber.setText("spin!");
 		g1.selectToggle(column1rb);
 		playermonlbl.setText(
-				String.valueOf(MenuGUI.casino
+				String.valueOf(MenuGUI.getCasino()
 						.getPlayer().getMoney()));
 		File image = new File("images/table.jpg");
         String path = image.toURI().toString();
@@ -166,7 +166,7 @@ public class RouletteGUI implements Initializable{
 		}else if(rou.getColor() == 2) {
 			spunNumber.setTextFill(Color.web("#00FF00"));
 		}
-		if(bet > 0 && MenuGUI.casino.getPlayer().getMoney() >= bet) {
+		if(bet > 0 && MenuGUI.getCasino().getPlayer().getMoney() >= bet) {
 			int multiplier;
 			if(g1.getSelectedToggle() == half1rb) {
 				multiplier = rou.checkBet(12, 0);
@@ -196,14 +196,14 @@ public class RouletteGUI implements Initializable{
 				multiplier = rou.checkBet(1, singlenum);
 			}
 			if(multiplier == 0) {
-				MenuGUI.casino.getPlayer()
+				MenuGUI.getCasino().getPlayer()
 				.changeMoney(bet * -1);
 			}else {
-				MenuGUI.casino.getPlayer()
+				MenuGUI.getCasino().getPlayer()
 				.changeMoney(bet * multiplier);
 			}
 		}
-		playermonlbl.setText(String.valueOf(MenuGUI.casino
+		playermonlbl.setText(String.valueOf(MenuGUI.getCasino()
 						.getPlayer().getMoney()));
 	}
 	
@@ -212,7 +212,7 @@ public class RouletteGUI implements Initializable{
 	 ****************************************************/
 	@FXML 
 	public void exitButton() {
-		MenuGUI.screenController.activate("main");
+		MenuGUI.getScreenController().activate("main");
 	}
 	
 	/***********************************************

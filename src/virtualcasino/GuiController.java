@@ -37,7 +37,7 @@ public class GuiController implements Initializable {
 	 ******************************************************/
 	@Override
 	public void initialize(final URL arg0, final ResourceBundle arg1) {
-		currentUser.setText(MenuGUI.casino.getPlayer().getName());
+		currentUser.setText(MenuGUI.getCasino().getPlayer().getName());
 	}
 
 	/*******************************************************
@@ -46,15 +46,15 @@ public class GuiController implements Initializable {
 	 ******************************************************/
 	@FXML 
 	private void blackjackButton() {
-		MenuGUI.casino.blackjack();
-		currentUser.setText(MenuGUI.casino.getPlayer().getName());
+		MenuGUI.getCasino().blackjack();
+		currentUser.setText(MenuGUI.getCasino().getPlayer().getName());
 	}
 	/********************************************************
 	 * The actions of the slot button for the main GUI.
 	 *******************************************************/
 	@FXML 
 	private void slotButton() {
-		MenuGUI.casino.slots();
+		MenuGUI.getCasino().slots();
 	}
 	
 	/********************************************************
@@ -70,7 +70,7 @@ public class GuiController implements Initializable {
 	 ******************************************************/
 	@FXML 
 	private void rouButton() {
-		MenuGUI.casino.roulette();
+		MenuGUI.getCasino().roulette();
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class GuiController implements Initializable {
 			String moneyString = br.readLine();
 			int money = Integer.parseInt(moneyString);
 
-			MenuGUI.casino.setPlayer(new Player(money, name));
+			MenuGUI.getCasino().setPlayer(new Player(money, name));
 
 			currentUser.setText(name);
 
@@ -117,7 +117,7 @@ public class GuiController implements Initializable {
 
 		if (result.isPresent()){
 			name = result.get();
-			MenuGUI.casino.setPlayer(new Player(100, name));
+			MenuGUI.getCasino().setPlayer(new Player(100, name));
 
 			currentUser.setText(name);
 		}
@@ -145,8 +145,8 @@ public class GuiController implements Initializable {
 	@FXML
 	private void saveUser(){
 
-		String name = MenuGUI.casino.getPlayer().getName();
-		int money = MenuGUI.casino.getPlayer().getMoney();
+		String name = MenuGUI.getCasino().getPlayer().getName();
+		int money = MenuGUI.getCasino().getPlayer().getMoney();
 
 		File userFile = new File("./users/" + name + ".vcsf");
 

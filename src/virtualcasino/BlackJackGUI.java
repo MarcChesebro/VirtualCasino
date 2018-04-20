@@ -100,7 +100,7 @@ public class BlackJackGUI implements Initializable {
 
     /** Label for the players money. */
     @FXML
-    public Label playerMoney;
+    private Label playerMoney;
 
     /** Button to start a hand. */
     @FXML
@@ -205,7 +205,7 @@ public class BlackJackGUI implements Initializable {
     @FXML
     public void startAction(){
         if(game == null){
-            game = MenuGUI.casino.getBlackjack();
+            game = MenuGUI.getCasino().getBlackjack();
         }
 
         reset();
@@ -221,7 +221,7 @@ public class BlackJackGUI implements Initializable {
             updateErrorlabel("Must Give Valid Number");
         }
 
-        if(bet > MenuGUI.casino.getPlayer().getMoney()){
+        if(bet > MenuGUI.getCasino().getPlayer().getMoney()){
             updateErrorlabel("Not Enough Money");
             return;
         }
@@ -244,7 +244,7 @@ public class BlackJackGUI implements Initializable {
      *  Action when hit button is pressed.
      ************************************************************************/
     public void exit(){
-        MenuGUI.screenController.activate("main");
+        MenuGUI.getScreenController().activate("main");
     }
 
     /**************************************************************************
@@ -263,13 +263,13 @@ public class BlackJackGUI implements Initializable {
 
         //TODO update winLabel
         if(playerScore > 21){
-            MenuGUI.casino.getPlayer().changeMoney(-bet);
+            MenuGUI.getCasino().getPlayer().changeMoney(-bet);
         }else if(dealerScore > 21){
-            MenuGUI.casino.getPlayer().changeMoney(bet);
+            MenuGUI.getCasino().getPlayer().changeMoney(bet);
         }else if(dealerScore >= playerScore){
-            MenuGUI.casino.getPlayer().changeMoney(-bet);
+            MenuGUI.getCasino().getPlayer().changeMoney(-bet);
         }else{
-            MenuGUI.casino.getPlayer().changeMoney(bet);
+            MenuGUI.getCasino().getPlayer().changeMoney(bet);
         }
         updatePlayerMoneyLabel();
     }
@@ -279,7 +279,7 @@ public class BlackJackGUI implements Initializable {
      ************************************************************************/
     public void updatePlayerMoneyLabel(){
         playerMoney.setText(String
-        		.valueOf(MenuGUI.casino.getPlayer().getMoney()));
+        		.valueOf(MenuGUI.getCasino().getPlayer().getMoney()));
     }
 
     /************************************************************************
