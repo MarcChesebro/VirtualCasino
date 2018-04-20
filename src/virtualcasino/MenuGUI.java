@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import static javafx.application.Application.launch;
 /*******************************************
- * Instantiates all of the gui screens and screen controller.
+ * Description: Instantiates all of the gui screens and screen controller.
  * @author Brendan Caywood
  * @author Marc Chesebro
  * @version 4/20/18
