@@ -130,7 +130,7 @@ public class BlackJackGUI implements Initializable {
      * Method for setting up initial values.
      *************************************************************************/
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
+    public void initialize(final URL arg0, final ResourceBundle arg1) {
         initializeHandLabels();
         clearHands();
 
@@ -319,13 +319,13 @@ public class BlackJackGUI implements Initializable {
      * Updates the players score Label.
      * @param Score int to set the label to.
      ************************************************************************/
-    private void updatePlayerScore(int Score){
-        playerScore.setText(String.valueOf(Score));
+    private void updatePlayerScore(final int score){
+        playerScore.setText(String.valueOf(score));
     }
 
     /************************************************************************
      * Updates the dealers score Label.
-     * @param Score int to set the label to.
+     * @param score int to set the label to.
      ************************************************************************/
     private void updateDealerScore(final int score){
         dealerScore.setText(String.valueOf(score));

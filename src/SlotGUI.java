@@ -23,22 +23,22 @@ import javax.swing.JPanel;
  * This is the GUI for a game of slots. allowing player functionality
  * for betting money and wining/losing money.
  * @author Patrick McMahon
- * @date 4/10/2018
+ * @version 4/10/2018
  */
-public class slotGUI{
+public class SlotGUI{
 
 	public JFrame frame;
 
 	private Slots currentTurn;
 
-	private final String[] CARDSTRING = {"Ten","Jack","Queen","King","Ace"};
+	private final String[] cardString = {"Ten","Jack","Queen","King","Ace"};
 	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
 
 	/**
 	* Initializes the slots game play
 	* @param givenCurrTurn a slots game
 	*/
-	public slotGUI(Slots givenCurrTurn){
+	public SlotGUI(final Slots givenCurrTurn){
 		currentTurn = givenCurrTurn;
 	}
 
@@ -56,7 +56,6 @@ public class slotGUI{
                 
                 //color of the back of cards
                 Color cardColor = new Color(255,255,255);
-
 
 		//Creates the JFrame and sets the details
 		frame = new JFrame("Slots");
@@ -113,7 +112,7 @@ public class slotGUI{
 				imagesExsist = true;
 				BufferedImage img = ImageIO.read(new File(filePath));
 				ImageIcon backIcon = new ImageIcon(img);
-				slotArr[i] = new JLabel(backIcon,JLabel.CENTER );
+				slotArr[i] = new JLabel(backIcon,JLabel.CENTER);
 				slotArr[i].setBorder(BorderFactory.createLineBorder(bgc,5));
 				slotsPanel.add(slotArr[i]);
                                 slotArr[i].setBackground(cardColor);
@@ -126,8 +125,10 @@ public class slotGUI{
 		}
 
 		//If the images dont exist throw this pop up message
-		if (imagesExsist == false){
-			JLabel label = new JLabel("Images were moved or deleted.");
+		if (!imagesExsist){
+			JLabel label = 
+					new 
+					JLabel("Images were moved or deleted.");
 			JOptionPane.showMessageDialog(null, label);
 		}
 
@@ -143,10 +144,9 @@ public class slotGUI{
 
 
 		//What to do when the roll button is pressed
-		roll.addActionListener(new ActionListener()
-		{
+		roll.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e){
 
 				//Lets check the bet to make sure it is valid
 				int currBet = currentTurn.getBet(); 
@@ -183,17 +183,16 @@ public class slotGUI{
 						ImageIcon frontIcon = new ImageIcon(img);
 						slotArr[i].setIcon(frontIcon);
 					}catch(IOException exception){
-						slotArr[i].setText(CARDSTRING[cards[i]]);
+						slotArr[i].setText(cardString[cards[i]]);
 					}
 				}
 			}
 		});
 
 		//What to do when the change bet button is pressed.
-		changeBet.addActionListener(new ActionListener()
-		{
+		changeBet.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e){
 				String newBet = JOptionPane.showInputDialog(frame,"Enter new bet.");
 				try{
 					int tryBet = Integer.parseInt(newBet);
@@ -211,10 +210,9 @@ public class slotGUI{
 		});
 
 		//What to do when the change bet button is pressed.
-		exit.addActionListener(new ActionListener()
-		{
+		exit.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e){
 				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
 		});
