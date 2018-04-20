@@ -246,7 +246,7 @@ public class BlackJackGUI implements Initializable {
     }
 
     /**************************************************************************
-     * Resolves the current hand state and gives reward or removes bet amount
+     * Resolves the current hand state and gives reward or removes bet amount.
      **************************************************************************/
     private void resolveHands(){
 
@@ -276,7 +276,8 @@ public class BlackJackGUI implements Initializable {
      * Updates the playerMoney Label to the players current amount.
      ************************************************************************/
     public void updatePlayerMoneyLabel(){
-        playerMoney.setText(String.valueOf(MenuGUI.casino.getPlayer().getMoney()));
+        playerMoney.setText(String
+        		.valueOf(MenuGUI.casino.getPlayer().getMoney()));
     }
 
     /************************************************************************
@@ -340,7 +341,8 @@ public class BlackJackGUI implements Initializable {
     }
 
     /************************************************************************
-     * Resets the hand. clearing both hands and making sure a new bet must be made.
+     * Resets the hand. clearing both hands 
+     * and making sure a new bet must be made.
      ************************************************************************/
     private void reset(){
         game.reset();
