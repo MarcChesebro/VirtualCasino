@@ -23,7 +23,7 @@ import javax.swing.JPanel;
  * This is the GUI for a game of slots. allowing player functionality
  * for betting money and wining/losing money.
  * @author Patrick McMahon
- * @date 4/10/2018
+ * @date 4/18/2018
  */
 public class slotGUI{
 

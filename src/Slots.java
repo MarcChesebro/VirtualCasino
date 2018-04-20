@@ -4,7 +4,7 @@ import java.util.Random;
  * This is the game of slots, it allows you to create a slot game,
  * bet money and win/lose money.
  * @author Patrick McMahon
- * @date 4/10/2018
+ * @date 4/18/2018
  */
 public class Slots{
 
