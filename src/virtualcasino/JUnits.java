@@ -388,33 +388,33 @@ public class JUnits {
 	@Test
 	public void testCardtoString1() {
 		Card card = new Card(Card.Suit.diamond, 1);
-		String expected = "Ace of diamond";
+		String expected = "ace_of_diamonds";
 		assertTrue(card.toString().equals(expected));
 	}
 	@Test
 	public void testCardtoString2() {
 		Card card = new Card(Card.Suit.diamond, 2);
-		String expected = "2 of diamond";
+		String expected = "2_of_diamonds";
 		assertTrue(card.toString().equals(expected));
 	}
 	@Test
 	public void testCardtoString3() {
 		Card card = new Card(Card.Suit.diamond, 11);
-		String expected = "Jack of diamond";
+		String expected = "jack_of_diamonds";
 		assertTrue(card.toString().equals(expected));
 	}
 
 	@Test
 	public void testCardtoString4() {
 		Card card = new Card(Card.Suit.diamond, 12);
-		String expected = "Queen of diamond";
+		String expected = "queen_of_diamonds";
 		assertTrue(card.toString().equals(expected));
 	}
 
 	@Test
 	public void testCardtoString5() {
 		Card card = new Card(Card.Suit.diamond, 13);
-		String expected = "King of diamond";
+		String expected = "king_of_diamonds";
 		assertTrue(card.toString().equals(expected));
 	}
 
