@@ -61,7 +61,7 @@ public class MenuGUI extends Application {
          try {
              Parent root = FXMLLoader.load(getClass().getResource("gui_css.fxml"));
              Scene scene = new Scene(root);
-             screenController = new ScreenController(scene);
+             setScreenController(new ScreenController(scene));
              FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("gui_css.fxml"));
              FXMLLoader blackjackLoader = new FXMLLoader(getClass().getResource("blackjack.fxml"));
 
@@ -71,8 +71,7 @@ public class MenuGUI extends Application {
              .addScreen("roulette", FXMLLoader
             		 .load(getClass().getResource("roulette.fxml")));
 
-             blackjackController = blackjackLoader
-            		 .<BlackJackGUI>getController();
+             setBlackjackController(blackjackLoader.<BlackJackGUI>getController());
 
              primaryStage.setScene(scene);
              primaryStage.setTitle("Virtual Casino");
