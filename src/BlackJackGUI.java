@@ -246,7 +246,7 @@ public class BlackJackGUI implements Initializable {
     }
 
     /**************************************************************************
-     * Resolves the current hand state and gives reward or removes bet amount
+     * Resolves the current hand state and gives reward or removes bet amount.
      **************************************************************************/
     private void resolveHands(){
 

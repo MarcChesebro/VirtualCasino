@@ -27,19 +27,24 @@ import javax.swing.JPanel;
  */
 public class SlotGUI{
 
+	/**The jframe.*/
 	public JFrame frame;
 
+	/** The current turn.*/
 	private Slots currentTurn;
 
+	/** The array of cards.*/
 	private final String[] cardString = {"Ten","Jack",
 			"Queen","King","Ace"};
+	
+	/** The array of card file names.*/
 	private final String[] cardImages = 
 		{"10_of_spades.png","jack_of_spades.png",
 				"queen_of_spades.png","king_of_spades.png",
 				"ace_of_spades.png"};
 
 	/**
-	* Initializes the slots game play
+	* Initializes the slots game play.
 	* @param givenCurrTurn a slots game
 	*/
 	public SlotGUI(final Slots givenCurrTurn){

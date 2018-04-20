@@ -8,13 +8,20 @@ import java.util.Random;
  */
 public class Slots{
 
+	/** The number of slots.*/
 	private int numSlots;
+	
+	/** The current bet. */
 	private int bet;
+	
+	/**The array of slots.*/
 	private int[] slotsArray;
+	
+	/** The player used. */
 	private Player player;
 
         /**
-         * This is the constructor for the Slots game play
+         * This is the constructor for the Slots game play.
          * creates the slots and bet values
          * @param givenPlayer a player object
          */
@@ -30,7 +37,7 @@ public class Slots{
 	}
         
 	/**
-	* play will launch the slots GUI
+	* play will launch the slots GUI.
 	* @param player The user that is playing the game of slots.
 	*/
 	public static void play(final Player player){
@@ -49,7 +56,7 @@ public class Slots{
 	}
 
         /**
-         * getSlots returns an array containing the slots value
+         * getSlots returns an array containing the slots value.
          * @return an array containing the slots
          */
 	public int[] getSlots(){
@@ -65,7 +72,7 @@ public class Slots{
 	}
 
         /**
-         * getWallet returns the players wallet amount
+         * getWallet returns the players wallet amount.
          * @return the players wallet amount
          */
 	public int getWallet(){
@@ -73,7 +80,7 @@ public class Slots{
 	}
 
         /**
-         * setSlots will set the slots for the game play
+         * setSlots will set the slots for the game play.
          * @param givenSlots 
          */
 	public void setSlots(final int[] givenSlots){
@@ -81,8 +88,8 @@ public class Slots{
 	}
 
         /**
-         * Sets the bet 
-         * @param givenBet - the value to set bet to 
+         * Sets the bet .
+         * @param givenBet - the value to set bet to
          */
 	public void setBet(final int givenBet){
 		this.bet = givenBet;
@@ -171,7 +178,7 @@ public class Slots{
 	}
 
 	/** 
-	* based on the amount of money the player won/lost
+	* based on the amount of money the player won/lost.
 	* this method will return a string to output to the player
 	*  @param playerMoney - the players winings/losings
 	*  @return retVal - a string that will be outputted to the player
