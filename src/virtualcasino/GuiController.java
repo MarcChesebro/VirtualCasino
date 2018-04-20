@@ -108,7 +108,7 @@ public class GuiController implements Initializable {
 	private void newUserAction(){
 		TextInputDialog dialog = new TextInputDialog("Name");
 		dialog.setTitle("Create New User");
-		dialog.setHeaderText("Create s New User");
+		dialog.setHeaderText("Create a New User");
 		dialog.setContentText("Please enter your name:");
 
 		Optional<String> result = dialog.showAndWait();

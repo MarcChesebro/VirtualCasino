@@ -28,15 +28,24 @@ import javax.swing.JPanel;
  */
 public class SlotGUI{
 
+	/**The jframe.*/
 	public JFrame frame;
 
+	/** The current turn.*/
 	private Slots currentTurn;
 
-	private final String[] cardString = {"Ten","Jack","Queen","King","Ace"};
-	private final String[] cardImages = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
+	/** The array of cards.*/
+	private final String[] cardString = {"Ten","Jack",
+			"Queen","King","Ace"};
+	
+	/** The array of card file names.*/
+	private final String[] cardImages = 
+		{"10_of_spades.png","jack_of_spades.png",
+				"queen_of_spades.png","king_of_spades.png",
+				"ace_of_spades.png"};
 
 	/**
-	* Initializes the slots game play
+	* Initializes the slots game play.
 	* @param givenCurrTurn a slots game
 	*/
 	public SlotGUI(final Slots givenCurrTurn){
@@ -44,7 +53,8 @@ public class SlotGUI{
 	}
 
 	/**
-	* This is the GUI for the whole slots game. creates the window, adds the slots and 
+	* This is the GUI for the whole slots game. 
+	* creates the window, adds the slots and 
 	* additional buttons, and shows player money.
 	*/
 	public void showWindow(){
@@ -73,8 +83,9 @@ public class SlotGUI{
 		//Creating lables to change when user does various things
 		final JLabel outcome = new JLabel("Welcome to Slots!");
 		int mywallet = currentTurn.getWallet();
-		final JLabel wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
-                final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
+		final JLabel wallet = new JLabel("Wallet:   "
+		+mywallet, JLabel.CENTER);
+        final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
 		JButton roll = new JButton("Roll");
 		JButton changeBet = new JButton("Set Bet  ");
 		JButton exit = new JButton("Exit");
@@ -99,22 +110,28 @@ public class SlotGUI{
 
 		//gets the filepath needed to use the card images
 		String fileName = "back.png";
-		String workingDirectory = System.getProperty("user.dir") + "/images";
-		String filePath = workingDirectory + System.getProperty("file.separator") + fileName;
+		String workingDirectory = System.getProperty("user.dir") 
+				+ "/images";
+		String filePath = workingDirectory 
+				+ System.getProperty("file.separator") 
+				+ fileName;
 
 		boolean imagesExsist = false;
 
 		//createing the slot array with an image
 		for(int i = 0; i<numberOfSlots;i++){
 
-			//Check the filepath to verify location. If images are dead/gone
+			//Check the filepath to verify location. 
+			//If images are dead/gone
 			//Use plane text instead
 			try {
 				imagesExsist = true;
-				BufferedImage img = ImageIO.read(new File(filePath));
+				BufferedImage img = ImageIO
+						.read(new File(filePath));
 				ImageIcon backIcon = new ImageIcon(img);
 				slotArr[i] = new JLabel(backIcon,JLabel.CENTER);
-				slotArr[i].setBorder(BorderFactory.createLineBorder(bgc,5));
+				slotArr[i].setBorder(BorderFactory
+						.createLineBorder(bgc,5));
 				slotsPanel.add(slotArr[i]);
                                 slotArr[i].setBackground(cardColor);
                                 slotsPanel.setBackground(cardColor);
@@ -152,10 +169,12 @@ public class SlotGUI{
 				//Lets check the bet to make sure it is valid
 				int currBet = currentTurn.getBet(); 
 				if(currBet <= 0){
-					JOptionPane.showMessageDialog(frame,"No bet selected!");
+					JOptionPane.showMessageDialog(frame,
+							"No bet selected!");
 					return;
 				}else if(!currentTurn.checkBet(currBet)) {
-					JOptionPane.showMessageDialog(frame,"Bet Invalid");
+					JOptionPane.showMessageDialog(frame,
+							"Bet Invalid");
 					return;
 				}
 				//Roll the slots
@@ -164,7 +183,8 @@ public class SlotGUI{
 				//update the player wallet and return the value
 				int moneyWon = currentTurn.updateWallet();
 
-				wallet.setText("Wallet:  " + currentTurn.getWallet());
+				wallet.setText("Wallet:  " 
+				+ currentTurn.getWallet());
 
 				//set the text the user will see
 				String wl = currentTurn.winLose(moneyWon);
@@ -175,16 +195,24 @@ public class SlotGUI{
 				int[] cards = currentTurn.getSlots();
 				for(int i = 0; i<numberOfSlots;i++){
 					String fileName = cardImages[cards[i]] ;
-					String workingDirectory = System.getProperty("user.dir") + "/images";
-					String filePath = workingDirectory + System.getProperty("file.separator") + fileName;
+					String workingDirectory = 
+						System.getProperty("user.dir") 
+						+ "/images";
+					String filePath = workingDirectory 
+						+ System
+						.getProperty("file.separator") 
+						+ fileName;
 					
 					//Check if the images exsist
 					try{
-						BufferedImage img = ImageIO.read(new File(filePath));
-						ImageIcon frontIcon = new ImageIcon(img);
+						BufferedImage img = ImageIO
+					    .read(new File(filePath));
+						ImageIcon frontIcon = 
+						new ImageIcon(img);
 						slotArr[i].setIcon(frontIcon);
 					}catch(IOException exception){
-						slotArr[i].setText(cardString[cards[i]]);
+						slotArr[i]
+						.setText(cardString[cards[i]]);
 					}
 				}
 			}
@@ -194,15 +222,21 @@ public class SlotGUI{
 		changeBet.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(final ActionEvent e){
-				String newBet = JOptionPane.showInputDialog(frame,"Enter new bet.");
+				String newBet 
+				= JOptionPane
+				.showInputDialog(frame,"Enter new bet.");
 				try{
 					int tryBet = Integer.parseInt(newBet);
 					if(currentTurn.checkBet(tryBet)){
                                                 changeBet.setText("Change Bet");
 						currentTurn.setBet(tryBet);
-						betInput.setText("Current Bet:  " + tryBet);						
+						betInput
+						.setText("Current Bet:  " 
+						+ tryBet);	
 					}else{
-						JOptionPane.showMessageDialog(frame,"Invalid Bet!!");
+						JOptionPane
+						.showMessageDialog(frame,
+						"Invalid Bet!!");
 					}
 				}catch(NumberFormatException exc){
 
@@ -214,7 +248,9 @@ public class SlotGUI{
 		exit.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(final ActionEvent e){
-				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+				frame.dispatchEvent(
+						new WindowEvent(frame, 
+						WindowEvent.WINDOW_CLOSING));
 			}
 		});
 

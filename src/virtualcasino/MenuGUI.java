@@ -7,11 +7,21 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import static javafx.application.Application.launch;
-
+/*******************************************
+ * Instantiates all of the gui screens and screen controller.
+ * @author Brendan Caywood
+ * @author Marc Chesebro
+ * @version 4/20/18
+ *****************************************/
 
 public class MenuGUI extends Application {
+	 /** The virtual casino object.*/
 	 public static VirtualCasino casino = new VirtualCasino();
+	 
+	 /**The screen controller.*/
 	 public static ScreenController screenController;
+	 
+	 /**The blackjack gui.*/
 	 public static BlackJackGUI blackjackController;
 	 
      @Override
@@ -47,6 +57,10 @@ public class MenuGUI extends Application {
          }
      }
 
+     /**********************************
+      * the main method for menu Gui.
+      * @param args the arguments
+      **********************************/
      public static void main(final String[] args) {
          launch(args);
      }
