@@ -486,42 +486,6 @@ public class JUnits {
 	}
         
         @Test
-        public void testWinLose1(){
-            int temp = 5;
-            Player player = new Player(100,"name");
-            Slots SlotsPlayer = new Slots(player);
-            SlotsPlayer.setBet(temp);
-            String testVal = SlotsPlayer.winLose(6);
-            
-            assertTrue(testVal == "You Won $5");
-            
-        }
-        
-        @Test
-        public void testWinLose2(){
-            int temp = 5;
-            Player player = new Player(100,"name");
-            Slots SlotsPlayer = new Slots(player);
-            SlotsPlayer.setBet(temp);
-            String testVal = SlotsPlayer.winLose(5);
-            
-            assertTrue(testVal == "You kept your $5");
-            
-        }
-        
-        @Test
-        public void testWinLose3(){
-            int temp = 5;
-            Player player = new Player(100,"name");
-            Slots SlotsPlayer = new Slots(player);
-            SlotsPlayer.setBet(temp);
-            String testVal = SlotsPlayer.winLose(0);
-            
-            assertTrue(testVal == "You lost $5");
-            
-        }
-        
-        @Test
         public void testCheckBet1(){
             Player player = new Player(100,"name");
             Slots SlotsPlayer = new Slots(player);
