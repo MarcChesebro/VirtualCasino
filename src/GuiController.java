@@ -64,7 +64,7 @@ public class GuiController implements Initializable {
 	}
 	
 	/*******************************************************
-	 * The actions of the refresh button for the main GUI.
+	 * The actions of the roulette button for the main GUI.
 	 ******************************************************/
 	@FXML 
 	private void rouButton() {
