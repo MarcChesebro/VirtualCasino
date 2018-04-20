@@ -116,7 +116,8 @@ public class Slots{
 	}
 
 	/**
-	* Based on the current array of slots this will return the players winnings
+	* Based on the current array of slots 
+	* this will return the players winnings
 	* and this will update the player wallet.
 	* @return retVal - the amount of money that the player won/lost
 	*/
