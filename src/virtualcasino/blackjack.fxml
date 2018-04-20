@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BlackJackGUI">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="virtualcasino.BlackJackGUI">
    <children>
       <HBox layoutX="9.0" layoutY="70.0" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="75.0">
          <children>

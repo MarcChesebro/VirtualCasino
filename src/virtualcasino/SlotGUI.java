@@ -1,3 +1,5 @@
+package virtualcasino;
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -18,27 +20,26 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 /**
  * This is the GUI for a game of slots. allowing player functionality
  * for betting money and wining/losing money.
  * @author Patrick McMahon
- * @date 4/18/2018
+ * @version 4/10/2018
  */
-public class slotGUI{
+public class SlotGUI{
 
 	public JFrame frame;
 
 	private Slots currentTurn;
 
-	private final String[] CARDSTRING = {"Ten","Jack","Queen","King","Ace"};
-	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
+	private final String[] cardString = {"Ten","Jack","Queen","King","Ace"};
+	private final String[] cardImages = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
 
 	/**
 	* Initializes the slots game play
 	* @param givenCurrTurn a slots game
 	*/
-	public slotGUI(Slots givenCurrTurn){
+	public SlotGUI(final Slots givenCurrTurn){
 		currentTurn = givenCurrTurn;
 	}
 
@@ -57,7 +58,6 @@ public class slotGUI{
                 //color of the back of cards
                 Color cardColor = new Color(255,255,255);
 
-
 		//Creates the JFrame and sets the details
 		frame = new JFrame("Slots");
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -73,7 +73,7 @@ public class slotGUI{
 		//Creating lables to change when user does various things
 		final JLabel outcome = new JLabel("Welcome to Slots!");
 		int mywallet = currentTurn.getWallet();
-		final JLabel Wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
+		final JLabel wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
                 final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
 		JButton roll = new JButton("Roll");
 		JButton changeBet = new JButton("Set Bet  ");
@@ -95,7 +95,7 @@ public class slotGUI{
 		slotsPanel.setLayout(new GridLayout(1,numberOfSlots));
 
 		//The slot lables will be stored in this array
-		JLabel slotArr[] = new JLabel[numberOfSlots];
+		JLabel[] slotArr = new JLabel[numberOfSlots];
 
 		//gets the filepath needed to use the card images
 		String fileName = "back.png";
@@ -113,7 +113,7 @@ public class slotGUI{
 				imagesExsist = true;
 				BufferedImage img = ImageIO.read(new File(filePath));
 				ImageIcon backIcon = new ImageIcon(img);
-				slotArr[i] = new JLabel(backIcon,JLabel.CENTER );
+				slotArr[i] = new JLabel(backIcon,JLabel.CENTER);
 				slotArr[i].setBorder(BorderFactory.createLineBorder(bgc,5));
 				slotsPanel.add(slotArr[i]);
                                 slotArr[i].setBackground(cardColor);
@@ -126,13 +126,15 @@ public class slotGUI{
 		}
 
 		//If the images dont exist throw this pop up message
-		if (imagesExsist == false){
-			JLabel label = new JLabel("Images were moved or deleted.");
+		if (!imagesExsist){
+			JLabel label = 
+					new 
+					JLabel("Images were moved or deleted.");
 			JOptionPane.showMessageDialog(null, label);
 		}
 
 		//Add all of the components to the panels
-		dataPanel.add(Wallet);
+		dataPanel.add(wallet);
                 dataPanel.add(changeBet);
                 dataPanel.add(betInput);
                 roll.setBorder(BorderFactory.createLineBorder(bgc,10));
@@ -143,10 +145,9 @@ public class slotGUI{
 
 
 		//What to do when the roll button is pressed
-		roll.addActionListener(new ActionListener()
-		{
+		roll.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e){
 
 				//Lets check the bet to make sure it is valid
 				int currBet = currentTurn.getBet(); 
@@ -163,7 +164,7 @@ public class slotGUI{
 				//update the player wallet and return the value
 				int moneyWon = currentTurn.updateWallet();
 
-				Wallet.setText("Wallet:  " + currentTurn.getWallet());
+				wallet.setText("Wallet:  " + currentTurn.getWallet());
 
 				//set the text the user will see
 				String wl = currentTurn.winLose(moneyWon);
@@ -171,9 +172,9 @@ public class slotGUI{
 				outcome.setText(wl + moneyWon);
 
 				//update the card images
-				int cards[] = currentTurn.getSlots();
+				int[] cards = currentTurn.getSlots();
 				for(int i = 0; i<numberOfSlots;i++){
-					String fileName = CARDIMAGES[cards[i]] ;
+					String fileName = cardImages[cards[i]] ;
 					String workingDirectory = System.getProperty("user.dir") + "/images";
 					String filePath = workingDirectory + System.getProperty("file.separator") + fileName;
 					
@@ -183,17 +184,16 @@ public class slotGUI{
 						ImageIcon frontIcon = new ImageIcon(img);
 						slotArr[i].setIcon(frontIcon);
 					}catch(IOException exception){
-						slotArr[i].setText(CARDSTRING[cards[i]]);
+						slotArr[i].setText(cardString[cards[i]]);
 					}
 				}
 			}
 		});
 
 		//What to do when the change bet button is pressed.
-		changeBet.addActionListener(new ActionListener()
-		{
+		changeBet.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e){
 				String newBet = JOptionPane.showInputDialog(frame,"Enter new bet.");
 				try{
 					int tryBet = Integer.parseInt(newBet);
@@ -211,10 +211,9 @@ public class slotGUI{
 		});
 
 		//What to do when the change bet button is pressed.
-		exit.addActionListener(new ActionListener()
-		{
+		exit.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(final ActionEvent e){
 				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
 		});

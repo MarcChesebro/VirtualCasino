@@ -1,3 +1,5 @@
+package virtualcasino;
+
 /**
  * Card class to represent a standard poker cards.
  *

@@ -1,3 +1,5 @@
+package virtualcasino;
+
 import java.util.Scanner;
 
 /******************************

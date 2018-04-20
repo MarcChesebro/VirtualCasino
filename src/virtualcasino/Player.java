@@ -1,3 +1,5 @@
+package virtualcasino;
+
 /**
  * Description: Represents the player of the game.
  *

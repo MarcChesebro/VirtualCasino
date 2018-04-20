@@ -1,3 +1,5 @@
+package virtualcasino;
+
 /****************************************************************
 * Description: The main class in the Virtual Casino program.
 * @author Marc Chesebro
