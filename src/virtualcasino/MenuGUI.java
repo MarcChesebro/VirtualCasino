@@ -42,15 +42,19 @@ public class MenuGUI extends Application {
 
     /**
      * sets the screen controller.
+     * @param screenController the screencontroller
      */
-    private static void setScreenController(ScreenController screenController) {
+    private static void setScreenController(
+    		final ScreenController screenController) {
         MenuGUI.screenController = screenController;
     }
 
     /**
      * Sets the blackjack controller.
+     * @param blackjackController the blackjack controller
      */
-    private static void setBlackjackController(BlackJackGUI blackjackController) {
+    private static void setBlackjackController(
+    		final BlackJackGUI blackjackController) {
         MenuGUI.blackjackController = blackjackController;
     }
 
@@ -93,7 +97,8 @@ public class MenuGUI extends Application {
              .addScreen("roulette", FXMLLoader
             		 .load(getClass().getResource("roulette.fxml")));
 
-             setBlackjackController(blackjackLoader.<BlackJackGUI>getController());
+             setBlackjackController(blackjackLoader.
+            		 <BlackJackGUI>getController());
 
              primaryStage.setScene(scene);
              primaryStage.setTitle("Virtual Casino");
