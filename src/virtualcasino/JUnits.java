@@ -420,7 +420,7 @@ public class JUnits {
 
 	@Test
 	public void testDeckConstructor(){
-		Deck deck = new Deck();
+		new Deck();
 		assertTrue(true);
 	}
 

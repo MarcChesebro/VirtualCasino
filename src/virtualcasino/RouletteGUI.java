@@ -166,7 +166,8 @@ public class RouletteGUI implements Initializable{
 		}else if(rou.getColor() == 2) {
 			spunNumber.setTextFill(Color.web("#00FF00"));
 		}
-		if(bet > 0 && MenuGUI.getCasino().getPlayer().getMoney() >= bet) {
+		if(bet > 0 && MenuGUI.getCasino()
+				.getPlayer().getMoney() >= bet) {
 			int multiplier;
 			if(g1.getSelectedToggle() == half1rb) {
 				multiplier = rou.checkBet(12, 0);

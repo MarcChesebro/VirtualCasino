@@ -160,7 +160,6 @@ public class SlotGUI{
                 roll.setBackground(rc);
                 rollPanel.add(roll);
 
-
 		//What to do when the roll button is pressed
 		roll.addActionListener(new ActionListener(){
 			@Override
