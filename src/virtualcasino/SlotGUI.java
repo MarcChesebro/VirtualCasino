@@ -29,7 +29,7 @@ import javax.swing.JPanel;
 public class SlotGUI{
 
 	/**The jframe.*/
-	public JFrame frame;
+	private JFrame frame;
 
 	/** The current turn.*/
 	private Slots currentTurn;
