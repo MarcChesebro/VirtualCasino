@@ -317,7 +317,7 @@ public class BlackJackGUI implements Initializable {
 
     /************************************************************************
      * Updates the players score Label.
-     * @param Score int to set the label to.
+     * @param score int to set the label to.
      ************************************************************************/
     private void updatePlayerScore(final int score){
         playerScore.setText(String.valueOf(score));

@@ -32,7 +32,7 @@ public class SlotGUI{
 	private Slots currentTurn;
 
 	private final String[] cardString = {"Ten","Jack","Queen","King","Ace"};
-	private final String[] CARDIMAGES = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
+	private final String[] cardImages = {"10_of_spades.png","jack_of_spades.png","queen_of_spades.png","king_of_spades.png","ace_of_spades.png"};
 
 	/**
 	* Initializes the slots game play
@@ -72,7 +72,7 @@ public class SlotGUI{
 		//Creating lables to change when user does various things
 		final JLabel outcome = new JLabel("Welcome to Slots!");
 		int mywallet = currentTurn.getWallet();
-		final JLabel Wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
+		final JLabel wallet = new JLabel("Wallet:   "+mywallet, JLabel.CENTER);
                 final JLabel betInput = new JLabel("Current Bet:   ", JLabel.CENTER);
 		JButton roll = new JButton("Roll");
 		JButton changeBet = new JButton("Set Bet  ");
@@ -94,7 +94,7 @@ public class SlotGUI{
 		slotsPanel.setLayout(new GridLayout(1,numberOfSlots));
 
 		//The slot lables will be stored in this array
-		JLabel slotArr[] = new JLabel[numberOfSlots];
+		JLabel[] slotArr = new JLabel[numberOfSlots];
 
 		//gets the filepath needed to use the card images
 		String fileName = "back.png";
@@ -133,7 +133,7 @@ public class SlotGUI{
 		}
 
 		//Add all of the components to the panels
-		dataPanel.add(Wallet);
+		dataPanel.add(wallet);
                 dataPanel.add(changeBet);
                 dataPanel.add(betInput);
                 roll.setBorder(BorderFactory.createLineBorder(bgc,10));
@@ -163,7 +163,7 @@ public class SlotGUI{
 				//update the player wallet and return the value
 				int moneyWon = currentTurn.updateWallet();
 
-				Wallet.setText("Wallet:  " + currentTurn.getWallet());
+				wallet.setText("Wallet:  " + currentTurn.getWallet());
 
 				//set the text the user will see
 				String wl = currentTurn.winLose(moneyWon);
@@ -171,9 +171,9 @@ public class SlotGUI{
 				outcome.setText(wl + moneyWon);
 
 				//update the card images
-				int cards[] = currentTurn.getSlots();
+				int[] cards = currentTurn.getSlots();
 				for(int i = 0; i<numberOfSlots;i++){
-					String fileName = CARDIMAGES[cards[i]] ;
+					String fileName = cardImages[cards[i]] ;
 					String workingDirectory = System.getProperty("user.dir") + "/images";
 					String filePath = workingDirectory + System.getProperty("file.separator") + fileName;
 					

@@ -4,7 +4,7 @@ import java.util.Random;
  * This is the game of slots, it allows you to create a slot game,
  * bet money and win/lose money.
  * @author Patrick McMahon
- * @date 4/18/2018
+ * @version 4/18/2018
  */
 public class Slots{
 
@@ -22,7 +22,7 @@ public class Slots{
 		player = givenPlayer;
 		numSlots = 3;
 		bet = 0;
-		int temp[] = new int[numSlots];
+		int[] temp = new int[numSlots];
 		for(int i = 0; i < numSlots; i++){
 			temp[i] = 0;
 		}
@@ -36,7 +36,7 @@ public class Slots{
 	public static void play(final Player player){
 
 		Slots curTurn = new Slots(player);
-		slotGUI sgu = new slotGUI(curTurn);
+		SlotGUI sgu = new SlotGUI(curTurn);
 		sgu.showWindow();
 	}
 
@@ -76,15 +76,15 @@ public class Slots{
          * setSlots will set the slots for the game play
          * @param givenSlots 
          */
-	public void setSlots(int[] givenSlots){
+	public void setSlots(final int[] givenSlots){
 		this.slotsArray = givenSlots;
 	}
 
         /**
          * Sets the bet 
-         * @param givenbet - the value to set bet to 
+         * @param givenBet - the value to set bet to 
          */
-	public void setBet(int givenBet){
+	public void setBet(final int givenBet){
 		this.bet = givenBet;
 	}
 
@@ -175,7 +175,7 @@ public class Slots{
 	*  @param playerMoney - the players winings/losings
 	*  @return retVal - a string that will be outputted to the player
 	*/
-	public String winLose(int playerMoney){
+	public String winLose(final int playerMoney){
 		
             String retVal = "";
             if(playerMoney < this.bet){
@@ -194,7 +194,7 @@ public class Slots{
 	* @param testBet - the bet to check for validity
 	* @return boolean value based on if the bet is valid of not
 	*/
-	public Boolean checkBet(int testBet){
+	public Boolean checkBet(final int testBet){
 
             if(testBet >= 1 && testBet <= player.getMoney()){
                     return true;
