@@ -41,7 +41,22 @@ public class MenuGUI extends Application {
     }
 
     /**
+     * sets the screen controller.
+     */
+    private static void setScreenController(ScreenController screenController) {
+        MenuGUI.screenController = screenController;
+    }
+
+    /**
+     * Sets the blackjack controller.
+     */
+    private static void setBlackjackController(BlackJackGUI blackjackController) {
+        MenuGUI.blackjackController = blackjackController;
+    }
+
+    /**
      * gets the screen controller.
+
      * @return the screen controller
      */
     public static ScreenController getScreenController() {
